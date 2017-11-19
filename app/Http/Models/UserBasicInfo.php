@@ -1,0 +1,54 @@
+<?php
+
+namespace App\Http\Models;
+//By Sao Guang
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class UserBasicInfo extends Authenticatable
+{
+    //软删除
+    use SoftDeletes;
+    //指定软删除标记字段
+    protected $dates = ['delete_at'];
+    //指定表名
+    protected $table = 't_users_basic_info';
+    //指定主键
+    protected $primaryKey = 'user_id';
+
+    protected $fillable = [
+        'user_name', 'email', 'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    /**
+     * 判断用户是否有该权限（权限编号）
+     * @param string $permisson
+     * @return bool
+     */
+    public function hasPermission($permisson)
+    {
+        //获取对应角色
+        $role = Role::find($this->role_id)->get();
+        //判断角色是否有该权限
+        return $role->hasPermission($permisson);
+    }
+
+    /**
+     * 是否是该角色
+     * @param $role 角色名称，在constants配置文件中存在的
+     * @return bool
+     */
+    public function isRole($role)
+    {
+        return config('constants.'.$role) == $this->role_id;
+    }
+}
