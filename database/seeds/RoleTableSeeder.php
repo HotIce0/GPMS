@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+//By Sao Guang
 class RoleTableSeeder extends Seeder
 {
     /**

@@ -26,3 +26,13 @@ Route::get('/home', 'HomeController@index');
 Route::Group(['middleware'=>'auth'],function() {
 
 });
+
+
+//---------------------------------------------------测试路由
+
+//权限测试 By Sao Guang
+Route::get('/setPermission', function (){
+    dd( \App\Http\Models\Role::find(1)
+        ->first()
+        ->setPermission('1.1'));
+});

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+//By Sao Guang
 class UsersBasicInfoTableSeeder extends Seeder
 {
     /**
@@ -17,6 +17,8 @@ class UsersBasicInfoTableSeeder extends Seeder
             'user_name' => 'sao',
             'password' => bcrypt('423719'),
             'role_id' => 1,
+            'user_type' => 1,
+            'user_info_id' => 1,
         ]);
     }
 }

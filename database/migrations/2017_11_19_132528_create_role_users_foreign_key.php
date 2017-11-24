@@ -1,5 +1,5 @@
 <?php
-
+//By Sao Guang 2017.11.24
 use Illuminate\Database\Migrations\Migration;
 
 class CreateRoleUsersForeignKey extends Migration

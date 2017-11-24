@@ -31,15 +31,27 @@ class Role extends Model
         //判断是否已有该权限
         if(!$this->hasPermission($permission))
         {
-            //解析json,权限数组
-            $permissions = json_decode($this->role_permission);
-            //添加权限
-            array_push($permissions, $permission);
-            //存储json
-            $this->role_permission = json_encode($permissions);
-            //更新权限信息
-            $this->save();
+            //判断该权限是否在T_permission数据库中存在
+            if(!empty(Permission::where('permission_no', $permission)
+                ->first()))
+            {
+                //解析json,权限数组
+                $permissions = json_decode($this->role_permission);
+                //添加权限
+                array_push($permissions, $permission);
+                //存储json
+                $this->role_permission = json_encode($permissions);
+                //更新权限信息
+                $this->save();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
+        else
+            return true;                                //权限已经存在
     }
 
     /**
@@ -49,7 +61,7 @@ class Role extends Model
     public function removePermission($permission)
     {
         //判断是否已有该权限
-        if(!$this->hasPermission($permission))
+        if($this->hasPermission($permission))
         {
             //解析json,权限数组
             $permissions = json_decode($this->role_permission);
