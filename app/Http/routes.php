@@ -24,14 +24,27 @@ Route::get('/home', 'HomeController@index');
 
 //需用户认证的路由
 Route::Group(['middleware'=>'auth'],function() {
-    //***出题模块 By Sao Guang
+    /************
+     * 学生路由 *
+     ***********/
+    Route::get('/student', 'Student\StudentIndexController@index');
+
+    /************
+     * 教师路由 *
+     ***********/
+    Route::get('/teacher', 'Teacher\TeacherIndexController@index');
+    //出题模块 By Sao Guang
     /*出题页面*/
     Route::get('/projectChecklist', 'Teacher\ProjectChecklistController@index');
 
+    /**************
+     * 管理员路由 *
+     *************/
+    Route::get('/admin', 'Admin\AdminIndexController@index');
 });
 
 
-//---------------------------------------------------测试路由
+//-----------------------测试路由
 
 //权限测试 By Sao Guang
 Route::get('/setPermission', function (){
