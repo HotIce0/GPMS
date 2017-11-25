@@ -18,9 +18,9 @@ class CreateTUsersBasicInfoTable extends Migration
             $table->string('email', 255)->unique();
             $table->string('user_name', 255);
             $table->string('password', 255);
-            $table->integer('role_id')->unsigned();                                         //外键约束
+            $table->integer('role_id')->unsigned();                                             //外键约束
             $table->integer('user_type')->unsigned()->comment('0为学生，1为老师');
-            $table->integer('user_info_id')->unsigned()->comment('学生信息表或教师信息表的ID');
+            $table->integer('user_info_id')->unique()->unsigned()->comment('学生信息表或教师信息表的ID');
 
             $table->string('creator', 20)->nullable();
             $table->string('updater', 20)->nullable();
