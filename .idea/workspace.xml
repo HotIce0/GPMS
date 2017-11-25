@@ -2,31 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f59932d6-a1f0-47e2-b3bf-55a0f6cb6f44" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/AnswerApplication.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/AssignmentBook.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/ClassInfo.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/CollegeInfo.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/DefenseNotes.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/DefenseTeam.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/DefenseTeamMember.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/Evaluation.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/EvaluationDetail.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/EvaluationPlan.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/ExcellentRecommendation.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/ItemSetInfo.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/MajorInfo.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/MediumTermCheck.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/Notice.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/OpeningReport.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/ProjectChoice.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/QualificationCheck.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/ScreenMessage.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/SectionInfo.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/StudentInfo.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/TeacherInfo.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/Thesis.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Models/WorkWeekly.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,7 +14,28 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="28" column="72" lean-forward="true" selection-start-line="28" selection-start-column="72" selection-end-line="28" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectChecklistController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,8 +68,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2017_11_19_072529_create_t_users_basic_info_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_064921_create_t_project_choice_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Teacher/projectChecklistController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/CollegeInfo.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/ClassInfo.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/SectionInfo.php" />
@@ -95,6 +92,8 @@
         <option value="$PROJECT_DIR$/app/Http/Models/Notice.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/ScreenMessage.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/ItemSetInfo.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -152,6 +151,13 @@
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="GPMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPMS" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -195,7 +201,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38092000" />
+    <option name="totallyTimeSpent" value="38491000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-8" width="1382" height="754" extended-state="6" />
@@ -256,7 +262,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -264,7 +269,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -272,7 +276,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -280,7 +283,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -288,7 +290,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -304,9 +305,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="679">
           <caret line="34" column="54" lean-forward="true" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
-          <folding>
-            <element signature="e#26#481#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -387,7 +385,7 @@
         <state relative-caret-position="480">
           <caret line="24" column="54" lean-forward="true" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
           <folding>
-            <element signature="e#32#73#0#PHP" expanded="true" />
+            <element signature="e#32#73#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -396,7 +394,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -404,7 +401,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1795">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -412,7 +408,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -420,23 +415,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -652,6 +630,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="28" column="72" lean-forward="true" selection-start-line="28" selection-start-column="72" selection-end-line="28" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
           <folding />
         </state>
       </provider>

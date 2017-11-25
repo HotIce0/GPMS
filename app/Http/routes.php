@@ -24,6 +24,9 @@ Route::get('/home', 'HomeController@index');
 
 //需用户认证的路由
 Route::Group(['middleware'=>'auth'],function() {
+    //***出题模块 By Sao Guang
+    /*出题页面*/
+    Route::get('/projectChecklist', 'ProjectChecklistController@index');
 
 });
 
