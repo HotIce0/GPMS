@@ -37,7 +37,7 @@ class UserBasicInfo extends Authenticatable
     public function hasPermission($permisson)
     {
         //获取对应角色
-        $role = Role::find($this->role_id)->get();
+        $role = Role::find($this->role_id)->first();
         //判断角色是否有该权限
         return $role->hasPermission($permisson);
     }
