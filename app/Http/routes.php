@@ -26,7 +26,7 @@ Route::get('/home', 'HomeController@index');
 Route::Group(['middleware'=>'auth'],function() {
     //***出题模块 By Sao Guang
     /*出题页面*/
-    Route::get('/projectChecklist', 'ProjectChecklistController@index');
+    Route::get('/projectChecklist', 'Teacher\ProjectChecklistController@index');
 
 });
 
