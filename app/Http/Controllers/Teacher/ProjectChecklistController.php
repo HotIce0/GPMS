@@ -12,8 +12,8 @@ class ProjectChecklistController extends Controller
 {
     public function index()
     {
-//        if(!Auth::user()->hasPermission('1.1'))
-//            return response()->view('errors.503');
-        dd(Auth::user()->hasPermission('1.1'));
+        if(!Auth::user()->hasPermission('1.1'))
+            return response()->view('errors.503');
+        return 'sao';
     }
 }
