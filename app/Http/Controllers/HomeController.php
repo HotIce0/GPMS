@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+        if($user->isRole('student'))
+            return redirect('/student');
+        elseif ($user->isRole('teacher'))
+            return redirect('/teacher');
+        elseif ($user->isRole('admin'))
+            return redirect('/admin');
+        else
+            return response()->view('errors.503');
     }
 }
