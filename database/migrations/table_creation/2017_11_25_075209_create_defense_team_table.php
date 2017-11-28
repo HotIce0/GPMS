@@ -15,7 +15,7 @@ class CreateDefenseTeamTable extends Migration
         Schema::create('t_defense_team', function (Blueprint $table) {
             $table->increments('defense_team_id')->comment('答辩小组ID');
             $table->string('session_id', 10)->comment('届别ID');
-            $table->string('team_member', 20)->comment('组长');     //外键
+            $table->string('team_member', 20)->unique()->comment('组长');     //外键
 
             $table->string('creator', 20)->nullable();
             $table->string('updater', 20)->nullable();

@@ -15,7 +15,7 @@ class CreateDefenseNotesTable extends Migration
         Schema::create('t_defense_notes', function (Blueprint $table) {
             $table->increments('defense_notes_id')->comment('答辩记录ID');
             $table->integer('defense_team_id')->unsigned()->comment('答辩小组ID');     //外键
-            $table->integer('project_id')->unsigned()->comment('课题ID');               //外键
+            $table->integer('project_id')->unsigned()->unique()->comment('课题ID');               //外键
             $table->timestamp('defense_date')->comment('答辩时间');
             $table->string('defense_place', 20)->comment('答辩地点');
             $table->string('note_taker', 20)->comment('记录人');                  //外键
