@@ -51,4 +51,20 @@ class UserBasicInfo extends Authenticatable
     {
         return config('constants.'.$role) == $this->role_id;
     }
+
+    /**
+     * 获取用户信息模型对象
+     * @return null
+     */
+    public function getUserInfo()
+    {
+        if($this->user_type == config('constants.USER_TYPE_STUDENT'))
+        {
+            return StudentInfo::find($this->user_info_id)->first();
+        }elseif ($this->user_type == config('constants.USER_TYPE_TEACHER'))
+        {
+            return TeacherInfo::find($this->user_info_id)->first();
+        }
+        return null;
+    }
 }

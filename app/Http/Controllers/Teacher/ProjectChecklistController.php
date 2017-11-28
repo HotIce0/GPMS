@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
 use App\Http\Models\ItemSetInfo;
+use App\Http\Models\ProjectChoice;
 use App\Http\Models\Role;
+use App\Http\Models\TeacherInfo;
 use App\Http\Models\UserBasicInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -53,7 +55,16 @@ class ProjectChecklistController extends Controller
         );
         //表单验证
         $this->validate($request, $rules, $message, $meaning);
-
-
+        //存入数据库
+        $newProjectChoice = new ProjectChoice();
+        $newProjectChoice->project_name = $request->projectName;
+        $newProjectChoice->project_type = $request->projectType;
+        $newProjectChoice->project_origin = $request->projectOrigin;
+        $newProjectChoice->require_for_student = $request->requireForStudent;
+        $newProjectChoice->project_declaration_status = ;
+        $newProjectChoice->project_choice_status = ;
+        $newProjectChoice->session_id = ;
+        $newProjectChoice->teacher_job_number = TeacherInfo::find($request->user()->user_info_id)->teacher_job_number;
+        
     }
 }
