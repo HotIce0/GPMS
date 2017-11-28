@@ -37,6 +37,7 @@ Route::Group(['middleware'=>'auth'],function() {
     Route::Group(['prefix' => 'createProject'], function (){
         /*出题页面*/
         Route::get('projectChecklist', 'Teacher\ProjectChecklistController@index');
+        Route::post('projectChecklist', 'Teacher\ProjectChecklistController@saveChecklist');
     });
 
     /**************
