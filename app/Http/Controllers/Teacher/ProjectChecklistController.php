@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
+use App\Http\Models\ItemSetInfo;
 use App\Http\Models\Role;
 use App\Http\Models\UserBasicInfo;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +15,12 @@ class ProjectChecklistController extends Controller
     {
         if(!Auth::user()->hasPermission('1.1'))
             return response()->view('errors.503');
-        return view('teacher.projectChecklist.projectChecklist');
+        $data = array();
+        //获取选项信息
+        $data['projectType'] = ItemSetInfo::where('item_no', 3)->get();
+        $data['projectOrigin'] = ItemSetInfo::where('item_no', 4)->get();
+        return view('teacher.projectChecklist.projectChecklist', [
+                'data' => $data,
+            ]);
     }
 }
