@@ -63,9 +63,11 @@ class ProjectChecklistController extends Controller
         $newProjectChoice->project_type = $request->projectType;
         $newProjectChoice->project_origin = $request->projectOrigin;
         $newProjectChoice->require_for_student = $request->requireForStudent;
-        $newProjectChoice->project_declaration_status = 1;                                             //1暂存状态
-        $newProjectChoice->project_choice_status = 0;                                                   //0未被选
+        $newProjectChoice->project_declaration_status = 1;                                             //选题申报状态1暂存状态
+        $newProjectChoice->project_choice_status = 0;                                                   //选题0未被选
         $newProjectChoice->session_id = $currentSession->item_content;
         $newProjectChoice->teacher_job_number = $request->user()->getUserInfo()->teacher_job_number;
+        $newProjectChoice->save();
+
     }
 }
