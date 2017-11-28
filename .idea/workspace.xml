@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f59932d6-a1f0-47e2-b3bf-55a0f6cb6f44" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_082148_create_item_set_info_table.php" afterPath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_082148_create_item_set_info_table.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,15 +18,15 @@
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="376">
-              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
-                <marker date="1511847274407" expanded="true" signature="716:1226" ph="..." />
-                <marker date="1511847274407" expanded="true" signature="751:1225" ph="..." />
-                <marker date="1511847274407" expanded="true" signature="1115:1160" ph=" 管理员路由 * ..." />
-                <marker date="1511847274407" expanded="true" signature="1293:1415" ph="..." />
-                <marker date="1511847274407" expanded="true" signature="1323:1414" ph="..." />
-                <marker date="1511847274407" expanded="true" signature="1331:1411" ph="..." />
-                <marker date="1511847274407" expanded="true" signature="1405:1410" ph="..." />
+                <marker date="1511847576179" expanded="true" signature="716:1226" ph="..." />
+                <marker date="1511847576179" expanded="true" signature="751:1225" ph="..." />
+                <marker date="1511847576179" expanded="true" signature="1115:1160" ph=" 管理员路由 * ..." />
+                <marker date="1511847576179" expanded="true" signature="1293:1415" ph="..." />
+                <marker date="1511847576179" expanded="true" signature="1323:1414" ph="..." />
+                <marker date="1511847576179" expanded="true" signature="1331:1411" ph="..." />
+                <marker date="1511847576179" expanded="true" signature="1405:1410" ph="..." />
               </folding>
             </state>
           </provider>
@@ -35,11 +36,8 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
-              <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-              <folding>
-                <marker date="1511847274405" expanded="true" signature="250:415" ph="{...}" />
-                <marker date="1511847274405" expanded="true" signature="280:413" ph="{...}" />
-              </folding>
+              <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -47,8 +45,8 @@
       <file leaf-file-name="2017_11_25_082148_create_item_set_info_table.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_082148_create_item_set_info_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+            <state relative-caret-position="299">
+              <caret line="20" column="58" lean-forward="false" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -58,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/layoutSidebar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="280">
-              <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -70,7 +68,7 @@
             <state relative-caret-position="-475">
               <caret line="29" column="78" lean-forward="false" selection-start-line="29" selection-start-column="78" selection-end-line="29" selection-end-column="78" />
               <folding>
-                <marker date="1511847274415" expanded="true" signature="3725:3749" ph="..." />
+                <marker date="1511847576183" expanded="true" signature="3725:3749" ph="..." />
               </folding>
             </state>
           </provider>
@@ -82,10 +80,10 @@
             <state relative-caret-position="100">
               <caret line="5" column="116" lean-forward="false" selection-start-line="5" selection-start-column="116" selection-end-line="5" selection-end-column="116" />
               <folding>
-                <marker date="1511847274419" expanded="true" signature="248:252" ph="..." />
-                <marker date="1511847274419" expanded="true" signature="733:1360" ph="..." />
-                <marker date="1511847274419" expanded="true" signature="980:1338" ph="..." />
-                <marker date="1511847274419" expanded="true" signature="1021:1311" ph="..." />
+                <marker date="1511847576189" expanded="true" signature="248:252" ph="..." />
+                <marker date="1511847576189" expanded="true" signature="733:1360" ph="..." />
+                <marker date="1511847576189" expanded="true" signature="980:1338" ph="..." />
+                <marker date="1511847576189" expanded="true" signature="1021:1311" ph="..." />
               </folding>
             </state>
           </provider>
@@ -168,8 +166,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1670" />
-    <option name="y" value="-8" />
+    <option name="x" value="1739" />
+    <option name="y" value="-25" />
     <option name="width" value="1180" />
     <option name="height" value="640" />
   </component>
@@ -322,7 +320,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38108000" />
+    <option name="totallyTimeSpent" value="38612000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-8" width="1382" height="754" extended-state="6" />
@@ -372,13 +370,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_080116_create_defense_notes_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_080725_create_excellent_recommendation_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -397,14 +388,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_082148_create_item_set_info_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -530,11 +513,8 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
-          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding>
-            <marker date="1511847274405" expanded="true" signature="250:415" ph="{...}" />
-            <marker date="1511847274405" expanded="true" signature="280:413" ph="{...}" />
-          </folding>
+          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -723,15 +703,15 @@
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <marker date="1511847274407" expanded="true" signature="716:1226" ph="..." />
-            <marker date="1511847274407" expanded="true" signature="751:1225" ph="..." />
-            <marker date="1511847274407" expanded="true" signature="1115:1160" ph=" 管理员路由 * ..." />
-            <marker date="1511847274407" expanded="true" signature="1293:1415" ph="..." />
-            <marker date="1511847274407" expanded="true" signature="1323:1414" ph="..." />
-            <marker date="1511847274407" expanded="true" signature="1331:1411" ph="..." />
-            <marker date="1511847274407" expanded="true" signature="1405:1410" ph="..." />
+            <marker date="1511847576179" expanded="true" signature="716:1226" ph="..." />
+            <marker date="1511847576179" expanded="true" signature="751:1225" ph="..." />
+            <marker date="1511847576179" expanded="true" signature="1115:1160" ph=" 管理员路由 * ..." />
+            <marker date="1511847576179" expanded="true" signature="1293:1415" ph="..." />
+            <marker date="1511847576179" expanded="true" signature="1323:1414" ph="..." />
+            <marker date="1511847576179" expanded="true" signature="1331:1411" ph="..." />
+            <marker date="1511847576179" expanded="true" signature="1405:1410" ph="..." />
           </folding>
         </state>
       </provider>
@@ -740,6 +720,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="39" column="49" lean-forward="false" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/Readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="34" lean-forward="true" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_082148_create_item_set_info_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="20" column="58" lean-forward="false" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+          <folding />
         </state>
       </provider>
     </entry>
