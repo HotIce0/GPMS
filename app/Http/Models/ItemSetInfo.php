@@ -10,4 +10,15 @@ class ItemSetInfo extends Model
 
     protected $primaryKey = 'item_id';
 
+
+    /**
+     * 获取当前届别设置项的数据库对象
+     * @return mixed
+     */
+    static public function getCurrentSessionItemSetObj()
+    {
+        return ItemSetInfo::where('item_no', config('constants.ITEM_SESSION'))
+            ->orderBy('item_content_id', 'desc')
+            ->first();
+    }
 }

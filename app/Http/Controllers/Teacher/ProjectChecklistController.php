@@ -23,8 +23,8 @@ class ProjectChecklistController extends Controller
             return response()->view('errors.503');
         $data = array();
         //获取选项信息(课题类型和课题来源)
-        $data['projectType'] = ItemSetInfo::where('item_no', config('constants.'.'ITEM_PROJECT_TYPE'))->get();
-        $data['projectOrigin'] = ItemSetInfo::where('item_no', config('constants.'.'ITEM_PROJECT_ORIGIN'))->get();
+        $data['projectType'] = ItemSetInfo::where('item_no', config('constants.ITEM_PROJECT_TYPE'))->get();
+        $data['projectOrigin'] = ItemSetInfo::where('item_no', config('constants.ITEM_PROJECT_ORIGIN'))->get();
         return view('teacher.projectChecklist.projectChecklist', [
                 'data' => $data,
             ]);
@@ -55,16 +55,17 @@ class ProjectChecklistController extends Controller
         );
         //表单验证
         $this->validate($request, $rules, $message, $meaning);
+        //获取最新届别
+        $currentSession = ItemSetInfo::getCurrentSessionItemSetObj();
         //存入数据库
         $newProjectChoice = new ProjectChoice();
         $newProjectChoice->project_name = $request->projectName;
         $newProjectChoice->project_type = $request->projectType;
         $newProjectChoice->project_origin = $request->projectOrigin;
         $newProjectChoice->require_for_student = $request->requireForStudent;
-        $newProjectChoice->project_declaration_status = ;
-        $newProjectChoice->project_choice_status = ;
-        $newProjectChoice->session_id = ;
-        $newProjectChoice->teacher_job_number = TeacherInfo::find($request->user()->user_info_id)->teacher_job_number;
-        
+        $newProjectChoice->project_declaration_status = 1;                                             //1暂存状态
+        $newProjectChoice->project_choice_status = 0;                                                   //0未被选
+        $newProjectChoice->session_id = $currentSession->item_content;
+        $newProjectChoice->teacher_job_number = $request->user()->getUserInfo()->teacher_job_number;
     }
 }
