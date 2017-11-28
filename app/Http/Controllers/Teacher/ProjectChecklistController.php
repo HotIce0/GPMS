@@ -69,5 +69,6 @@ class ProjectChecklistController extends Controller
         $newProjectChoice->teacher_job_number = $request->user()->getUserInfo()->teacher_job_number;
         if(!$newProjectChoice->save())
             return response()->view('errors.503');
+        return redirect('/teacher');
     }
 }
