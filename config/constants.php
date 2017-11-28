@@ -1,5 +1,8 @@
 <?php
 return [
+    //用户类型(t_users_basic_info表中的字段的常量)
+    'USER_TYPE_STUDENT' => 0,
+    'USER_TYPE_TEACHER' => 1,
     //角色名称(对应的role_id)
     'ADMIN' => '1',
     'STUDENT' => '2',
