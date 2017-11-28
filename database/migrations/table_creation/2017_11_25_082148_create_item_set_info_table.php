@@ -14,7 +14,7 @@ class CreateItemSetInfoTable extends Migration
     {
         Schema::create('t_item_set_info', function (Blueprint $table) {
             $table->increments('item_id')->comment('选项ID');
-            $table->integer('item_no')->unsigned()->unique()->comment('选项编号');
+            $table->integer('item_no')->unsigned()->comment('选项编号');
             $table->string('item_content_id', 10)->comment('选项内容ID');
             $table->string('item_content', 200)->comment('选项内容');
             $table->tinyInteger('sort_id')->unsigned()->comment('排序ID');
