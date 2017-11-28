@@ -55,7 +55,7 @@ class ProjectChecklistController extends Controller
         );
         //表单验证
         $this->validate($request, $rules, $message, $meaning);
-        //获取最新届别
+        //获取最新届别设置项对象
         $currentSession = ItemSetInfo::getCurrentSessionItemSetObj();
         //存入数据库
         $newProjectChoice = new ProjectChoice();
@@ -65,9 +65,9 @@ class ProjectChecklistController extends Controller
         $newProjectChoice->require_for_student = $request->requireForStudent;
         $newProjectChoice->project_declaration_status = 1;                                             //选题申报状态1暂存状态
         $newProjectChoice->project_choice_status = 0;                                                   //选题0未被选
-        $newProjectChoice->session_id = $currentSession->item_content;
+        $newProjectChoice->session_id = $currentSession->item_content_id;
         $newProjectChoice->teacher_job_number = $request->user()->getUserInfo()->teacher_job_number;
-        $newProjectChoice->save();
-
+        if(!$newProjectChoice->save())
+            return response()->view('errors.503');
     }
 }
