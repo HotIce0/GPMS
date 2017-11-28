@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f59932d6-a1f0-47e2-b3bf-55a0f6cb6f44" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/constants.php" afterPath="$PROJECT_DIR$/config/constants.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Models/UserBasicInfo.php" afterPath="$PROJECT_DIR$/app/Http/Models/UserBasicInfo.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,13 +19,13 @@
             <state relative-caret-position="216">
               <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
-                <marker date="1511867273311" expanded="true" signature="716:1226" ph="..." />
-                <marker date="1511867273311" expanded="true" signature="751:1225" ph="..." />
-                <marker date="1511867273311" expanded="true" signature="1115:1160" ph=" 管理员路由 * ..." />
-                <marker date="1511867273311" expanded="true" signature="1293:1415" ph="..." />
-                <marker date="1511867273311" expanded="true" signature="1323:1414" ph="..." />
-                <marker date="1511867273311" expanded="true" signature="1331:1411" ph="..." />
-                <marker date="1511867273311" expanded="true" signature="1405:1410" ph="..." />
+                <marker date="1511867395523" expanded="true" signature="716:1226" ph="..." />
+                <marker date="1511867395523" expanded="true" signature="751:1225" ph="..." />
+                <marker date="1511867395523" expanded="true" signature="1115:1160" ph=" 管理员路由 * ..." />
+                <marker date="1511867395523" expanded="true" signature="1293:1415" ph="..." />
+                <marker date="1511867395523" expanded="true" signature="1323:1414" ph="..." />
+                <marker date="1511867395523" expanded="true" signature="1331:1411" ph="..." />
+                <marker date="1511867395523" expanded="true" signature="1405:1410" ph="..." />
               </folding>
             </state>
           </provider>
@@ -35,30 +34,30 @@
       <file leaf-file-name="ProjectChecklistController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="320">
+              <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding>
-                <marker date="1511867273299" expanded="true" signature="407:415" ph="{...}" />
+                <marker date="1511867395516" expanded="true" signature="407:415" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserBasicInfo.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserBasicInfo.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Models/UserBasicInfo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="53" column="1" lean-forward="true" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
+            <state relative-caret-position="439">
+              <caret line="68" column="5" lean-forward="false" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="constants.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="constants.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/constants.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="29" column="2" lean-forward="false" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
+            <state relative-caret-position="139">
+              <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -117,12 +116,12 @@
         <option value="$PROJECT_DIR$/app/Http/Models/Notice.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/ScreenMessage.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/ItemSetInfo.php" />
-        <option value="$PROJECT_DIR$/app/Http/Models/UserBasicInfo.php" />
         <option value="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_082148_create_item_set_info_table.php" />
         <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/student/index.blade.php" />
         <option value="$PROJECT_DIR$/config/constants.php" />
+        <option value="$PROJECT_DIR$/app/Http/Models/UserBasicInfo.php" />
       </list>
     </option>
   </component>
@@ -289,7 +288,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38825000" />
+    <option name="totallyTimeSpent" value="38829000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="456" y="136" width="1180" height="640" extended-state="0" />
@@ -621,8 +620,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Models/UserBasicInfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="53" column="1" lean-forward="true" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
+        <state relative-caret-position="439">
+          <caret line="68" column="5" lean-forward="false" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -661,13 +660,13 @@
         <state relative-caret-position="216">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
-            <marker date="1511867273311" expanded="true" signature="716:1226" ph="..." />
-            <marker date="1511867273311" expanded="true" signature="751:1225" ph="..." />
-            <marker date="1511867273311" expanded="true" signature="1115:1160" ph=" 管理员路由 * ..." />
-            <marker date="1511867273311" expanded="true" signature="1293:1415" ph="..." />
-            <marker date="1511867273311" expanded="true" signature="1323:1414" ph="..." />
-            <marker date="1511867273311" expanded="true" signature="1331:1411" ph="..." />
-            <marker date="1511867273311" expanded="true" signature="1405:1410" ph="..." />
+            <marker date="1511867395523" expanded="true" signature="716:1226" ph="..." />
+            <marker date="1511867395523" expanded="true" signature="751:1225" ph="..." />
+            <marker date="1511867395523" expanded="true" signature="1115:1160" ph=" 管理员路由 * ..." />
+            <marker date="1511867395523" expanded="true" signature="1293:1415" ph="..." />
+            <marker date="1511867395523" expanded="true" signature="1323:1414" ph="..." />
+            <marker date="1511867395523" expanded="true" signature="1331:1411" ph="..." />
+            <marker date="1511867395523" expanded="true" signature="1405:1410" ph="..." />
           </folding>
         </state>
       </provider>
@@ -697,18 +696,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/constants.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="29" column="2" lean-forward="false" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
+        <state relative-caret-position="139">
+          <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="320">
+          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
           <folding>
-            <marker date="1511867273299" expanded="true" signature="407:415" ph="{...}" />
+            <marker date="1511867395516" expanded="true" signature="407:415" ph="{...}" />
           </folding>
         </state>
       </provider>
