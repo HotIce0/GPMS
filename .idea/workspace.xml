@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f59932d6-a1f0-47e2-b3bf-55a0f6cb6f44" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/forign_key_creation/2017_11_25_065658_create_project_choice_foreign_key.php" afterPath="$PROJECT_DIR$/database/migrations/forign_key_creation/2017_11_25_065658_create_project_choice_foreign_key.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_19_072529_create_t_users_basic_info_table.php" afterPath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_19_072529_create_t_users_basic_info_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_073704_create_t_evaluation_table.php" afterPath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_073704_create_t_evaluation_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_074738_create_evaluation_detail_table.php" afterPath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_074738_create_evaluation_detail_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_075209_create_defense_team_table.php" afterPath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_075209_create_defense_team_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_080116_create_defense_notes_table.php" afterPath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_080116_create_defense_notes_table.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,15 +23,15 @@
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
-              <caret line="22" column="44" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+              <caret line="22" column="44" lean-forward="false" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
               <folding>
-                <marker date="1511871985377" expanded="true" signature="716:1226" ph="..." />
-                <marker date="1511871985377" expanded="true" signature="751:1225" ph="..." />
-                <marker date="1511871985377" expanded="true" signature="1115:1160" ph=" 管理员路由 * ..." />
-                <marker date="1511871985377" expanded="true" signature="1293:1415" ph="..." />
-                <marker date="1511871985377" expanded="true" signature="1323:1414" ph="..." />
-                <marker date="1511871985377" expanded="true" signature="1331:1411" ph="..." />
-                <marker date="1511871985377" expanded="true" signature="1405:1410" ph="..." />
+                <marker date="1511882359510" expanded="true" signature="716:1226" ph="..." />
+                <marker date="1511882359510" expanded="true" signature="751:1225" ph="..." />
+                <marker date="1511882359510" expanded="true" signature="1115:1160" ph=" 管理员路由 * ..." />
+                <marker date="1511882359510" expanded="true" signature="1293:1415" ph="..." />
+                <marker date="1511882359510" expanded="true" signature="1323:1414" ph="..." />
+                <marker date="1511882359510" expanded="true" signature="1331:1411" ph="..." />
+                <marker date="1511882359510" expanded="true" signature="1405:1410" ph="..." />
               </folding>
             </state>
           </provider>
@@ -34,7 +40,7 @@
       <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-135">
+            <state relative-caret-position="-795">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -44,51 +50,60 @@
       <file leaf-file-name="ProjectChecklistController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="320">
+              <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
               <folding>
                 <element signature="e#63#99#0#PHP" expanded="true" />
-                <marker date="1511871985375" expanded="true" signature="407:415" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserBasicInfo.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Models/UserBasicInfo.php">
+      <file leaf-file-name="2017_11_25_073704_create_t_evaluation_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_073704_create_t_evaluation_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+            <state relative-caret-position="300">
+              <caret line="16" column="63" lean-forward="false" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="constants.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/constants.php">
+      <file leaf-file-name="2017_11_25_074738_create_evaluation_detail_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_074738_create_evaluation_detail_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="12" />
+            <state relative-caret-position="300">
+              <caret line="16" column="66" lean-forward="false" selection-start-line="16" selection-start-column="66" selection-end-line="16" selection-end-column="66" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <file leaf-file-name="2017_11_25_075209_create_defense_team_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_075209_create_defense_team_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="30" column="38" lean-forward="false" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+            <state relative-caret-position="320">
+              <caret line="17" column="55" lean-forward="false" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <file leaf-file-name="2017_11_25_080116_create_defense_notes_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_080116_create_defense_notes_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="200">
+              <caret line="17" column="63" lean-forward="false" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2017_11_19_072529_create_t_users_basic_info_table.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_19_072529_create_t_users_basic_info_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -102,12 +117,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2017_11_25_075209_create_defense_team_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_11_25_075611_create_defense_team_foreign_key.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_11_25_075750_create_defense_team_member_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_11_25_080116_create_defense_notes_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_11_25_075942_create_defense_team_member_foreign_key.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_11_25_080541_create_defense_notes_foreign_key.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_11_25_080725_create_excellent_recommendation_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_11_25_081007_create_defense_excellent_recommendation_foreign_key.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_11_25_081107_create_work_weekly_table.php" />
@@ -153,6 +162,12 @@
         <option value="$PROJECT_DIR$/config/constants.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/UserBasicInfo.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/forign_key_creation/2017_11_25_065658_create_project_choice_foreign_key.php" />
+        <option value="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_073704_create_t_evaluation_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_074738_create_evaluation_detail_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_075209_create_defense_team_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_080116_create_defense_notes_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/table_creation/2017_11_19_072529_create_t_users_basic_info_table.php" />
       </list>
     </option>
   </component>
@@ -171,8 +186,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1739" />
-    <option name="y" value="-25" />
+    <option name="x" value="1592" />
+    <option name="y" value="-8" />
     <option name="width" value="1180" />
     <option name="height" value="640" />
   </component>
@@ -221,6 +236,24 @@
             <path>
               <item name="GPMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="GPMS" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="GPMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPMS" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="migrations" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="GPMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPMS" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="migrations" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="table_creation" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="GPMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPMS" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -235,6 +268,13 @@
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="GPMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPMS" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="errors" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="GPMS" type="b2602c69:ProjectViewProjectNode" />
@@ -299,14 +339,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38896000" />
+    <option name="totallyTimeSpent" value="39940000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
+    <frame x="1592" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.284375" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33308932" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -349,76 +389,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_063954_create_t_student_info_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_063631_create_t_major_info_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_24_121544_create_t_teacher_info_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_24_121058_create_t_section_info_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_24_120600_create_t_class_info_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_24_111407_create_t_college_info_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_19_124853_create_t_permission_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_19_124842_create_t_role_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_19_072529_create_t_users_basic_info_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="54" lean-forward="true" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1795">
@@ -647,15 +617,15 @@
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
-          <caret line="22" column="44" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+          <caret line="22" column="44" lean-forward="false" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
           <folding>
-            <marker date="1511871985377" expanded="true" signature="716:1226" ph="..." />
-            <marker date="1511871985377" expanded="true" signature="751:1225" ph="..." />
-            <marker date="1511871985377" expanded="true" signature="1115:1160" ph=" 管理员路由 * ..." />
-            <marker date="1511871985377" expanded="true" signature="1293:1415" ph="..." />
-            <marker date="1511871985377" expanded="true" signature="1323:1414" ph="..." />
-            <marker date="1511871985377" expanded="true" signature="1331:1411" ph="..." />
-            <marker date="1511871985377" expanded="true" signature="1405:1410" ph="..." />
+            <marker date="1511882359510" expanded="true" signature="716:1226" ph="..." />
+            <marker date="1511882359510" expanded="true" signature="751:1225" ph="..." />
+            <marker date="1511882359510" expanded="true" signature="1115:1160" ph=" 管理员路由 * ..." />
+            <marker date="1511882359510" expanded="true" signature="1293:1415" ph="..." />
+            <marker date="1511882359510" expanded="true" signature="1323:1414" ph="..." />
+            <marker date="1511882359510" expanded="true" signature="1331:1411" ph="..." />
+            <marker date="1511882359510" expanded="true" signature="1405:1410" ph="..." />
           </folding>
         </state>
       </provider>
@@ -683,22 +653,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding>
-            <element signature="e#63#99#0#PHP" expanded="true" />
-            <marker date="1511871985375" expanded="true" signature="407:415" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Models/UserBasicInfo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -706,7 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -714,7 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="445">
           <caret line="30" column="38" lean-forward="false" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -722,6 +678,96 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_064921_create_t_project_choice_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="24" column="48" lean-forward="true" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_065830_create_t_assignment_book_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/forign_key_creation/2017_11_25_065658_create_project_choice_foreign_key.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_072645_create_t_quealification_check_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_073151_create_t_evaluation_plan_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding>
+            <element signature="e#63#99#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_073704_create_t_evaluation_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="16" column="63" lean-forward="false" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_074738_create_evaluation_detail_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="16" column="66" lean-forward="false" selection-start-line="16" selection-start-column="66" selection-end-line="16" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_075209_create_defense_team_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="17" column="55" lean-forward="false" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_080116_create_defense_notes_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="17" column="63" lean-forward="false" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/table_creation/2017_11_19_072529_create_t_users_basic_info_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -14,7 +14,7 @@ class CreateTEvaluationTable extends Migration
     {
         Schema::create('t_evaluation', function (Blueprint $table) {
             $table->increments('evaluation_id')->comment('评价ID');
-            $table->integer('project_id')->unsigned()->comment('课题ID');               //外键
+            $table->integer('project_id')->unsigned()->unique()->comment('课题ID');               //外键
             $table->string('evaluation_teacher_id', 20)->comment('评价教师');  //外键
             $table->timestamp('evaluation_date')->comment('评价日期');
             $table->string('evaluation_type', 10)->comment('评价类型');
