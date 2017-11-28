@@ -34,8 +34,10 @@ Route::Group(['middleware'=>'auth'],function() {
      ***********/
     Route::get('/teacher', 'Teacher\TeacherIndexController@index');
     //出题模块 By Sao Guang
-    /*出题页面*/
-    Route::get('/projectChecklist', 'Teacher\ProjectChecklistController@index');
+    Route::Group(['prefix' => 'createProject'], function (){
+        /*出题页面*/
+        Route::get('projectChecklist', 'Teacher\ProjectChecklistController@index');
+    });
 
     /**************
      * 管理员路由 *

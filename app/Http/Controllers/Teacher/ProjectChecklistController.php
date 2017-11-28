@@ -14,6 +14,6 @@ class ProjectChecklistController extends Controller
     {
         if(!Auth::user()->hasPermission('1.1'))
             return response()->view('errors.503');
-        return 'sao';
+        return view('teacher.projectChecklist.projectChecklist');
     }
 }

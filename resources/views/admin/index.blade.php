@@ -1,7 +1,7 @@
 @extends('layouts.layoutSidebar')
 
 @section('sidebar')
-    @include('teacher.sidebar')
+    @include('admin.sidebar')
 @endsection
 
 @section('content')
