@@ -26,11 +26,11 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        if($user->isRole('student'))
+        if($user->isRole('STUDENT'))
             return redirect('/student');
-        elseif ($user->isRole('teacher'))
+        elseif ($user->isRole('TEACHER'))
             return redirect('/teacher');
-        elseif ($user->isRole('admin'))
+        elseif ($user->isRole('ADMIN'))
             return redirect('/admin');
         else
             return response()->view('errors.503');
