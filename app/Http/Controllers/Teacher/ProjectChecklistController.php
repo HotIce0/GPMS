@@ -41,10 +41,10 @@ class ProjectChecklistController extends Controller
         );
         //错误消息
         $message = array(
-            'required'=>':attribute 必须填写',
-            'projectName.max'=>':attribute 长度不能超过80字',
-            'requireForStudent.max'=>':attribute 长度不能超过2000字',
-            'string' => ':attribute 必须为字符串',
+            'required'=>'必须填写',
+            'projectName.max'=>'长度不能超过80字',
+            'requireForStudent.max'=>'长度不能超过2000字',
+            'string' => '必须为字符串',
         );
         //字段意义
         $meaning = array(
