@@ -17,7 +17,7 @@ class CreateItemSetInfoTable extends Migration
             $table->integer('item_no')->unsigned()->unique()->comment('选项编号');
             $table->string('item_content_id', 10)->unique()->comment('选项内容ID');
             $table->string('item_content', 200)->comment('选项内容');
-            $table->tinyInteger('sort_id')-0>unsigned()->comment('排序ID');
+            $table->tinyInteger('sort_id')->unsigned()->comment('排序ID');
 
             $table->string('creator', 20)->nullable();
             $table->string('updater', 20)->nullable();
