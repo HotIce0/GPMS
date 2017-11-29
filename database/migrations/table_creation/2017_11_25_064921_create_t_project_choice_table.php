@@ -23,7 +23,6 @@ class CreateTProjectChoiceTable extends Migration
             $table->string('session_id', 10)->comment('届别ID');
             $table->string('teacher_job_number', 20)->comment('出题指导老师');               //外键
             $table->string('student_number', 30)->default('0')->comment('选题学生');         //外键
-            $table->integer('college_info_id')->unsigned()->comment('所属学院');                     //外键
 
             $table->string('creator', 20)->nullable();
             $table->string('updater', 20)->nullable();
