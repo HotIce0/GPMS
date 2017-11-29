@@ -35,9 +35,12 @@ Route::Group(['middleware'=>'auth'],function() {
     Route::get('/teacher', 'Teacher\TeacherIndexController@index');
     //出题模块 By Sao Guang
     Route::Group(['prefix' => 'createProject'], function (){
-        /*出题页面*/
+        /*出题申请*/
         Route::get('projectChecklist', 'Teacher\ProjectChecklistController@index');
         Route::post('projectChecklist', 'Teacher\ProjectChecklistController@saveChecklist');
+        /*题目审查*/
+        Route::get('checkProject', 'Teacher\CheckProjectController@index');
+
     });
 
     /**************
