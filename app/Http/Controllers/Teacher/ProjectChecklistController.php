@@ -19,7 +19,8 @@ class ProjectChecklistController extends Controller
      */
     public function index()
     {
-        if(!Auth::user()->hasPermission('1.1'))
+        //2.1是出题权限
+        if(!Auth::user()->can('permission', '2.1'))
             return response()->view('errors.503');
         $data = array();
         //获取选项信息(课题类型和课题来源)
@@ -32,6 +33,9 @@ class ProjectChecklistController extends Controller
 
     public function saveChecklist(Request $request)
     {
+        //2.1是出题权限
+        if(!Auth::user()->can('permission', '2.1'))
+            return response()->view('errors.503');
         //验证规则
         $rules = array(
             'projectName'=>'required |string|max:80',

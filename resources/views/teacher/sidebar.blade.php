@@ -10,7 +10,10 @@
                     <a href="#createProject" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>出题、选题</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                     <div id="createProject" class="collapse ">
                         <ul class="nav">
-                            <li><a href="{{url('/createProject/projectChecklist')}}" class="">申请出题</a></li>
+                            {{--2.1是出题权限--}}
+                            @can('permission', '2.1')
+                                <li><a href="{{url('/createProject/projectChecklist')}}" class="">申请出题</a></li>
+                            @endcan
                         </ul>
                     </div>
                 </li>
