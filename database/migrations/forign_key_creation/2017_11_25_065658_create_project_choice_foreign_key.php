@@ -14,6 +14,7 @@ class CreateProjectChoiceForeignKey extends Migration
     {
         \Illuminate\Support\Facades\Schema::table('t_project_choice', function ($table){
             $table->foreign('teacher_job_number')->references('teacher_job_number')->on('t_teacher_info');
+            $table->foreign('college_info_id')->references('college_info_id')->on('t_college_info');
         });
     }
 
@@ -26,6 +27,7 @@ class CreateProjectChoiceForeignKey extends Migration
     {
         \Illuminate\Support\Facades\Schema::table('t_project_choice', function ($table){
             $table->dropForeign(['teacher_job_number']);
+            $table->dropForeign(['college_info_id']);
         });
     }
 }
