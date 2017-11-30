@@ -43,7 +43,7 @@
                         @yield('notification')
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="assets/img/user.png" class="img-circle" alt="Avatar">
+                                <img src="{{asset('assets/img/user.png')}}" class="img-circle" alt="Avatar">
                                 <span>{{Auth::user()->user_name}}</span>
                                 <i class="icon-submenu lnr lnr-chevron-down"></i>
                             </a>
