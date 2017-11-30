@@ -35,13 +35,14 @@ Route::Group(['middleware'=>'auth'],function() {
     Route::get('/teacher', 'Teacher\TeacherIndexController@index');
     //出题模块 By Sao Guang
     Route::Group(['prefix' => 'createProject'], function (){
-        /*出题申请*/
+        /*出题申请(权限编号2.1)*/
         Route::get('projectChecklist', 'Teacher\ProjectChecklistController@index');
         Route::post('projectChecklist', 'Teacher\ProjectChecklistController@saveChecklist');
-        /*题目审查*/
+        /*题目审查(学院级别权限编号2.2)*/
         Route::get('checkProject', 'Teacher\CheckProjectController@index');
         Route::post('adoptProjects', 'Teacher\CheckProjectController@adoptSelectedProjects');
-        Route::get('checkProjectDetail', 'Teacher\CheckProjectController@checkProjectIndex');
+        Route::get('checkProjectDetail/{id}', 'Teacher\CheckProjectController@checkProjectIndex');
+        Route::post('rejectProject', 'Teacher\CheckProjectController@rejectProject');
     });
 
     /**************

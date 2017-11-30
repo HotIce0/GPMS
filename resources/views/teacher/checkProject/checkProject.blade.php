@@ -20,8 +20,6 @@
     @endif
     <!-- END ERROR TIP -->
     <!-- CHECK LIST -->
-    <form class="form-horizontal" role="form" method="post" action="{{url('/createProject/adoptProjects')}}">
-        {{csrf_field()}}
     <div class="panel">
         <div class="panel-heading">
             <h3 class="panel-title">待审选题</h3>
@@ -48,8 +46,9 @@
                     <th>审查</th>
                 </tr>
                 </thead>
+                <form class="form-horizontal" id="projectsForm" role="form" method="post" action="{{url('/createProject/adoptProjects')}}">
+                    {{csrf_field()}}
                 <tbody>
-
                 @foreach($data['projects'] as $project)
                 <tr>
                     <td>
@@ -66,23 +65,39 @@
                     <td>{{$project->teacher_name}}</td>
                     <td>{{$project->positional_title}}</td>
                     <td>
-                        <a href="#"><span class="label label-info">审查</span></a>
+                        <a href="{{url('/createProject/checkProjectDetail', $project->project_id)}}"><span class="label label-info">审查</span></a>
                     </td>
                 </tr>
                 </tbody>
+                </form>
                 @endforeach
 
             </table>
         </div>
         <div class="panel-footer">
+            <div class="col-md-2">
+                <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('createProject/checkProject')}}">
+                    {{csrf_field()}}
+                    <div class="form-group">
+                        <select title="显示行数" id="selectPages" name="selectPages" class="form-control field">
+                            <option value="10" id="10">显示10行</option>
+                            <option value="25" id="25">显示25行</option>
+                            <option value="50" id="50">显示50行</option>
+                            <option value="100" id="100">显示100行</option>
+                            <option value="250" id="250">显示250行</option>
+                            <option value="500" id="500">显示500行</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
             <div class="text-right">
-                <button type="submit" class="btn btn-success">采纳选中项</button>
+                <button type="button" id="btnAtopt" class="btn btn-success ">采纳选中项</button>
             </div>
         </div>
     </div>
-
-    </form>
+    {!! $data['projects']->links() !!}
     <!-- END CHECK LIST -->
+    <p style="display: none" id="SelectPages">{{Session::get('selectPages')}}</p>
 @endsection
 
 @section('page-script')
@@ -111,4 +126,23 @@
         });
     </script>
     <!-- END SELECT ALL SCRIPT -->
+    <!-- SELECT AND CLICK SUBMIT -->
+    <script>
+        $(document).ready(function(){
+            //页面行数改变，提交表格
+            $("#selectPages").change(function(){
+                $("#pageNumForm").submit();
+            });
+            //采纳按钮点击，提交表格
+            $("#btnAtopt").click(function () {
+                $("#projectsForm").submit();
+            });
+        });
+    </script>
+    <!-- END SELECT AND CLICK SUBMIT -->
+    <!-- GET URL PARAM -->
+    <script>
+        $("option#"+$("#SelectPages").html()).prop("selected", true);//改变选项内容
+    </script>
+    <!-- END GET URL PARAM -->
 @endsection

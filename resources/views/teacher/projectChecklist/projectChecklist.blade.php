@@ -50,7 +50,7 @@
                 <div class="form-group {{$errors->has('requireForStudent') ?  'has-error' : ''}}">
                     <label for="requireForStudent" class="col-sm-2 control-label">对学生的要求</label>
                     <div class="col-sm-8">
-                        <textarea class="form-control" rows="3" id="requireForStudent" name="requireForStudent"></textarea>
+                        <textarea class="form-control" rows="3" id="requireForStudent" name="requireForStudent">{{old('requireForStudent')}}</textarea>
                         <label class="control-label" for="requireForStudent">{{$errors->first('requireForStudent')}}</label>
                     </div>
                 </div>
