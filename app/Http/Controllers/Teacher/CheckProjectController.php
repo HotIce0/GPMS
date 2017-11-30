@@ -142,6 +142,12 @@ class CheckProjectController extends Controller
         );
         //表单验证
         $this->validate($request, $rules, $message, $meaning);
-
+        $project = ProjectChoice::find($request->projectID);
+        $project->amendment = $request->amendment;
+        $project->project_declaration_status = 4;                                      //选题申报状态 4 院部审查未通过
+        if($project->save())
+            return redirect('createProject/checkProject')->with('successMsg', '选题申请退回成功!');
+        else
+            return redirect('createProject/checkProject')->with('failureMsg', '选题申请退回失败!');
     }
 }
