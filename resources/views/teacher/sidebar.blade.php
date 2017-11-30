@@ -16,7 +16,11 @@
                             @endcan
                             {{--2.2是审题权限(学院级别)--}}
                             @can('permission', '2.2')
-                                <li><a href="{{url('/createProject/checkProject')}}" class="">题目审查</a></li>
+                                <li><a href="{{url('/createProject/checkProject')}}" class="">题目审查(学院)</a></li>
+                            @endcan
+                            {{--2.3是审题权限(学校级别)--}}
+                            @can('permission', '2.3')
+                                <li><a href="{{url('/createProject/checkProjectSchool')}}" class="">题目审查(学校)</a></li>
                             @endcan
                         </ul>
                     </div>
