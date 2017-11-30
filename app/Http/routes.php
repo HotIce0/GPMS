@@ -40,7 +40,7 @@ Route::Group(['middleware'=>'auth'],function() {
         Route::post('projectChecklist', 'Teacher\ProjectChecklistController@saveChecklist');
         /*题目审查*/
         Route::get('checkProject', 'Teacher\CheckProjectController@index');
-
+        Route::post('adoptProjects', 'Teacher\CheckProjectController@adoptSelectedProjects');
     });
 
     /**************

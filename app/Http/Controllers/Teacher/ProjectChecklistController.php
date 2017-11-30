@@ -73,7 +73,7 @@ class ProjectChecklistController extends Controller
         $newProjectChoice->teacher_job_number = $request->user()->getUserInfo()->teacher_job_number;
         $newProjectChoice->college_info_id = $request->user()->getUserInfo()->college_info_id;
         if(!$newProjectChoice->save())
-            return response()->view('errors.503');
-        return redirect('/teacher');
+            return redirect('/teacher')->with('failureMsg', '选题申请表提交失败!');
+        return redirect('/teacher')->with('successMsg', '选题申请表提交成功!');
     }
 }

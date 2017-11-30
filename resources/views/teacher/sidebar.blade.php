@@ -14,7 +14,7 @@
                             @can('permission', '2.1')
                                 <li><a href="{{url('/createProject/projectChecklist')}}" class="">申请出题</a></li>
                             @endcan
-                            {{--2.2是审题权限--}}
+                            {{--2.2是审题权限(学院级别)--}}
                             @can('permission', '2.2')
                                 <li><a href="{{url('/createProject/checkProject')}}" class="">题目审查</a></li>
                             @endcan
