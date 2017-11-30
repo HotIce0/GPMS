@@ -71,7 +71,6 @@ class ProjectChecklistController extends Controller
         $newProjectChoice->project_choice_status = 0;                                                   //选题0未被选
         $newProjectChoice->session_id = $currentSession->item_content_id;
         $newProjectChoice->teacher_job_number = $request->user()->getUserInfo()->teacher_job_number;
-        $newProjectChoice->college_info_id = $request->user()->getUserInfo()->college_info_id;
         if(!$newProjectChoice->save())
             return redirect('/teacher')->with('failureMsg', '选题申请表提交失败!');
         return redirect('/teacher')->with('successMsg', '选题申请表提交成功!');

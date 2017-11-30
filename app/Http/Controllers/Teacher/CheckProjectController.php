@@ -126,6 +126,22 @@ class CheckProjectController extends Controller
         //2.2是审题权限(学院级别)
         if(!Auth::user()->can('permission', '2.2'))
             return response()->view('errors.503');
+        //验证规则
+        $rules = array(
+            'amendment'=>'required|string|max:2000',
+        );
+        //错误消息
+        $message = array(
+            'required'=>'必须填写',
+            'amendment.max'=>'长度不能超过2000字',
+            'string' => '必须为字符串',
+        );
+        //字段意义
+        $meaning = array(
+            'amendment'=>'修改意见',
+        );
+        //表单验证
+        $this->validate($request, $rules, $message, $meaning);
 
     }
 }
