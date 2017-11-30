@@ -41,7 +41,7 @@ class ProjectChecklistController extends Controller
             'projectName'=>'required |string|max:80',
             'projectType'=>'required',
             'projectOrigin'=>'required',
-            'requireForStudent'=>'required|string|max:2000',
+            'requireForStudent'=>'string|max:2000',
         );
         //错误消息
         $message = array(

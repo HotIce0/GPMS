@@ -46,13 +46,39 @@ class CheckProjectController extends Controller
             'data' => $data,
         ]);
     }
-
+    /**
+     * 采纳选择的选题
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     */
     public function adoptSelectedProjects(Request $request)
     {
         //2.2是审题权限(学院级别)
         if(!Auth::user()->can('permission', '2.2'))
             return response()->view('errors.503');
-        //$request->get('projectCheckbox')
+        $projectsID = $request->get('projectCheckbox');
+        //存储错误信息
+        $errorsInfo = array();
+        $errorsInfo['errorsSum'] = 0;
+        //变更选择的选题申请状态到    3院部审查通过
+        foreach ($projectsID as $projectID)
+        {
+            $project = ProjectChoice::find($projectID);
+            $project->project_declaration_status = 3;
+            if(!$project->save())
+                $errorsInfo['errorsSum']++;
+        }
+        if($errorsInfo['errorsSum'] != 0)
+            return redirect()->back()->with('failureMsg', '总共'.count($projectsID).'条申请,其中'.$errorsInfo['errorsSum'].'条采纳失败!');
+        else
+            return redirect()->back()->with('successMsg', '总共'.count($projectsID).'条申请,全部采纳成功!');
+    }
+    public function checkProjectIndex()
+    {
+
+    }
+    public function rejectProject(Request $request)
+    {
 
     }
 }

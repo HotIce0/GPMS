@@ -41,6 +41,7 @@ Route::Group(['middleware'=>'auth'],function() {
         /*题目审查*/
         Route::get('checkProject', 'Teacher\CheckProjectController@index');
         Route::post('adoptProjects', 'Teacher\CheckProjectController@adoptSelectedProjects');
+        Route::get('checkProjectDetail', 'Teacher\CheckProjectController@checkProjectIndex');
     });
 
     /**************
