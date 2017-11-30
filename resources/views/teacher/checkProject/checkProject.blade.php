@@ -68,10 +68,9 @@
                         <a href="{{url('/createProject/checkProjectDetail', $project->project_id)}}"><span class="label label-info">审查</span></a>
                     </td>
                 </tr>
+                @endforeach
                 </tbody>
                 </form>
-                @endforeach
-
             </table>
         </div>
         <div class="panel-footer">
