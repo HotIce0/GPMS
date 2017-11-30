@@ -27,14 +27,14 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
         //判断是否是对应角色
-        Gate::define('ADMIN', function ($user){
-            return $user->isRole('admin');
+        Gate::define('admin', function ($user){
+            return $user->isRole('ADMIN');
         });
-        Gate::define('STUDENT', function ($user){
-            return $user->isRole('student');
+        Gate::define('student', function ($user){
+            return $user->isRole('STUDENT');
         });
-        Gate::define('TEACHER', function ($user){
-            return $user->isRole('teacher');
+        Gate::define('teacher', function ($user){
+            return $user->isRole('TEACHER');
         });
         Gate::define('permission', function ($user, $permission){
             return $user->hasPermission($permission);
