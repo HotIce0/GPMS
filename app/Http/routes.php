@@ -28,12 +28,15 @@ Route::Group(['middleware'=>'auth'],function() {
      * 学生路由 *
      ***********/
     Route::get('/student', 'Student\StudentIndexController@index');
-
+    //选题模块[选题]      By Sao Guang
+    /*选择课题页面(权限编号2.4)*/
+    Route::get('/selectProject', 'Student\SelectProjectController@index');
+    Route::get('/select/{id}', 'Student\SelectProjectController@selectProject');
     /************
      * 教师路由 *
      ***********/
     Route::get('/teacher', 'Teacher\TeacherIndexController@index');
-    //出题模块 By Sao Guang
+    //选题模块[出题，审题] By Sao Guang
     Route::Group(['prefix' => 'createProject'], function (){
         /*出题申请(权限编号2.1)*/
         Route::get('projectChecklist', 'Teacher\ProjectChecklistController@index');

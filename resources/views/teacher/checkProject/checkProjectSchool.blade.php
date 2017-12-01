@@ -1,5 +1,5 @@
 @extends('layouts.layoutSidebar')
-
+{{--By Sao Guang--}}
 @section('sidebar')
     @include('teacher.sidebar')
 @endsection
@@ -22,7 +22,7 @@
     <!-- CHECK LIST -->
     <div class="panel">
         <div class="panel-heading">
-            <h3 class="panel-title">待审选题</h3>
+            <h3 class="panel-title">题目审查(学校)</h3>
         </div>
         <div class="panel-body no-padding">
             <table class="table table-hover">

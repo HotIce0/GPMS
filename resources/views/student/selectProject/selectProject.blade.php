@@ -1,7 +1,7 @@
 @extends('layouts.layoutSidebar')
 {{--By Sao Guang--}}
 @section('sidebar')
-    @include('teacher.sidebar')
+    @include('student.sidebar')
 @endsection
 
 @section('content')
@@ -22,20 +22,12 @@
     <!-- CHECK LIST -->
     <div class="panel">
         <div class="panel-heading">
-            <h3 class="panel-title">题目审查(学院)</h3>
+            <h3 class="panel-title">选择课题</h3>
         </div>
         <div class="panel-body no-padding">
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>
-                        <!-- SELECT ALL -->
-                        <label class="fancy-checkbox">
-                            <input type="checkbox" id="selectAll"/>
-                            <span></span>
-                        </label>
-                        <!-- END SELECT ALL -->
-                    </th>
                     <th>序号</th>
                     <th>课题名称</th>
                     <th>课题类型</th>
@@ -43,41 +35,47 @@
                     <th>对学生要求</th>
                     <th>教师</th>
                     <th>职称</th>
-                    <th>课题审查状态</th>
-                    <th>审查</th>
+                    <th>是否可选</th>
+                    <th>申请选题</th>
                 </tr>
                 </thead>
                 <form class="form-horizontal" id="projectsForm" role="form" method="post" action="{{url('/createProject/adoptProjects')}}">
                     {{csrf_field()}}
-                <tbody>
-                @foreach($data['projects'] as $project)
-                <tr>
-                    <td>
-                        <label class="fancy-checkbox">
-                            <input type="checkbox" id="projectCheckbox" name="projectCheckbox[{{$project->project_id}}]" value="{{$project->project_id}}">
-                            <span></span>
-                        </label>
-                    </td>
-                    <td>{{$project->project_id}}</td>
-                    <td>{{$project->project_name}}</td>
-                    <td>{{$data['projectTypes'][$project->project_type]->item_content}}</td>
-                    <td>{{$data['projectOrigins'][$project->project_origin]->item_content}}</td>
-                    <td>{{$project->require_for_student}}</td>
-                    <td>{{$project->teacher_name}}</td>
-                    <td>{{$project->positional_title}}</td>
-                    <td><span class="label label-warning">题目待审</span></td>
-                    <td>
-                        <a href="{{url('/createProject/checkProjectDetail', $project->project_id)}}"><span class="label label-info">审查</span></a>
-                    </td>
-                </tr>
-                @endforeach
-                </tbody>
+                    <tbody>
+                    @foreach($data['projects'] as $project)
+                        <tr>
+                            <td>{{$project->project_id}}</td>
+                            <td>{{$project->project_name}}</td>
+                            <td>{{$data['projectTypes'][$project->project_type]->item_content}}</td>
+                            <td>{{$data['projectOrigins'][$project->project_origin]->item_content}}</td>
+                            <td>{{$project->require_for_student}}</td>
+                            <td>{{$project->teacher_name}}</td>
+                            <td>{{$project->positional_title}}</td>
+                            <td>
+                                {{--0已被选状态--}}
+                                @if($project->project_choice_status == 0)
+                                    <span class="label label-success">未被选</span>
+                                @else
+                                    <span class="label label-default">已被选</span>
+                                @endif
+                            </td>
+                            <td>
+                                {{--0已被选状态--}}
+                                @if($project->project_choice_status == 0)
+                                    <a href="{{url('/select', $project->project_id)}}"><span class="label label-info">申请该题</span></a>
+                                @else
+                                    <span class="label label-default">申请该题</span>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
                 </form>
             </table>
         </div>
         <div class="panel-footer">
             <div class="col-md-2">
-                <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('createProject/checkProject')}}">
+                <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('selectProject')}}">
                     {{csrf_field()}}
                     <div class="form-group">
                         <select title="显示行数" id="selectPages" name="selectPages" class="form-control field">
@@ -90,9 +88,6 @@
                         </select>
                     </div>
                 </form>
-            </div>
-            <div class="text-right">
-                <button type="button" id="btnAtopt" class="btn btn-success ">采纳选中项</button>
             </div>
         </div>
     </div>
@@ -109,34 +104,12 @@
     <script src="{{asset('assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
     <script src="{{asset('assets/vendor/chartist/js/chartist.min.js')}}"></script>
     <script src="{{asset('assets/scripts/klorofil-common.js')}}"></script>
-    <!-- SELECT ALL SCRIPT -->
-    <script>
-        $('input[id="selectAll"]').click(function(){
-            //alert(this.checked);
-            if($(this).is(':checked')){
-                $('input[id="projectCheckbox"]').each(function(){
-                    //此处如果用attr，会出现第三次失效的情况
-                    $(this).prop("checked",true);
-                });
-            }else{
-                $('input[id="projectCheckbox"]').each(function(){
-                    $(this).removeAttr("checked",false);
-                });
-                //$(this).removeAttr("checked");
-            }
-        });
-    </script>
-    <!-- END SELECT ALL SCRIPT -->
     <!-- SELECT AND CLICK SUBMIT -->
     <script>
         $(document).ready(function(){
             //页面行数改变，提交表格
             $("#selectPages").change(function(){
                 $("#pageNumForm").submit();
-            });
-            //采纳按钮点击，提交表格
-            $("#btnAtopt").click(function () {
-                $("#projectsForm").submit();
             });
         });
     </script>

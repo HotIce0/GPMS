@@ -3,7 +3,12 @@
     <div class="sidebar-scroll">
         <nav>
             <ul class="nav">
-                <li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+                {{--概览--}}
+                <li><a href="{{url('/student')}}" class="{{Request::getPathInfo()=="/student"?"active":""}}"><i class="lnr lnr-home"></i><span>概览</span></a></li>
+                {{--2.4是选题权限--}}
+                @can('permission', '2.4')
+                    <li><a href="{{url('selectProject')}}" class="{{Request::getPathInfo()=="/selectProject"?"active":""}}"><i class="lnr lnr-inbox"></i> <span>选择课题</span></a></li>
+                @endcan
                 <li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
                 <li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
                 <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
