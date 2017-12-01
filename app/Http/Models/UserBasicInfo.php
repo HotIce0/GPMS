@@ -37,7 +37,7 @@ class UserBasicInfo extends Authenticatable
     public function hasPermission($permisson)
     {
         //获取对应角色
-        $role = Role::find($this->role_id)->first();
+        $role = Role::find($this->role_id);
         //判断角色是否有该权限
         return $role->hasPermission($permisson);
     }
@@ -60,10 +60,10 @@ class UserBasicInfo extends Authenticatable
     {
         if($this->user_type == config('constants.USER_TYPE_STUDENT'))
         {
-            return StudentInfo::find($this->user_info_id)->first();
+            return StudentInfo::find($this->user_info_id);
         }elseif ($this->user_type == config('constants.USER_TYPE_TEACHER'))
         {
-            return TeacherInfo::find($this->user_info_id)->first();
+            return TeacherInfo::find($this->user_info_id);
         }
         return null;
     }
