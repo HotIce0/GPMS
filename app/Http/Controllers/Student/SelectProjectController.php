@@ -44,6 +44,7 @@ class SelectProjectController extends Controller
             ->where('session_id', ItemSetInfo::getCurrentSessionItemSetObj()->item_content_id)
             ->where('project_declaration_status', '5')                       //课题申报状态为5学校审查通过
             ->paginate($pageNum);
+        dd($data['projects'][1]);
         //获取选项编号
         $projectTypes = ItemSetInfo::where('item_no', config('constants.ITEM_PROJECT_TYPE'))->get();
         $projectOrigins = ItemSetInfo::where('item_no', config('constants.ITEM_PROJECT_ORIGIN'))->get();
@@ -59,7 +60,7 @@ class SelectProjectController extends Controller
     }
 
     /**
-     * 选择课题申请
+     * 选择(申请)课题
      */
     public function selectProject(Request $request, $id)
     {
@@ -73,8 +74,26 @@ class SelectProjectController extends Controller
         //课题必须为0未被选状态 5学校审查通过状态
         if($project->project_choice_status != 0 || $project->project_declaration_status != 5)
             return response()->view('errors.503');
-
-
-        dd($project);
+        //判断此题，用户是否已申请(页面会控制，但是也防止是刷新)
+        if(count(ProjectChoice::where('student_number', $request->user()->getUserInfo()->student_number)
+                ->where('teacher_job_number', $project->teacher_job_number)
+                ->where('project_name', $project->project_name)
+                ->get()) > 0)
+            return response()->view('errors.503');
+        //新建一个选题
+        $newProject = new ProjectChoice();
+        $newProject->project_name = $project->project_name;
+        $newProject->project_type = $project->project_type;
+        $newProject->project_origin = $project->project_origin;
+        $newProject->require_for_student = $project->require_for_student;
+        $newProject->project_declaration_status = '7';                                //课题申请状态 7 代表此条记录是学生提交的选题申请
+        $newProject->project_choice_status = $project->project_choice_status;
+        $newProject->session_id = $project->session_id;
+        $newProject->teacher_job_number = $project->teacher_job_number;
+        $newProject->student_number = $request->user()->getUserInfo()->student_number;
+        if($newProject->save())
+            return redirect()->back()->with('successMsg', '题目申请成功!');
+        else
+            return response()->view('errors.503');
     }
 }

@@ -54,7 +54,7 @@
                             <td>
                                 {{--0已被选状态--}}
                                 @if($project->project_choice_status == 0)
-                                    <span class="label label-success">未被选</span>
+                                    <span class="label label-success">可选</span>
                                 @else
                                     <span class="label label-default">已被选</span>
                                 @endif
