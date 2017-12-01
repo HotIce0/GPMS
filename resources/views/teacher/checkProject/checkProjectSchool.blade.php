@@ -47,7 +47,7 @@
                     <th>审查</th>
                 </tr>
                 </thead>
-                <form class="form-horizontal" id="projectsForm" role="form" method="post" action="{{url('/createProject/adoptProjects')}}">
+                <form class="form-horizontal" id="projectsForm" role="form" method="post" action="{{url('/createProject/adoptProjectsSchool')}}">
                     {{csrf_field()}}
                 <tbody>
                 @foreach($data['projects'] as $project)
@@ -65,9 +65,9 @@
                     <td>{{$project->require_for_student}}</td>
                     <td>{{$project->teacher_name}}</td>
                     <td>{{$project->positional_title}}</td>
-                    <td><span class="label label-warning">题目待审</span></td>
+                    <td><span class="label label-success">学院审查通过</span></td>
                     <td>
-                        <a href="{{url('/createProject/checkProjectDetail', $project->project_id)}}"><span class="label label-info">审查</span></a>
+                        <a href="{{url('/createProject/checkProjectDetailSchool', $project->project_id)}}"><span class="label label-info">审查</span></a>
                     </td>
                 </tr>
                 @endforeach
@@ -77,7 +77,7 @@
         </div>
         <div class="panel-footer">
             <div class="col-md-2">
-                <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('createProject/checkProject')}}">
+                <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('createProject/checkProjectSchool')}}">
                     {{csrf_field()}}
                     <div class="form-group">
                         <select title="显示行数" id="selectPages" name="selectPages" class="form-control field">

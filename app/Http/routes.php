@@ -44,10 +44,10 @@ Route::Group(['middleware'=>'auth'],function() {
         Route::get('checkProjectDetail/{id}', 'Teacher\CheckProjectController@checkProjectIndex');
         Route::post('rejectProject', 'Teacher\CheckProjectController@rejectProject');
         /*题目审查(学校级别权限编号2.3)*/
-        Route::get('checkProjectSchool', 'Teacher\CheckProjectController@indexSchool');
-        Route::post('adoptProjectsSchool', 'Teacher\CheckProjectController@adoptSelectedProjectsSchool');
-        Route::get('checkProjectDetailSchool/{id}', 'Teacher\CheckProjectController@checkProjectIndexSchool');
-        Route::post('rejectProjectSchool', 'Teacher\CheckProjectController@rejectProjectSchool');
+        Route::get('checkProjectSchool', 'Teacher\CheckProjectSchoolController@index');
+        Route::post('adoptProjectsSchool', 'Teacher\CheckProjectSchoolController@adoptSelectedProjects');
+        Route::get('checkProjectDetailSchool/{id}', 'Teacher\CheckProjectSchoolController@checkProjectIndex');
+        Route::post('rejectProjectSchool', 'Teacher\CheckProjectSchoolController@rejectProject');
     });
 
     /**************
