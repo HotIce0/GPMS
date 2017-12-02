@@ -19,6 +19,7 @@
         </div>
     @endif
     <!-- END ERROR TIP -->
+    <!-- MY SELECTED PROJECT -->
     @if($data['selected'])
         <div class="panel">
             <div class="panel-heading">
@@ -43,27 +44,25 @@
                         <th>申请选题</th>
                     </tr>
                     </thead>
-                    <form class="form-horizontal" id="projectsForm" role="form" method="post" action="{{url('/createProject/adoptProjects')}}">
-                        {{csrf_field()}}
-                        <tbody>
-                        <tr>
-                            <td>{{$data['selectedProject']->project_id}}</td>
-                            <td>{{$data['selectedProject']->project_name}}</td>
-                            <td>{{$data['projectTypes'][$data['selectedProject']->project_type]->item_content}}</td>
-                            <td>{{$data['projectOrigins'][$data['selectedProject']->project_origin]->item_content}}</td>
-                            <td>{{$data['selectedProject']->require_for_student}}</td>
-                            <td>{{$data['selectedProjectTeacherInfo']->teacher_name}}</td>
-                            <td>{{$data['selectedProjectTeacherInfo']->positional_title}}</td>
-                            <td><span class="label label-primary">已被你选择</span></td>
-                            <td><a href="{{url('/cancelSelect', $data['selectedProject']->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a></td>
-                        </tr>
-                        </tbody>
-                    </form>
+                    <tbody>
+                    <tr>
+                        <td>{{$data['selectedProject']->project_id}}</td>
+                        <td>{{$data['selectedProject']->project_name}}</td>
+                        <td>{{$data['projectTypes'][$data['selectedProject']->project_type]->item_content}}</td>
+                        <td>{{$data['projectOrigins'][$data['selectedProject']->project_origin]->item_content}}</td>
+                        <td>{{$data['selectedProject']->require_for_student}}</td>
+                        <td>{{$data['selectedProjectTeacherInfo']->teacher_name}}</td>
+                        <td>{{$data['selectedProjectTeacherInfo']->positional_title}}</td>
+                        <td><span class="label label-primary">已被你选择</span></td>
+                        <td><a href="{{url('/cancelSelect', $data['selectedProject']->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a></td>
+                    </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
     @endif
-    <!-- CHECK LIST -->
+    <!-- END MY SELECTED PROJECT -->
+    <!-- SELECT PROJECT TABLE -->
     <div class="panel">
         <div class="panel-heading">
             <h3 class="panel-title">选择课题</h3>
@@ -135,8 +134,8 @@
             </div>
         </div>
     </div>
+    <!-- END SELECT PROJECT TABLE -->
     {!! $data['projects']->links() !!}
-    <!-- END CHECK LIST -->
     <p style="display: none" id="SelectPages">{{Session::get('selectPages')}}</p>
 @endsection
 
@@ -148,7 +147,8 @@
     <script src="{{asset('assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
     <script src="{{asset('assets/vendor/chartist/js/chartist.min.js')}}"></script>
     <script src="{{asset('assets/scripts/klorofil-common.js')}}"></script>
-    <!-- SELECT AND CLICK SUBMIT -->
+    <!-- END Javascript -->
+    <!-- SELECT -->
     <script>
         $(document).ready(function(){
             //页面行数改变，提交表格
@@ -157,10 +157,10 @@
             });
         });
     </script>
-    <!-- END SELECT AND CLICK SUBMIT -->
-    <!-- GET URL PARAM -->
+    <!-- END SELECT  -->
+    <!-- GET SELECT PAGES FROM INPUT -->
     <script>
         $("option#"+$("#SelectPages").html()).prop("selected", true);//改变选项内容
     </script>
-    <!-- END GET URL PARAM -->
+    <!-- END GET SELECT PAGES FROM INPUT -->
 @endsection

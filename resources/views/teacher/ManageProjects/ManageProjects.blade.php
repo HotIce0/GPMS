@@ -19,7 +19,52 @@
         </div>
     @endif
     <!-- END ERROR TIP -->
-    <!-- CHECK LIST -->
+
+    <!-- MY PROJECTS APPLICATION -->
+    {{--@if($data['selected'])--}}
+        {{--<div class="panel">--}}
+            {{--<div class="panel-heading">--}}
+                {{--<h3 class="panel-title">来自学生的选题申请</h3>--}}
+                {{--<div class="right">--}}
+                    {{--<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>--}}
+                    {{--<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="panel-body">--}}
+                {{--<table class="table table-hover">--}}
+                    {{--<thead>--}}
+                    {{--<tr>--}}
+                        {{--<th>序号</th>--}}
+                        {{--<th>课题名称</th>--}}
+                        {{--<th>课题类型</th>--}}
+                        {{--<th>课题来源</th>--}}
+                        {{--<th>对学生要求</th>--}}
+                        {{--<th>学号</th>--}}
+                        {{--<th>学生姓名</th>--}}
+                        {{--<th>所属班级</th>--}}
+                        {{--<th>所学专业</th>--}}
+                        {{--<th>学生信息详情</th>--}}
+                        {{--<th>操作</th>--}}
+                    {{--</tr>--}}
+                    {{--</thead>--}}
+                    {{--<tbody>--}}
+                    {{--@foreach($data['projectApplications'] as $projectApplication)--}}
+                        {{--<tr>--}}
+                            {{--<td>{{$projectApplication->project_id}}</td>--}}
+                            {{--<td>{{$projectApplication->project_name}}</td>--}}
+                            {{--<td>{{$data['projectTypes'][$projectApplication->project_type]->item_content}}</td>--}}
+                            {{--<td>{{$data['projectOrigins'][$projectApplication->project_origin]->item_content}}</td>--}}
+                            {{--<td>{{$projectApplication->require_for_student}}</td>--}}
+                        {{--</tr>--}}
+                    {{--@endforeach--}}
+                    {{--</tbody>--}}
+                {{--</table>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--@endif--}}
+    <!-- END MY PROJECTS APPLICATION -->
+
+    <!-- MY PROJECTS STATUS -->
     <div class="panel">
         <div class="panel-heading">
             <h3 class="panel-title">我的课题状态</h3>
@@ -124,6 +169,7 @@
             </div>
         </div>
     </div>
+    <!-- END MY PROJECTS STATUS -->
     {!! $data['projects']->links() !!}
     <p style="display: none" id="SelectPages">{{Session::get('selectPages')}}</p>
 @endsection
@@ -137,6 +183,7 @@
     <script src="{{asset('assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
     <script src="{{asset('assets/vendor/chartist/js/chartist.min.js')}}"></script>
     <script src="{{asset('assets/scripts/klorofil-common.js')}}"></script>
+    <!-- END Javascript -->
     <!-- SELECT -->
     <script>
         $(document).ready(function(){
@@ -147,9 +194,9 @@
         });
     </script>
     <!-- END SELECT -->
-    <!-- GET URL PARAM -->
+    <!-- GET SELECT PAGES FROM INPUT -->
     <script>
         $("option#"+$("#SelectPages").html()).prop("selected", true);//改变选项内容
     </script>
-    <!-- END GET URL PARAM -->
+    <!-- END GET SELECT PAGES FROM INPUT -->
 @endsection

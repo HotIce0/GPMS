@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <!-- CHECK PROJECT CHECKLIST -->
+    <!-- CHECK PROJECT -->
     <div class="panel">
         <div class="panel-heading">
             <h3 class="panel-title">选题审查</h3>
@@ -60,5 +60,5 @@
             </form>
         </div>
     </div>
-    <!-- END PROJECT CHECKLIST -->
+    <!-- END CHECK PROJECT -->
 @endsection

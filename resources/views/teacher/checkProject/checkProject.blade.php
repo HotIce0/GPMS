@@ -141,9 +141,9 @@
         });
     </script>
     <!-- END SELECT AND CLICK SUBMIT -->
-    <!-- GET URL PARAM -->
+    <!-- GET SELECT PAGES FROM INPUT -->
     <script>
         $("option#"+$("#SelectPages").html()).prop("selected", true);//改变选项内容
     </script>
-    <!-- END GET URL PARAM -->
+    <!-- END GET SELECT PAGES FROM INPUT -->
 @endsection
