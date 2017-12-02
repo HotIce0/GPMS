@@ -13,20 +13,28 @@
         <div class="panel-body">
             <form class="form-horizontal" role="form" method="post" action="{{url('/createProject/projectChecklist')}}">
                 {{csrf_field()}}
+                <div class="form-group" style="display: none">
+                    <input type="text" class="form-control" name="projectID" value="{{isset($data['project']) ? $data['project']->project_id : ''}}">
+                </div>
+                <div class="form-group" style="display: none">
+                    <input id="reservation" type="text" class="form-control" name="reservation" value="">
+                </div>
                 <div class="form-group {{$errors->has('projectName') ?  'has-error' : ''}}">
-                    <label for="projectName" class="col-sm-2 control-label">课题名称</label>
+                    <label for="projectName" class="col-sm-2 control-label"><a class="text-danger">*</a>课题名称</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="projectName" name="projectName" placeholder="请输入课题名称[不超过80字]" value="{{ old('projectName') }}">
+                        <input type="text" class="form-control" id="projectName" name="projectName" placeholder="请输入课题名称[不超过80字]"
+                               value="{{old('projectName') == null ? (isset($data['project']) ? $data['project']->project_name: old('projectName')) : old('projectName')}}"
+                        >
                         <label class="control-label" for="projectName">{{$errors->first('projectName')}}</label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="projectType" class="col-sm-2 control-label">课题类型</label>
+                    <label for="projectType" class="col-sm-2 control-label"><a class="text-danger">*</a>课题类型</label>
                     <div class="col-sm-8">
-                        <select class="form-control" id="projectType" name="projectType" selected="{{old('projectType')}}">
+                        <select class="form-control" id="projectType" name="projectType">
                             @foreach($data['projectType'] as $item)
-                                <option value="{{$item->item_content_id}}" {{!empty(old('projectType')) && $item->item_content_id == old('projectType') ? 'selected' : ''}}>
+                                <option value="{{$item->item_content_id}}" {{$item->item_content_id == (old('projectType') == null ? (isset($data['project']) ? $data['project']->project_type: old('projectType')) : old('projectType')) ? 'selected' : ''}}>
                                     {{$item->item_content}}
                                 </option>
                             @endforeach
@@ -35,11 +43,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="projectOrigin" class="col-sm-2 control-label">课题来源</label>
+                    <label for="projectOrigin" class="col-sm-2 control-label"><a class="text-danger">*</a>课题来源</label>
                     <div class="col-sm-8">
                         <select class="form-control" id="projectOrigin" name="projectOrigin">
                             @foreach($data['projectOrigin'] as $item)
-                                <option value="{{$item->item_content_id}}" {{!empty(old('projectOrigin')) && $item->item_content_id == old('projectOrigin') ? 'selected' : ''}}>
+                                <option value="{{$item->item_content_id}}" {{$item->item_content_id == (old('projectOrigin') == null ? (isset($data['project']) ? $data['project']->project_origin: old('projectOrigin')) : old('projectOrigin')) ? 'selected' : ''}}>
                                     {{$item->item_content}}
                                 </option>
                             @endforeach
@@ -50,14 +58,23 @@
                 <div class="form-group {{$errors->has('requireForStudent') ?  'has-error' : ''}}">
                     <label for="requireForStudent" class="col-sm-2 control-label">对学生的要求</label>
                     <div class="col-sm-8">
-                        <textarea class="form-control" rows="3" id="requireForStudent" name="requireForStudent">{{old('requireForStudent')}}</textarea>
+                        <textarea class="form-control" rows="3" id="requireForStudent" name="requireForStudent">{{old('requireForStudent') == null ? (isset($data['project']) ? $data['project']->require_for_student: old('requireForStudent')) : old('requireForStudent')}}</textarea>
                         <label class="control-label" for="requireForStudent">{{$errors->first('requireForStudent')}}</label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">提交申请</button>
+                    <label for="studentID" class="col-sm-2 control-label">指定学生</label>
+                    <div class="col-sm-8">
+                        <select id="studentSelect" name="studentSelect" class="form-control required js-example-placeholder-single js-states">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-6">
+                        <button type="submit" id="tempReservation" class="btn btn-info">题目暂存</button>
+                        <button type="submit" id="createBtn" class="btn btn-primary">提交申请</button>
                     </div>
                 </div>
 
@@ -65,4 +82,53 @@
         </div>
     </div>
     <!-- END PROJECT CHECKLIST -->
+@endsection
+
+@section('page-script')
+    <!-- Javascript -->
+    <script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/chartist/js/chartist.min.js')}}"></script>
+    <script src="{{asset('assets/scripts/klorofil-common.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <!-- CLICK SUBMIT -->
+    <script>
+        $(document).ready(function(){
+            <!-- INITIALIZE SELECT2 -->
+            $("#studentSelect").select2({
+                ajax:{
+                    url:"{{url('createProject/getStudentInfoByName')}}",
+                    dataType:'json',
+                    delay:250,
+                    data:function (params) {
+                        return {
+                            search:params.term
+                        }
+                    },
+                    cache:true
+                },
+                placeholder: '请输入学生姓名',
+                allowClear:true,
+            });
+            <!-- END INITIALIZE SELECT2 -->
+            $("button#tempReservation").click(function () {
+                $("input#reservation").val('true');
+            });
+            $("button#createBtn").click(function () {
+                $("input#reservation").val('');
+            });
+            $("input[name='studentID']").on('input',function () {
+                $.post("getStudentInfoByName",{
+                    '_token':'{{csrf_token()}}',
+                    'name':$("input[name='studentID']").val()
+                }, function (data,status) {
+                    var arrStuInfo = JSON.parse(data);
+                    alert("第一个学生名字:" + arrStuInfo[0]['student_name'] + "  第一个学生学号:" + arrStuInfo[0]['student_number']);
+                });
+            });
+        });
+    </script>
+    <!-- END CLICK SUBMIT -->
 @endsection

@@ -55,7 +55,7 @@
                             <td>{{$data['selectedProjectTeacherInfo']->teacher_name}}</td>
                             <td>{{$data['selectedProjectTeacherInfo']->positional_title}}</td>
                             <td><span class="label label-primary">已被你选择</span></td>
-                            <td><a href="{{url('/cancelSelect', $data['selectedProject']->project_id)}}"><span class="label label-danger">取消申请</span></a></td>
+                            <td><a href="{{url('/cancelSelect', $data['selectedProject']->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a></td>
                         </tr>
                         </tbody>
                     </form>

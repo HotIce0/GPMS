@@ -96,6 +96,12 @@ class SelectProjectController extends Controller
             return response()->view('errors.503');
     }
 
+    /**
+     * 取消选题
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     */
     public function cancelSelect(Request $request, $id)
     {
         //2.4是选题权限

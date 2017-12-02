@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="form-group {{$errors->has('amendment') ?  'has-error' : ''}}">
-                    <label for="amendment" class="col-sm-2 control-label">修改意见</label>
+                    <label for="amendment" class="col-sm-2 control-label"><a class="text-danger">*</a>修改意见</label>
                     <div class="col-sm-8">
                         <textarea class="form-control" rows="3" id="amendment" name="amendment"></textarea>
                         <label class="control-label" for="amendment">{{$errors->first('amendment')}}</label>
