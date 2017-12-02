@@ -24,7 +24,7 @@
                             @endcan
                             {{-- 2.5是教师查看选题申请的权限 --}}
                             @can('permission', '2.5')
-                                <li><a href="{{url('/createProject/ManageProjects')}}" class="">课题申请状态</a></li>
+                                <li><a href="{{url('/createProject/ManageProjects')}}" class="">我的课题</a></li>
                             @endcan
                         </ul>
                     </div>
