@@ -23,7 +23,6 @@ class CreateNoticeTable extends Migration
             $table->string('updater', 20)->nullable();
             $table->string('deleter', 20)->nullable();
             $table->softDeletes();
-            $table->rememberToken();
             $table->timestamps();
         });
     }
