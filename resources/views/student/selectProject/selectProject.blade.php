@@ -19,6 +19,50 @@
         </div>
     @endif
     <!-- END ERROR TIP -->
+    @if($data['selected'])
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">您选择的课题</h3>
+                <div class="right">
+                    <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                    <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>课题名称</th>
+                        <th>课题类型</th>
+                        <th>课题来源</th>
+                        <th>对学生要求</th>
+                        <th>教师</th>
+                        <th>职称</th>
+                        <th>选题状态</th>
+                        <th>申请选题</th>
+                    </tr>
+                    </thead>
+                    <form class="form-horizontal" id="projectsForm" role="form" method="post" action="{{url('/createProject/adoptProjects')}}">
+                        {{csrf_field()}}
+                        <tbody>
+                        <tr>
+                            <td>{{$data['selectedProject']->project_id}}</td>
+                            <td>{{$data['selectedProject']->project_name}}</td>
+                            <td>{{$data['projectTypes'][$data['selectedProject']->project_type]->item_content}}</td>
+                            <td>{{$data['projectOrigins'][$data['selectedProject']->project_origin]->item_content}}</td>
+                            <td>{{$data['selectedProject']->require_for_student}}</td>
+                            <td>{{$data['selectedProjectTeacherInfo']->teacher_name}}</td>
+                            <td>{{$data['selectedProjectTeacherInfo']->positional_title}}</td>
+                            <td><span class="label label-primary">已被你选择</span></td>
+                            <td><a href="{{url('/cancelSelect', $data['selectedProject']->project_id)}}"><span class="label label-danger">取消申请</span></a></td>
+                        </tr>
+                        </tbody>
+                    </form>
+                </table>
+            </div>
+        </div>
+    @endif
     <!-- CHECK LIST -->
     <div class="panel">
         <div class="panel-heading">
@@ -35,7 +79,7 @@
                     <th>对学生要求</th>
                     <th>教师</th>
                     <th>职称</th>
-                    <th>是否可选</th>
+                    <th>选题状态</th>
                     <th>申请选题</th>
                 </tr>
                 </thead>
@@ -52,19 +96,19 @@
                             <td>{{$project->teacher_name}}</td>
                             <td>{{$project->positional_title}}</td>
                             <td>
-                                {{--0已被选状态--}}
-                                @if($project->project_choice_status == 0)
-                                    <span class="label label-success">可选</span>
-                                @else
+                                {{--1已被选状态--}}
+                                @if($project->project_choice_status == '1')
                                     <span class="label label-default">已被选</span>
+                                @else
+                                    <span class="label label-success">可选</span>
                                 @endif
                             </td>
                             <td>
-                                {{--0已被选状态--}}
-                                @if($project->project_choice_status == 0)
-                                    <a href="{{url('/select', $project->project_id)}}"><span class="label label-info">申请该题</span></a>
-                                @else
+                                {{--1已被选状态--}}
+                                @if($data['selected'] || $project->project_choice_status == '1')
                                     <span class="label label-default">申请该题</span>
+                                @else
+                                    <a href="{{url('/select', $project->project_id)}}"><span class="label label-info">申请该题</span></a>
                                 @endif
                             </td>
                         </tr>

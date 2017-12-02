@@ -32,6 +32,7 @@ Route::Group(['middleware'=>'auth'],function() {
     /*选择课题页面(权限编号2.4)*/
     Route::get('/selectProject', 'Student\SelectProjectController@index');
     Route::get('/select/{id}', 'Student\SelectProjectController@selectProject');
+    Route::get('/cancelSelect/{id}', 'Student\SelectProjectController@cancelSelect');
     /************
      * 教师路由 *
      ***********/

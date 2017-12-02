@@ -52,7 +52,18 @@ class SelectProjectController extends Controller
             $data['projectTypes'][$projectType->item_content_id] = $projectType;
         foreach ($projectOrigins as $projectOrigin)
             $data['projectOrigins'][$projectOrigin->item_content_id] = $projectOrigin;
-
+        //$selectedProject 获取当前学生已选课题
+        $selectedProject = ProjectChoice::where('student_number', $request->user()->getUserInfo()->student_number)->get();
+        //$data['selected'] 是否已选课题
+        if(count($selectedProject) > 0)
+        {
+            $data['selectedProject'] = $selectedProject[0];
+            $data['selected'] = true;
+            //获取教师信息
+            $data['selectedProjectTeacherInfo'] = TeacherInfo::where('teacher_job_number', $data['selectedProject']->teacher_job_number)->get()[0];
+        }
+        else
+            $data['selected'] = false;
         return view('student.selectProject.selectProject',[
             'data' => $data,
         ]);
@@ -71,27 +82,35 @@ class SelectProjectController extends Controller
         if($project == null)
             return response()->view('errors.503');
         //课题必须为0未被选状态 5学校审查通过状态
-        if($project->project_choice_status != 0 || $project->project_declaration_status != 5)
+        if($project->project_choice_status != '0' || $project->project_declaration_status != '5')
             return response()->view('errors.503');
-        //判断此题，用户是否已申请(页面会控制，但是也防止是刷新)
+        //用户是否已选题(页面会控制，但是也防止是刷新)
         if(count(ProjectChoice::where('student_number', $request->user()->getUserInfo()->student_number)
-                ->where('teacher_job_number', $project->teacher_job_number)
-                ->where('project_name', $project->project_name)
                 ->get()) > 0)
             return response()->view('errors.503');
-        //新建一个选题
-        $newProject = new ProjectChoice();
-        $newProject->project_name = $project->project_name;
-        $newProject->project_type = $project->project_type;
-        $newProject->project_origin = $project->project_origin;
-        $newProject->require_for_student = $project->require_for_student;
-        $newProject->project_declaration_status = $project->project_declaration_status;
-        $newProject->project_choice_status = 1;                             //课题被选状态1 已被选
-        $newProject->session_id = $project->session_id;
-        $newProject->teacher_job_number = $project->teacher_job_number;
-        $newProject->student_number = $request->user()->getUserInfo()->student_number;
-        if($newProject->save())
+        $project->student_number = $request->user()->getUserInfo()->student_number;
+        $project->project_choice_status = '1';                             //课题被选状态1 已被选
+        if($project->save())
             return redirect()->back()->with('successMsg', '题目申请成功!');
+        else
+            return response()->view('errors.503');
+    }
+
+    public function cancelSelect(Request $request, $id)
+    {
+        //2.4是选题权限
+        if(!Auth::user()->can('permission', '2.4'))
+            return response()->view('errors.503');
+        $project = ProjectChoice::find($id);
+        if($project == null)
+            return response()->view('errors.503');
+        //该题用户并没选择
+        if(!($project->student_number = $request->user()->getUserInfo()->student_number))
+            return response()->view('errors.503');
+        $project->student_number = '0';
+        $project->project_choice_status = '0';                             //课题被选状态0 未被选
+        if($project->save())
+            return redirect()->back()->with('successMsg', '题目申请取消成功!');
         else
             return response()->view('errors.503');
     }
