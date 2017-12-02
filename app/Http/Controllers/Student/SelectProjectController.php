@@ -44,7 +44,6 @@ class SelectProjectController extends Controller
             ->where('session_id', ItemSetInfo::getCurrentSessionItemSetObj()->item_content_id)
             ->where('project_declaration_status', '5')                       //课题申报状态为5学校审查通过
             ->paginate($pageNum);
-        dd($data['projects'][1]);
         //获取选项编号
         $projectTypes = ItemSetInfo::where('item_no', config('constants.ITEM_PROJECT_TYPE'))->get();
         $projectOrigins = ItemSetInfo::where('item_no', config('constants.ITEM_PROJECT_ORIGIN'))->get();
@@ -86,8 +85,8 @@ class SelectProjectController extends Controller
         $newProject->project_type = $project->project_type;
         $newProject->project_origin = $project->project_origin;
         $newProject->require_for_student = $project->require_for_student;
-        $newProject->project_declaration_status = '7';                                //课题申请状态 7 代表此条记录是学生提交的选题申请
-        $newProject->project_choice_status = $project->project_choice_status;
+        $newProject->project_declaration_status = $project->project_declaration_status;
+        $newProject->project_choice_status = 1;                             //课题被选状态1 已被选
         $newProject->session_id = $project->session_id;
         $newProject->teacher_job_number = $project->teacher_job_number;
         $newProject->student_number = $request->user()->getUserInfo()->student_number;
