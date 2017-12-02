@@ -22,6 +22,7 @@
                             @can('permission', '2.3')
                                 <li><a href="{{url('/createProject/checkProjectSchool')}}" class="">题目审查(学校)</a></li>
                             @endcan
+
                         </ul>
                     </div>
                 </li>

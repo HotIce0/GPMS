@@ -78,7 +78,7 @@ class CheckProjectController extends Controller
         foreach ($projectsID as $projectID)
         {
             $project = ProjectChoice::find($projectID);
-            $project->project_declaration_status = 3;
+            $project->project_declaration_status = '3';
             if(!$project->save())
                 $errorsInfo['errorsSum']++;
         }
@@ -104,7 +104,7 @@ class CheckProjectController extends Controller
         if($projectChoice == null)
             return response()->view('errors.503');
         //选题不在2指导教师提交状态
-        if($projectChoice->project_declaration_status != 2)
+        if($projectChoice->project_declaration_status != '2')
             return response()->view('errors.503');
         $data['projectChoice'] = $projectChoice;
 
@@ -150,7 +150,7 @@ class CheckProjectController extends Controller
         $this->validate($request, $rules, $message, $meaning);
         $project = ProjectChoice::find($request->projectID);
         $project->amendment = $request->amendment;
-        $project->project_declaration_status = 4;                                      //选题申报状态 4 院部审查未通过
+        $project->project_declaration_status = '4';                                      //选题申报状态 4 院部审查未通过
         if($project->save())
             return redirect('createProject/checkProject')->with('successMsg', '选题申请退回成功!');
         else
