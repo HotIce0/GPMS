@@ -25,10 +25,18 @@ class ManageProjectsController extends Controller
         if(!Auth::user()->can('permission', '2.5'))
             return response()->view('errors.503');
         $data = array();
+        //获取行数参数
+        $pageNum = null;
+        if($request->has('selectPages'))
+            Session::put('selectPages', $request->selectPages > 0 ? $request->selectPages : 10);
+        if(Session::has('selectPages'))
+            $pageNum = Session::get('selectPages', 10);
+        else
+            Session::put('selectPages', 10);
         //获取该教师该届全部选题
         $data['projects'] = ProjectChoice::where('teacher_job_number', $request->user()->getUserInfo()->teacher_job_number)
             ->where('session_id', ItemSetInfo::getCurrentSessionItemSetObj()->item_content_id)
-            ->get();
+            ->paginate($pageNum);
         //获取选项编号
         $projectTypes = ItemSetInfo::where('item_no', config('constants.ITEM_PROJECT_TYPE'))->get();
         $projectOrigins = ItemSetInfo::where('item_no', config('constants.ITEM_PROJECT_ORIGIN'))->get();

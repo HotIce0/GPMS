@@ -100,5 +100,50 @@
                 </form>
             </table>
         </div>
+        <div class="panel-footer">
+            <div class="col-md-2">
+                <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('createProject/ManageProjects')}}">
+                    {{csrf_field()}}
+                    <div class="form-group">
+                        <select title="显示行数" id="selectPages" name="selectPages" class="form-control field">
+                            <option value="10" id="10">显示10行</option>
+                            <option value="25" id="25">显示25行</option>
+                            <option value="50" id="50">显示50行</option>
+                            <option value="100" id="100">显示100行</option>
+                            <option value="250" id="250">显示250行</option>
+                            <option value="500" id="500">显示500行</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+    {!! $data['projects']->links() !!}
+    <p style="display: none" id="SelectPages">{{Session::get('selectPages')}}</p>
+@endsection
+
+
+@section('page-script')
+    <!-- Javascript -->
+    <script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/chartist/js/chartist.min.js')}}"></script>
+    <script src="{{asset('assets/scripts/klorofil-common.js')}}"></script>
+    <!-- SELECT -->
+    <script>
+        $(document).ready(function(){
+            //页面行数改变，提交表格
+            $("#selectPages").change(function(){
+                $("#pageNumForm").submit();
+            });
+        });
+    </script>
+    <!-- END SELECT -->
+    <!-- GET URL PARAM -->
+    <script>
+        $("option#"+$("#SelectPages").html()).prop("selected", true);//改变选项内容
+    </script>
+    <!-- END GET URL PARAM -->
 @endsection
