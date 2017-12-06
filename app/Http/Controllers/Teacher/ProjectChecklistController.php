@@ -32,8 +32,8 @@ class ProjectChecklistController extends Controller
             //是否存在该申请记录
             if($project == null)
                 return response()->view('errors.503');
-            //课题申报状态不为'1'暂存状态
-            if($project->project_declaration_status != '1')
+            //状态是不是'1'暂存状态 '4' 院部审查未通过 '6' 学校审查未通过
+            if($project->project_declaration_status != '1' && $project->project_declaration_status != '4' && $project->project_declaration_status != '6')
                 return response()->view('errors.503');
             $data['project'] = $project;
         }
@@ -92,8 +92,8 @@ class ProjectChecklistController extends Controller
             //是不是该老师的题
             if($project->teacher_job_number != $request->user()->getUserInfo()->teacher_job_number)
                 return response()->view('errors.503');
-            //状态是不是'1'暂存状态
-            if($project->project_declaration_status != '1')
+            //状态是不是'1'暂存状态 '4' 院部审查未通过 '6' 学校审查未通过
+            if($project->project_declaration_status != '1' && $project->project_declaration_status != '4' && $project->project_declaration_status != '6')
                 return response()->view('errors.503');
             $newProjectChoice = $project;
         }

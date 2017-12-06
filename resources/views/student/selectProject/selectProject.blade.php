@@ -40,7 +40,6 @@
                         <th>对学生要求</th>
                         <th>教师</th>
                         <th>职称</th>
-                        <th>选题状态</th>
                         <th>申请选题</th>
                     </tr>
                     </thead>
@@ -53,7 +52,6 @@
                         <td>{{$data['selectedProject']->require_for_student}}</td>
                         <td>{{$data['selectedProjectTeacherInfo']->teacher_name}}</td>
                         <td>{{$data['selectedProjectTeacherInfo']->positional_title}}</td>
-                        <td><span class="label label-primary">已被你选择</span></td>
                         <td><a href="{{url('/cancelSelect', $data['selectedProject']->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a></td>
                     </tr>
                     </tbody>
@@ -71,6 +69,7 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
+                    <th>操作</th>
                     <th>序号</th>
                     <th>课题名称</th>
                     <th>课题类型</th>
@@ -78,8 +77,6 @@
                     <th>对学生要求</th>
                     <th>教师</th>
                     <th>职称</th>
-                    <th>选题状态</th>
-                    <th>申请选题</th>
                 </tr>
                 </thead>
                 <form class="form-horizontal" id="projectsForm" role="form" method="post" action="{{url('/createProject/adoptProjects')}}">
@@ -87,21 +84,6 @@
                     <tbody>
                     @foreach($data['projects'] as $project)
                         <tr>
-                            <td>{{$project->project_id}}</td>
-                            <td>{{$project->project_name}}</td>
-                            <td>{{$data['projectTypes'][$project->project_type]->item_content}}</td>
-                            <td>{{$data['projectOrigins'][$project->project_origin]->item_content}}</td>
-                            <td>{{$project->require_for_student}}</td>
-                            <td>{{$project->teacher_name}}</td>
-                            <td>{{$project->positional_title}}</td>
-                            <td>
-                                {{--1已被选状态--}}
-                                @if($project->project_choice_status == '1')
-                                    <span class="label label-default">已被选</span>
-                                @else
-                                    <span class="label label-success">可选</span>
-                                @endif
-                            </td>
                             <td>
                                 {{--1已被选状态--}}
                                 @if($data['selected'] || $project->project_choice_status == '1')
@@ -110,6 +92,13 @@
                                     <a href="{{url('/select', $project->project_id)}}"><span class="label label-primary">申请该题</span></a>
                                 @endif
                             </td>
+                            <td>{{$project->project_id}}</td>
+                            <td>{{$project->project_name}}</td>
+                            <td>{{$data['projectTypes'][$project->project_type]->item_content}}</td>
+                            <td>{{$data['projectOrigins'][$project->project_origin]->item_content}}</td>
+                            <td>{{$project->require_for_student}}</td>
+                            <td>{{$project->teacher_name}}</td>
+                            <td>{{$project->positional_title}}</td>
                         </tr>
                     @endforeach
                     </tbody>

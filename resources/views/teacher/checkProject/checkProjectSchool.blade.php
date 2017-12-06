@@ -36,6 +36,7 @@
                         </label>
                         <!-- END SELECT ALL -->
                     </th>
+                    <th>审查</th>
                     <th>序号</th>
                     <th>课题名称</th>
                     <th>课题类型</th>
@@ -44,7 +45,6 @@
                     <th>教师</th>
                     <th>职称</th>
                     <th>课题审查状态</th>
-                    <th>审查</th>
                 </tr>
                 </thead>
                 <form class="form-horizontal" id="projectsForm" role="form" method="post" action="{{url('/createProject/adoptProjectsSchool')}}">
@@ -58,6 +58,9 @@
                             <span></span>
                         </label>
                     </td>
+                    <td>
+                        <a href="{{url('/createProject/checkProjectDetailSchool', $project->project_id)}}"><span class="label label-primary">审查</span></a>
+                    </td>
                     <td>{{$project->project_id}}</td>
                     <td>{{$project->project_name}}</td>
                     <td>{{$data['projectTypes'][$project->project_type]->item_content}}</td>
@@ -65,10 +68,7 @@
                     <td>{{$project->require_for_student}}</td>
                     <td>{{$project->teacher_name}}</td>
                     <td>{{$project->positional_title}}</td>
-                    <td><span class="label label-success">学院审查通过</span></td>
-                    <td>
-                        <a href="{{url('/createProject/checkProjectDetailSchool', $project->project_id)}}"><span class="label label-info">审查</span></a>
-                    </td>
+                    <td><i class="fa fa-spinner fa-spin"></i>题目待审</td>
                 </tr>
                 @endforeach
                 </tbody>
