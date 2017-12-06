@@ -43,6 +43,7 @@ class SelectProjectController extends Controller
             ->where('college_info_id', $request->user()->getUserInfo()->college_info_id)
             ->where('session_id', ItemSetInfo::getCurrentSessionItemSetObj()->item_content_id)
             ->where('project_declaration_status', '5')                       //课题申报状态为5学校审查通过
+            ->where('project_choice_status', '0')                               //'0'未被选
             ->paginate($pageNum);
         //获取选项编号
         $projectTypes = ItemSetInfo::where('item_no', config('constants.ITEM_PROJECT_TYPE'))->get();

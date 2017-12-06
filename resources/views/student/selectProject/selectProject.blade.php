@@ -65,7 +65,7 @@
     <!-- SELECT PROJECT TABLE -->
     <div class="panel">
         <div class="panel-heading">
-            <h3 class="panel-title">选择课题</h3>
+            <h3 class="panel-title">可选课题</h3>
         </div>
         <div class="panel-body no-padding">
             <table class="table table-hover">
@@ -107,7 +107,7 @@
                                 @if($data['selected'] || $project->project_choice_status == '1')
                                     <span class="label label-default">申请该题</span>
                                 @else
-                                    <a href="{{url('/select', $project->project_id)}}"><span class="label label-info">申请该题</span></a>
+                                    <a href="{{url('/select', $project->project_id)}}"><span class="label label-primary">申请该题</span></a>
                                 @endif
                             </td>
                         </tr>

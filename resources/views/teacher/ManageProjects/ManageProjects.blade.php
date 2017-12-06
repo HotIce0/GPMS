@@ -67,7 +67,7 @@
     <!-- MY PROJECTS STATUS -->
     <div class="panel">
         <div class="panel-heading">
-            <h3 class="panel-title">我的课题状态</h3>
+            <h3 class="panel-title">我的课题</h3>
         </div>
         <div class="panel-body no-padding">
             <table class="table table-hover">
@@ -141,6 +141,7 @@
                                 {{--审查通过状态--}}
                             @elseif($project->project_declaration_status == '6')
                                 {{--学校审查未通过状态--}}
+                                <a href="{{url('createProject/projectChecklist', $project->project_id), $project->project_id}}"><span class="label label-info">编辑</span></a>
                                 <a href="{{url('createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
                             @endif
                         </td>
