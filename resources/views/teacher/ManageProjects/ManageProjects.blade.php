@@ -138,7 +138,7 @@
                         @elseif($project->project_declaration_status == '3')
                             <i class="fa fa-spinner fa-spin"></i>等待学校审查
                         @elseif($project->project_declaration_status == '4')
-                            <span style="color: red">院部审查未通过</span>
+                            <span style="color: red"><i class="fa fa-warning"></i>院部审查未通过</span>
                         @elseif($project->project_declaration_status == '5')
                             <span style="color: green"><i class="fa fa-check-circle"></i>审查通过</span>
                         @elseif($project->project_declaration_status == '6')

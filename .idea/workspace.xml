@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f59932d6-a1f0-47e2-b3bf-55a0f6cb6f44" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/student/selectProject/selectProject.blade.php" afterPath="$PROJECT_DIR$/resources/views/student/selectProject/selectProject.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/teacher/ManageProjects/ManageProjects.blade.php" afterPath="$PROJECT_DIR$/resources/views/teacher/ManageProjects/ManageProjects.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/teacher/checkProject/checkProject.blade.php" afterPath="$PROJECT_DIR$/resources/views/teacher/checkProject/checkProject.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/teacher/checkProject/checkProjectSchool.blade.php" afterPath="$PROJECT_DIR$/resources/views/teacher/checkProject/checkProjectSchool.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/teacher/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/teacher/sidebar.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,16 +13,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ManageProjects.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ManageProjects.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/teacher/ManageProjects/ManageProjects.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="138" column="71" lean-forward="true" selection-start-line="138" selection-start-column="71" selection-end-line="138" selection-end-column="71" />
+            <state relative-caret-position="385">
+              <caret line="140" column="82" lean-forward="false" selection-start-line="140" selection-start-column="82" selection-end-line="140" selection-end-column="82" />
               <folding>
                 <element signature="e#3489#3495#0#HTML" expanded="true" />
                 <element signature="e#7904#7922#0#HTML" expanded="true" />
-                <element signature="e#8049#8069#0#HTML" expanded="true" />
-                <element signature="e#8227#8245#0#HTML" expanded="true" />
+                <element signature="e#8078#8098#0#HTML" expanded="true" />
+                <element signature="e#8256#8274#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -44,7 +38,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="checkProjectSchool.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="checkProjectSchool.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/teacher/checkProject/checkProjectSchool.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="440">
@@ -110,9 +104,9 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Teacher/ProjectChecklistController.php" />
         <option value="$PROJECT_DIR$/resources/views/teacher/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/student/selectProject/selectProject.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/teacher/ManageProjects/ManageProjects.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/teacher/checkProject/checkProject.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/teacher/checkProject/checkProjectSchool.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/teacher/ManageProjects/ManageProjects.blade.php" />
       </list>
     </option>
   </component>
@@ -130,7 +124,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="218" />
     <option name="y" value="100" />
     <option name="width" value="1180" />
@@ -273,15 +267,15 @@
       <updated>1511074502508</updated>
       <workItem from="1511074507432" duration="17266000" />
       <workItem from="1511503711552" duration="2726000" />
-      <workItem from="1512579205985" duration="2648000" />
+      <workItem from="1512579205985" duration="2819000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42744000" />
+    <option name="totallyTimeSpent" value="42915000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="886" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -663,19 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/teacher/ManageProjects/ManageProjects.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="138" column="71" lean-forward="true" selection-start-line="138" selection-start-column="71" selection-end-line="138" selection-end-column="71" />
-          <folding>
-            <element signature="e#3489#3495#0#HTML" expanded="true" />
-            <element signature="e#7904#7922#0#HTML" expanded="true" />
-            <element signature="e#8049#8069#0#HTML" expanded="true" />
-            <element signature="e#8227#8245#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/teacher/checkProject/checkProject.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -689,6 +670,19 @@
         <state relative-caret-position="440">
           <caret line="70" column="70" lean-forward="false" selection-start-line="70" selection-start-column="70" selection-end-line="70" selection-end-column="70" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/teacher/ManageProjects/ManageProjects.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="140" column="82" lean-forward="false" selection-start-line="140" selection-start-column="82" selection-end-line="140" selection-end-column="82" />
+          <folding>
+            <element signature="e#3489#3495#0#HTML" expanded="true" />
+            <element signature="e#7904#7922#0#HTML" expanded="true" />
+            <element signature="e#8078#8098#0#HTML" expanded="true" />
+            <element signature="e#8256#8274#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
