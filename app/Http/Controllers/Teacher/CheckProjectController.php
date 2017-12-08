@@ -30,10 +30,9 @@ class CheckProjectController extends Controller
         $pageNum = null;
         if($request->has('selectPages'))
             Session::put('selectPages', $request->selectPages > 0 ? $request->selectPages : 10);
-        if(Session::has('selectPages'))
-            $pageNum = Session::get('selectPages', 10);
-        else
+        if(!Session::has('selectPages'))
             Session::put('selectPages', 10);
+        $pageNum = Session::get('selectPages', 10);
         //本届本学院的所有指导教师提交的选题
         $data['projects'] = DB::table('t_teacher_info')
             ->join(

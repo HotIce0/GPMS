@@ -29,10 +29,9 @@ class ManageProjectsController extends Controller
         $pageNum = null;
         if($request->has('selectPages'))
             Session::put('selectPages', $request->selectPages > 0 ? $request->selectPages : 10);
-        if(Session::has('selectPages'))
-            $pageNum = Session::get('selectPages', 10);
-        else
+        if(!Session::has('selectPages'))
             Session::put('selectPages', 10);
+        $pageNum = Session::get('selectPages', 10);
         //获取该教师该届全部选题
         $data['projects'] = ProjectChoice::where('teacher_job_number', $request->user()->getUserInfo()->teacher_job_number)
             ->where('session_id', ItemSetInfo::getCurrentSessionItemSetObj()->item_content_id)
