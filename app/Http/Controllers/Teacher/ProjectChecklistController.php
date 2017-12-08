@@ -113,11 +113,12 @@ class ProjectChecklistController extends Controller
         }
         //如果存在studentSelect，代表指定了学生
         if($request->has('studentSelect'))
+        {
             $newProjectChoice->project_choice_status = '1';                                                   //选题1已被选
+            $newProjectChoice->student_number = $request->studentSelect;
+        }
         else
             $newProjectChoice->project_choice_status = '0';                                                   //选题0未被选
-        $newProjectChoice->student_number = $request->studentSelect;
-
         $newProjectChoice->session_id = $currentSession->item_content_id;
         $newProjectChoice->teacher_job_number = $request->user()->getUserInfo()->teacher_job_number;
         if($newProjectChoice->save()){
