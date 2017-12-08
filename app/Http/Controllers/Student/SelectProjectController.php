@@ -33,7 +33,7 @@ class SelectProjectController extends Controller
             Session::put('selectPages', 10);
         $pageNum = Session::get('selectPages', 10);
         //本届本学院的所有学校审查通过的选题
-        $data['projects'] = DB::table('t_teacher_info')
+        $projects = DB::table('t_teacher_info')
             ->join(
                 't_project_choice',
                 't_teacher_info.teacher_job_number',
@@ -42,8 +42,10 @@ class SelectProjectController extends Controller
             ->where('project_choice_status', '0')                             //'0'未被选
             ->where('project_declaration_status', '5')                       //课题申报状态为5学校审查通过
             ->where('college_info_id', $request->user()->getUserInfo()->college_info_id)
-            ->where('session_id', ItemSetInfo::getCurrentSessionItemSetObj()->item_content_id)
-            ->paginate($pageNum);
+            ->where('session_id', ItemSetInfo::getCurrentSessionItemSetObj()->item_content_id);
+        if($request->has('teacherName'))
+            $projects->where('teacher_name', 'like', '%'.$request->teacherName.'%');
+        $data['projects'] = $projects->paginate($pageNum);
         //获取选项编号
         $projectTypes = ItemSetInfo::where('item_no', config('constants.ITEM_PROJECT_TYPE'))->get();
         $projectOrigins = ItemSetInfo::where('item_no', config('constants.ITEM_PROJECT_ORIGIN'))->get();

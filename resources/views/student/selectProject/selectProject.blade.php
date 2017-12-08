@@ -25,11 +25,11 @@
             <div class="panel-heading">
                 <h3 class="panel-title">您选择的课题</h3>
                 <div class="right">
-                    <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                    {{--<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>--}}
                     <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
                 </div>
             </div>
-            <div class="panel-body">
+            {{--<div class="panel-body">--}}
                 <table class="table table-hover">
                     <thead>
                     <tr>
@@ -56,16 +56,36 @@
                     </tr>
                     </tbody>
                 </table>
-            </div>
+            {{--</div>--}}
         </div>
     @endif
     <!-- END MY SELECTED PROJECT -->
     <!-- SELECT PROJECT TABLE -->
     <div class="panel">
         <div class="panel-heading">
-            <h3 class="panel-title">可选课题</h3>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 col-lg-8">
+                        <h3 class="panel-title">可选课题</h3>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-lg-4">
+                        <form role="form" class="form-horizontal" method="get" action="{{url('selectProject')}}" id="searchTeacherForm">
+                            <div class="input-group">
+                                <input class="form-control" name="teacherName" type="text" placeholder="请输入教师姓名">
+                                <span class="input-group-btn"><a onclick="searchTeacher()" class="btn btn-primary">搜索</a></span>
+                            </div>
+                            <script type="text/javascript">
+                                function searchTeacher() {
+                                    document.getElementById("searchTeacherForm").submit();
+                                }
+                            </script>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="panel-body no-padding">
+        {{--<div class="panel-body no-padding">--}}
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -104,27 +124,36 @@
                     </tbody>
                 </form>
             </table>
-        </div>
+        {{--</div>--}}
         <div class="panel-footer">
-            <div class="col-md-2">
-                <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('selectProject')}}">
-                    {{csrf_field()}}
-                    <div class="form-group">
-                        <select title="显示行数" id="selectPages" name="selectPages" class="form-control field">
-                            <option value="10" id="10">显示10行</option>
-                            <option value="25" id="25">显示25行</option>
-                            <option value="50" id="50">显示50行</option>
-                            <option value="100" id="100">显示100行</option>
-                            <option value="250" id="250">显示250行</option>
-                            <option value="500" id="500">显示500行</option>
-                        </select>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 col-sm-2 col-lg-2">
+                        <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('selectProject')}}">
+                            {{csrf_field()}}
+                            <div class="form-group">
+                                <select title="显示行数" id="selectPages" name="selectPages" class="form-control field">
+                                    <option value="10" id="10">显示10行</option>
+                                    <option value="25" id="25">显示25行</option>
+                                    <option value="50" id="50">显示50行</option>
+                                    <option value="100" id="100">显示100行</option>
+                                    <option value="250" id="250">显示250行</option>
+                                    <option value="500" id="500">显示500行</option>
+                                </select>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
     <!-- END SELECT PROJECT TABLE -->
     {!! $data['projects']->links() !!}
+    {{--<div class="panel">--}}
+
+
+    {{--</div>--}}
+
     <p style="display: none" id="SelectPages">{{Session::get('selectPages')}}</p>
 @endsection
 

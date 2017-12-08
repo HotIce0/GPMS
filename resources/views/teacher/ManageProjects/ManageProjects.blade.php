@@ -75,105 +75,107 @@
                 </div>
             @endcan
         </div>
-        <div class="panel-body no-padding">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    {{-- 2.6教师操作自己的选题申请的权限 --}}
-                    @can('permission', '2.6')
-                        <th>操作</th>
-                    @endcan
-                    <th>序号</th>
-                    <th>课题名称</th>
-                    <th>课题类型</th>
-                    <th>课题来源</th>
-                    <th>对学生要求</th>
-                    <th>课题申报状态</th>
-                    <th>修改意见</th>
-                </tr>
-                </thead>
-                <form class="form-horizontal" id="projectsForm" role="form" method="post" action="{{url('/createProject/adoptProjects')}}">
-                    {{csrf_field()}}
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                {{-- 2.6教师操作自己的选题申请的权限 --}}
+                @can('permission', '2.6')
+                    <th>操作</th>
+                @endcan
+                <th>序号</th>
+                <th>课题名称</th>
+                <th>课题类型</th>
+                <th>课题来源</th>
+                <th>对学生要求</th>
+                <th>课题申报状态</th>
+                <th>修改意见</th>
+            </tr>
+            </thead>
+            <form class="form-horizontal" id="projectsForm" role="form" method="post" action="{{url('/createProject/adoptProjects')}}">
+                {{csrf_field()}}
                 <tbody>
                 @foreach($data['projects'] as $project)
-                <tr>
-                    {{-- 2.6教师操作自己的选题申请的权限 --}}
-                    @can('permission', '2.6')
-                        {{--操作--}}
+                    <tr>
+                        {{-- 2.6教师操作自己的选题申请的权限 --}}
+                        @can('permission', '2.6')
+                            {{--操作--}}
+                            <td>
+                                @if($project->project_declaration_status == '1')
+                                    {{--暂存状态--}}
+                                    <a href="{{url('createProject/projectChecklist', $project->project_id), $project->project_id}}"><span class="label label-primary">编辑</span></a>
+                                    <a href="{{url('createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
+                                @elseif($project->project_declaration_status == '2')
+                                    {{--等待院部审查状态--}}
+                                    <a href="{{url('createProject/cancelProjectApplication', $project->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a>
+                                @elseif($project->project_declaration_status == '3')
+                                    {{--等待学校审查状态--}}
+                                    <a href="{{url('createProject/cancelProjectApplication', $project->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a>
+                                @elseif($project->project_declaration_status == '4')
+                                    {{--院部审查未通过状态--}}
+                                    <a href="{{url('createProject/projectChecklist', $project->project_id), $project->project_id}}"><span class="label label-primary">编辑</span></a>
+                                    <a href="{{url('createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
+                                @elseif($project->project_declaration_status == '5')
+                                    {{--审查通过状态--}}
+                                @elseif($project->project_declaration_status == '6')
+                                    {{--学校审查未通过状态--}}
+                                    <a href="{{url('createProject/projectChecklist', $project->project_id), $project->project_id}}"><span class="label label-primary">编辑</span></a>
+                                    <a href="{{url('createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
+                                @endif
+                            </td>
+                        @endcan
+                        <td>{{$project->project_id}}</td>
+                        <td>{{$project->project_name}}</td>
+                        <td>{{$data['projectTypes'][$project->project_type]->item_content}}</td>
+                        <td>{{$data['projectOrigins'][$project->project_origin]->item_content}}</td>
+                        <td>{{$project->require_for_student}}</td>
+                        {{--课题申报状态--}}
                         <td>
                             @if($project->project_declaration_status == '1')
-                                {{--暂存状态--}}
-                                <a href="{{url('createProject/projectChecklist', $project->project_id), $project->project_id}}"><span class="label label-primary">编辑</span></a>
-                                <a href="{{url('createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
+                                暂存
                             @elseif($project->project_declaration_status == '2')
-                                {{--等待院部审查状态--}}
-                                <a href="{{url('createProject/cancelProjectApplication', $project->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a>
+                                <i class="fa fa-spinner fa-spin"></i>等待院部审查
                             @elseif($project->project_declaration_status == '3')
-                                {{--等待学校审查状态--}}
-                                <a href="{{url('createProject/cancelProjectApplication', $project->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a>
+                                <i class="fa fa-spinner fa-spin"></i>等待学校审查
                             @elseif($project->project_declaration_status == '4')
-                                {{--院部审查未通过状态--}}
-                                <a href="{{url('createProject/projectChecklist', $project->project_id), $project->project_id}}"><span class="label label-primary">编辑</span></a>
-                                <a href="{{url('createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
+                                <span style="color: red"><i class="fa fa-warning"></i>院部审查未通过</span>
                             @elseif($project->project_declaration_status == '5')
-                                {{--审查通过状态--}}
+                                <span style="color: green"><i class="fa fa-check-circle"></i>审查通过</span>
                             @elseif($project->project_declaration_status == '6')
-                                {{--学校审查未通过状态--}}
-                                <a href="{{url('createProject/projectChecklist', $project->project_id), $project->project_id}}"><span class="label label-primary">编辑</span></a>
-                                <a href="{{url('createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
+                                <span style="color: red"><i class="fa fa-warning"></i>学校审查未通过</span>
                             @endif
                         </td>
-                    @endcan
-                    <td>{{$project->project_id}}</td>
-                    <td>{{$project->project_name}}</td>
-                    <td>{{$data['projectTypes'][$project->project_type]->item_content}}</td>
-                    <td>{{$data['projectOrigins'][$project->project_origin]->item_content}}</td>
-                    <td>{{$project->require_for_student}}</td>
-                    {{--课题申报状态--}}
-                    <td>
-                        @if($project->project_declaration_status == '1')
-                            暂存
-                        @elseif($project->project_declaration_status == '2')
-                            <i class="fa fa-spinner fa-spin"></i>等待院部审查
-                        @elseif($project->project_declaration_status == '3')
-                            <i class="fa fa-spinner fa-spin"></i>等待学校审查
-                        @elseif($project->project_declaration_status == '4')
-                            <span style="color: red"><i class="fa fa-warning"></i>院部审查未通过</span>
-                        @elseif($project->project_declaration_status == '5')
-                            <span style="color: green"><i class="fa fa-check-circle"></i>审查通过</span>
-                        @elseif($project->project_declaration_status == '6')
-                            <span style="color: red"><i class="fa fa-warning"></i>学校审查未通过</span>
-                        @endif
-                    </td>
-                    {{--修改意见--}}
-                    <td>
-                        @if($project->amendment == null)
-                            无
-                        @else
-                            {{$project->amendment}}
-                        @endif
-                    </td>
-                </tr>
+                        {{--修改意见--}}
+                        <td>
+                            @if($project->amendment == null)
+                                无
+                            @else
+                                {{$project->amendment}}
+                            @endif
+                        </td>
+                    </tr>
                 @endforeach
                 </tbody>
-                </form>
-            </table>
-        </div>
+            </form>
+        </table>
         <div class="panel-footer">
-            <div class="col-md-2">
-                <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('createProject/ManageProjects')}}">
-                    {{csrf_field()}}
-                    <div class="form-group">
-                        <select title="显示行数" id="selectPages" name="selectPages" class="form-control field">
-                            <option value="10" id="10">显示10行</option>
-                            <option value="25" id="25">显示25行</option>
-                            <option value="50" id="50">显示50行</option>
-                            <option value="100" id="100">显示100行</option>
-                            <option value="250" id="250">显示250行</option>
-                            <option value="500" id="500">显示500行</option>
-                        </select>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('createProject/ManageProjects')}}">
+                            {{csrf_field()}}
+                            <div class="form-group">
+                                <select title="显示行数" id="selectPages" name="selectPages" class="form-control field">
+                                    <option value="10" id="10">显示10行</option>
+                                    <option value="25" id="25">显示25行</option>
+                                    <option value="50" id="50">显示50行</option>
+                                    <option value="100" id="100">显示100行</option>
+                                    <option value="250" id="250">显示250行</option>
+                                    <option value="500" id="500">显示500行</option>
+                                </select>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
