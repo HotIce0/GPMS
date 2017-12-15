@@ -2,12 +2,13 @@
 //By Sao Guang
 
 namespace App\Http\Controllers\Student;
-
+use App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Models\OpeningReport;
 use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
 
 class StudentIndexController extends Controller
 {
@@ -19,6 +20,7 @@ class StudentIndexController extends Controller
     {
         return view('student.opening_write');
     }
+
     public function submit(\Illuminate\Http\Request $request){
 //            if(!$request->user()->hasPermission('submitOpeningReport'))
 //            {
@@ -38,12 +40,11 @@ class StudentIndexController extends Controller
             $openingreport->opening_report_content1 = $request->four;
             $openingreport->creator =$request->user()->user_id;
             $openingreport->save();
-
-
     }
     public function my_opening()
     {
-        $my = DB::table('t_opening_report')->paginate(5);
+        $my = DB::table('t_opening_report')->where('creator',Auth::user()->user_id)->paginate(5);
+
         return view('student.my_opening', ['my' => $my]);
     }
 }

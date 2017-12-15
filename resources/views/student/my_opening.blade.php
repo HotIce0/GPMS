@@ -19,7 +19,6 @@
             <tbody>
 
             @foreach ($my as $mine)
-                @if(Auth::user()->user_id == $mine->creator)
                         <tr>
                             <td><button class="btn btn-link" value="">查看</button><button class="btn btn-danger" value="">删除</button></td>
                             <td>{{ $mine->opening_report_id }}</td>
@@ -34,9 +33,6 @@
                                 <td style="color: blue">{{$mine->opening_report_status}}</td>
                             @endif
                         </tr>
-                @else
-                    @continue
-                @endif
             @endforeach
             </tbody>
         </table>
