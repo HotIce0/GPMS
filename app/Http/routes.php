@@ -28,7 +28,9 @@ Route::Group(['middleware'=>'auth'],function() {
      * 学生路由 *
      ***********/
     Route::get('/student', 'Student\StudentIndexController@index');
-
+    Route::get('/open','Student\StudentIndexController@open');
+    Route::post('/student/open','Student\StudentIndexController@submit');
+    Route::get('/my_opening','Student\StudentIndexController@my_opening');
     /************
      * 教师路由 *
      ***********/
@@ -41,6 +43,7 @@ Route::Group(['middleware'=>'auth'],function() {
      * 管理员路由 *
      *************/
     Route::get('/admin', 'Admin\AdminIndexController@index');
+    Route::get('/summary','Admin\AdminIndexController@summary');
 });
 
 
@@ -51,4 +54,9 @@ Route::get('/setPermission', function (){
     dd( \App\Http\Models\Role::find(1)
         ->first()
         ->setPermission('1.1'));
+});
+
+//页面测试 By xcc
+Route::get('/test',function (){
+    return view('student.index');
 });

@@ -4,12 +4,46 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Http\Models\OpeningReport;
+use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class StudentIndexController extends Controller
 {
     public function index()
     {
         return view('student.index');
+    }
+    public function open()
+    {
+        return view('student.opening_write');
+    }
+    public function submit(\Illuminate\Http\Request $request){
+//            if(!$request->user()->hasPermission('submitOpeningReport'))
+//            {
+//                exit('error!');
+//            }
+            $openingreport = new OpeningReport;
+            $openingreport->project_id = 11;
+            $openingreport->version_number = 1;
+            $openingreport->submit_date = date('y-m-d h:i:s');
+            //$openingreport->teacher_view='不知道';
+            //$openingreport->section_view='拉拉看了';
+            //$openingreport->teacher_job_number='mmp1';
+            $openingreport->opening_report_status = '审查中';
+            $openingreport->opening_report_content1 = $request->one;
+            $openingreport->opening_report_content2 = $request->two;
+            $openingreport->opening_report_content3 = $request->three;
+            $openingreport->opening_report_content1 = $request->four;
+            $openingreport->creator =$request->user()->user_id;
+            $openingreport->save();
+
+
+    }
+    public function my_opening()
+    {
+        $my = DB::table('t_opening_report')->paginate(5);
+        return view('student.my_opening', ['my' => $my]);
     }
 }

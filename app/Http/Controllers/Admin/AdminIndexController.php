@@ -12,4 +12,8 @@ class AdminIndexController extends Controller
     {
         return view('admin.index');
     }
+    public function summary()
+    {
+        return view('admin.summary_table');
+    }
 }

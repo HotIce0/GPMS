@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title></title>
+    <title>首页</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -43,7 +43,7 @@
                         @yield('notification')
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="assets/img/user.png" class="img-circle" alt="Avatar">
+                                <img src="{{asset('assets/img/apple-icon.png')}}" class="img-circle" alt="Avatar">
                                 <span>{{Auth::user()->user_name}}</span>
                                 <i class="icon-submenu lnr lnr-chevron-down"></i>
                             </a>
