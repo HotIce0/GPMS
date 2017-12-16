@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
+
 class StudentIndexController extends Controller
 {
     public function index()
@@ -46,5 +47,10 @@ class StudentIndexController extends Controller
         $my = DB::table('t_opening_report')->where('creator',Auth::user()->user_id)->paginate(5);
 
         return view('student.my_opening', ['my' => $my]);
+    }
+    public function open_looking($opening_report_id){
+//        $look =DB::table('t_opening_report')->where('opening_report_id',$mine->opening_report_id);
+        $look =OpeningReport::findOrFail($opening_report_id);
+        return view('student.open_looking',['look'=>$look]);
     }
 }

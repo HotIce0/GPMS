@@ -31,6 +31,7 @@ Route::Group(['middleware'=>'auth'],function() {
     Route::get('/open','Student\StudentIndexController@open');
     Route::post('/student/open','Student\StudentIndexController@submit');
     Route::get('/my_opening','Student\StudentIndexController@my_opening');
+    Route::get('/open_looking/{opening_report_id}','Student\StudentIndexController@open_looking');
     /************
      * 教师路由 *
      ***********/
