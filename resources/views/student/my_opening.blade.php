@@ -21,8 +21,8 @@
             @foreach ($my as $mine)
                         <tr>
                             <td>
-                                <a href="{{url('/open_looking')}}/{{$mine->opening_report_id}}"><button class="btn btn-link" value="">查看</button></a>
-                                <a href="/"><button class="btn btn-danger" value="">删除</button></a>
+                                <a href="{{url('/open_looking')}}/{{$mine->opening_report_id}}/{{$mine->project_id}}"><button class="btn btn-link" value="">查看</button></a>
+                                <a href="{{url('/open_delete')}}/{{$mine->opening_report_id}}"><button class="btn btn-danger" value="">删除</button></a>
                             </td>
                             <td>{{ $mine->opening_report_id }}</td>
                             <td>{{ $mine->opening_report_content1 }}</td>

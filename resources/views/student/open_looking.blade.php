@@ -4,7 +4,7 @@
     @include('student.sidebar')
 @endsection
 @section('content')
-    <form action="{{url('/student/open')}}" method="post">
+    <form action="{{url('/open_looking')}}" method="post">
         <div class="main">
             <!-- MAIN CONTENT -->
             <div class="main-content">
@@ -16,12 +16,12 @@
                                 <div class="panel-body">
                                     <div class="input-group">
                                         <span class="input-group-addon">课题名称</span>
-                                        <input class="form-control" type="text">
+                                        <input class="form-control" type="text" value="{{$project->project_name}}">
                                     </div>
                                     <br>
                                     <div class="input-group">
                                         <span class="input-group-addon">指导老师</span>
-                                        <input class="form-control" type="text">
+                                        <input class="form-control" type="text" value="{{$t->teacher_name}}">
                                     </div>
                                     <br>
                                     <div class="">
@@ -42,6 +42,26 @@
                                         <h5>四：</h5>
                                         <textarea rows="5" name="four" style="resize: none" class="form-control" placeholder="主要参考文献">{{$look->opening_report_content4}}</textarea>
                                     </div>
+                                    @if($look->opening_report_status == '过审')
+                                        <div class="">
+                                            <h5>五：指导老师意见</h5>
+                                            <textarea rows="5" name="four" style="resize: none" class="form-control" placeholder="无" readonly>{{$look->teacher_view}}</textarea>
+                                        </div>
+                                        <div class="">
+                                            <h5>六：教研室意见</h5>
+                                            <textarea rows="5" name="four" style="resize: none" class="form-control" placeholder="无" readonly>{{$look->section_view}}</textarea>
+                                        </div>
+                                        <div class="">
+                                            <h5>七：教研室负责人</h5>
+                                            <textarea rows="5" name="four" style="resize: none" class="form-control" placeholder="无" readonly>{{$look->teacher_job_number}}</textarea>
+                                        </div>
+                                    @endif
+                                    @if($look->opening_report_status == '未过审')
+                                        <div class="">
+                                            <h5>八：修改意见</h5>
+                                            <textarea rows="5" name="four" style="resize: none" class="form-control" placeholder="无" readonly>{{$look->amendment}}</textarea>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="panel-footer text-center">
                                     {{csrf_field()}}
