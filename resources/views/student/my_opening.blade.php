@@ -17,7 +17,6 @@
             </tr>
             </thead>
             <tbody>
-
             @foreach ($my as $mine)
                         <tr>
                             <td>

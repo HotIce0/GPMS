@@ -16,12 +16,12 @@
                                 <div class="panel-body">
                                     <div class="input-group">
                                         <span class="input-group-addon">课题名称</span>
-                                        <input class="form-control" type="text">
+                                        <input class="form-control" type="text" name="opening_name">
                                     </div>
                                     <br>
                                     <div class="input-group">
                                         <span class="input-group-addon">指导老师</span>
-                                        <input class="form-control" type="text">
+                                        <input class="form-control" type="text" name="opening_teacher">
                                     </div>
                                     <br>
                                     <div class="">

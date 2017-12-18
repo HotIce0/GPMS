@@ -29,8 +29,17 @@ class StudentIndexController extends Controller
 //            {
 //                exit('error!');
 //            }
+        $o=ProjectChoice::where('project_name',$request->opening_name)->first();
         $openingreport = new OpeningReport;
-        $openingreport->project_id = 11;
+//        $openingreport->project_id = 11;
+        if($o)
+        {
+            $openingreport->project_id = $o->project_id;
+        }
+        else
+        {
+            $openingreport->project_id = 11;
+        }
         $openingreport->version_number = 1;
         $openingreport->submit_date = date('y-m-d h:i:s');
         //$openingreport->teacher_view='不知道';
@@ -42,11 +51,14 @@ class StudentIndexController extends Controller
         $openingreport->opening_report_content3 = $request->three;
         $openingreport->opening_report_content4 = $request->four;
         $openingreport->creator =$request->user()->user_id;
-        $openingreport->save();
+        if($openingreport->save())
+        {
+            return redirect('/my_opening');
+        }
     }
     public function my_opening()
     {
-        $my = DB::table('t_opening_report')->where('creator',Auth::user()->user_id)->paginate(5);
+        $my = DB::table('t_opening_report')->where('creator',Auth::user()->user_id)->orderby("opening_report_id","desc")->paginate(5);
 
         return view('student.my_opening', ['my' => $my]);
     }
