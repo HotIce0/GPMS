@@ -40,7 +40,7 @@ Route::Group(['middleware'=>'auth'],function() {
     //出题模块 By Sao Guang
     /*出题页面*/
     Route::get('/projectChecklist', 'Teacher\ProjectChecklistController@index');
-
+    Route::get('/student_opening','Teacher\TeacherIndexController@student_opening');
     /**************
      * 管理员路由 *
      *************/
