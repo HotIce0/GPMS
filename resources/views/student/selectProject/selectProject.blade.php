@@ -52,7 +52,12 @@
                         <td>{{$data['selectedProject']->require_for_student}}</td>
                         <td>{{$data['selectedProjectTeacherInfo']->teacher_name}}</td>
                         <td>{{$data['selectedProjectTeacherInfo']->positional_title}}</td>
-                        <td><a href="{{url('/cancelSelect', $data['selectedProject']->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a></td>
+                        {{--取消申请操作, 课题被选状态1代表课题已被选--}}
+                        @if($data['selectedProject']->project_choice_status == '1')
+                            <td><a href="{{url('/cancelSelect', $data['selectedProject']->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a></td>
+                        @elseif($data['selectedProject']->project_choice_status == '2'){{--课题被选状态2，代表课题已确定，无法取消--}}
+                            <td><span style="color: green"><i class="fa fa-check-circle"></i>选课申请已被采纳</span></td>
+                        @endif
                     </tr>
                     </tbody>
                 </table>

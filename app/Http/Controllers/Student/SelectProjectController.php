@@ -118,11 +118,15 @@ class SelectProjectController extends Controller
         //该题用户并没选择
         if(!($project->student_number = $request->user()->getUserInfo()->student_number))
             return response()->view('errors.503');
-        $project->student_number = '0';
-        $project->project_choice_status = '0';                             //课题被选状态0 未被选
-        if($project->save())
-            return redirect()->back()->with('successMsg', '题目申请取消成功!');
-        else
+        if($project->project_choice_status == '1')                         //课题被选状态1 已被选
+        {
+            $project->student_number = '0';
+            $project->project_choice_status = '0';                             //课题被选状态0 未被选
+            if($project->save())
+                return redirect()->back()->with('successMsg', '题目申请取消成功!');
+            else
+                return response()->view('errors.503');
+        }else
             return response()->view('errors.503');
     }
 }
