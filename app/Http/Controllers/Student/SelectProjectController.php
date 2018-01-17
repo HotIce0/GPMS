@@ -43,8 +43,11 @@ class SelectProjectController extends Controller
             ->where('project_declaration_status', '5')                       //课题申报状态为5学校审查通过
             ->where('college_info_id', $request->user()->getUserInfo()->college_info_id)
             ->where('session_id', ItemSetInfo::getCurrentSessionItemSetObj()->item_content_id);
-        if($request->has('teacherName'))
-            $projects->where('teacher_name', 'like', '%'.$request->teacherName.'%');
+        //搜索教师的姓名
+        if($request->has('teacherName')) {
+            $projects->where('teacher_name', 'like', '%' . $request->teacherName . '%');
+            $pageNum = count($projects->get());                                     //搜索结果全部显示
+        }
         $data['projects'] = $projects->paginate($pageNum);
         //获取选项编号
         $projectTypes = ItemSetInfo::where('item_no', config('constants.ITEM_PROJECT_TYPE'))->get();

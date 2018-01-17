@@ -57,6 +57,8 @@ Route::Group(['middleware'=>'auth'],function() {
         Route::get('ManageProjects', 'Teacher\ManageProjectsController@index');
         Route::get('deleteProject/{id}', 'Teacher\ManageProjectsController@deleteProejct');
         Route::get('cancelProjectApplication/{id}', 'Teacher\ManageProjectsController@cancelProjectApplication');
+        Route::get('confirmStudentProjectApplication/{id}', 'Teacher\ManageProjectsController@confirmStudentProjectApplication');
+        Route::get('rejectStudentProjectApplication/{id}', 'Teacher\ManageProjectsController@rejectStudentProjectApplication');
     });
 
     /**************

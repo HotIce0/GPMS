@@ -88,6 +88,7 @@
                 <th>课题来源</th>
                 <th>对学生要求</th>
                 <th>课题申报状态</th>
+                <th>题目被选状态</th>
                 <th>修改意见</th>
             </tr>
             </thead>
@@ -102,7 +103,7 @@
                             <td>
                                 @if($project->project_declaration_status == '1')
                                     {{--暂存状态--}}
-                                    <a href="{{url('createProject/projectChecklist', $project->project_id), $project->project_id}}"><span class="label label-primary">编辑</span></a>
+                                    <a href="{{url('createProject/projectChecklist', $project->project_id)}}"><span class="label label-primary">编辑</span></a>
                                     <a href="{{url('createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
                                 @elseif($project->project_declaration_status == '2')
                                     {{--等待院部审查状态--}}
@@ -112,15 +113,34 @@
                                     <a href="{{url('createProject/cancelProjectApplication', $project->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a>
                                 @elseif($project->project_declaration_status == '4')
                                     {{--院部审查未通过状态--}}
-                                    <a href="{{url('createProject/projectChecklist', $project->project_id), $project->project_id}}"><span class="label label-primary">编辑</span></a>
+                                    <a href="{{url('createProject/projectChecklist', $project->project_id)}}"><span class="label label-primary">编辑</span></a>
                                     <a href="{{url('createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
                                 @elseif($project->project_declaration_status == '5')
                                     {{--审查通过状态--}}
                                 @elseif($project->project_declaration_status == '6')
                                     {{--学校审查未通过状态--}}
-                                    <a href="{{url('createProject/projectChecklist', $project->project_id), $project->project_id}}"><span class="label label-primary">编辑</span></a>
+                                    <a href="{{url('createProject/projectChecklist', $project->project_id)}}"><span class="label label-primary">编辑</span></a>
                                     <a href="{{url('createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
                                 @endif
+                                {{--选题被选状态相关--}}
+                                @if($project->project_choice_status == '1')
+                                    {{--项目被选状态_已被选状态--}}
+                                    {{-- 2.7教师选定课题的权限 --}}
+                                    @can('permission', '2.7')
+                                            <a href="{{url('createProject/confirmStudentProjectApplication', $project->project_id)}}" onclick="return confirm('是否要确定这位学生的选题申请');"><span class="label label-primary">确定选题</span></a>
+                                    @endcan
+                                    {{-- 2.8教师退回已经选课题的学生的权限 --}}
+                                    @can('permission', '2.8')
+                                            <a href="{{url('createProject/rejectStudentProjectApplication', $project->project_id)}}" onclick="return confirm('是否要退回这位学生的选题申请');"><span class="label label-danger">退回选题</span></a>
+                                    @endcan
+                                @endif
+                                    {{--查看学生信息，在已被选和已确定的状态下--}}
+                                    @if($project->project_choice_status == '1' or $project->project_choice_status == '2')
+                                        {{-- 2.9教师查看选题申请的学生的信息的权限 --}}
+                                        @can('permission', '2.9')
+                                            <a href="{{url('#')}}"><span class="label label-primary">查看学生信息</span></a>
+                                        @endcan
+                                    @endif
                             </td>
                         @endcan
                         <td>{{$project->project_id}}</td>
@@ -142,6 +162,18 @@
                                 <span style="color: green"><i class="fa fa-check-circle"></i>审查通过</span>
                             @elseif($project->project_declaration_status == '6')
                                 <span style="color: red"><i class="fa fa-warning"></i>学校审查未通过</span>
+                            @endif
+                        </td>
+                        {{--题目被选状态--}}
+                        <td>
+                            @if($project->project_choice_status == '0')
+                                未被选
+                            @elseif($project->project_choice_status == '1')
+                                已被选
+                            @elseif($project->project_choice_status == '2')
+                                已确认
+                            @elseif($project->project_choice_status == '3')
+                                废弃
                             @endif
                         </td>
                         {{--修改意见--}}

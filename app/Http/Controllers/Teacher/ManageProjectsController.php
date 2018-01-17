@@ -104,4 +104,59 @@ class ManageProjectsController extends Controller
         }else
             return response()->view('errors.503');
     }
+    /*
+     * 选定学生选题
+     * 参数：课题申请id
+     */
+    public function confirmStudentProjectApplication(Request $request, $id)
+    {
+        //2.7教师选定课题的权限
+        if(!Auth::user()->can('permission', '2.7'))
+            return response()->view('errors.503');
+        //获取要选定的选题
+        $project = ProjectChoice::find($id);
+        if($project == null)
+            return response()->view('errors.503');
+        //如果该选题不是该教师的
+        if($project->teacher_job_number != $request->user()->getUserInfo()->teacher_job_number)
+            return response()->view('errors.503');
+        //如果课题申请状态5学校通关，课题被选状态1已被选
+        if($project->project_declaration_status == '5' and $project->project_choice_status == '1')
+        {
+            $project->project_choice_status = '2';
+            if($project->save())
+                return redirect()->back()->with('successMsg', '该条选题申请确定成功!');
+            else
+                return response()->view('errors.503');
+        }else
+            return response()->view('errors.503');
+    }
+    /*
+     * 退回选题申请
+     */
+    public function rejectStudentProjectApplication(Request $request, $id)
+    {
+        //2.8教师退回已经选课题的学生的权限
+        if(!Auth::user()->can('permission', '2.8'))
+            return response()->view('errors.503');
+        //获取要选定的选题
+        $project = ProjectChoice::find($id);
+        if($project == null)
+            return response()->view('errors.503');
+        //如果该选题不是该教师的
+        if($project->teacher_job_number != $request->user()->getUserInfo()->teacher_job_number)
+            return response()->view('errors.503');
+        //如果课题申请状态5学校通关，课题被选状态1已被选
+        if($project->project_declaration_status == '5' and $project->project_choice_status == '1')
+        {
+            //0代表未被选状态
+            $project->project_choice_status = '0';
+            $project->student_number = '0';
+            if($project->save())
+                return redirect()->back()->with('successMsg', '该条选题申请退回成功!');
+            else
+                return response()->view('errors.503');
+        }else
+            return response()->view('errors.503');
+    }
 }
