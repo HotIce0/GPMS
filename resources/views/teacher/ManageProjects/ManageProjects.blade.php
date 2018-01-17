@@ -171,7 +171,7 @@
                             @elseif($project->project_choice_status == '1')
                                 已被选
                             @elseif($project->project_choice_status == '2')
-                                已确认
+                                <span style="color: green"><i class="fa fa-check-circle"></i>已确认</span>
                             @elseif($project->project_choice_status == '3')
                                 废弃
                             @endif
