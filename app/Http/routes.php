@@ -51,5 +51,5 @@ Route::get('/setPermission', function (){
     dd( \App\Http\Models\Role::find(1)
         ->first()
         ->setPermission('1.1'));
-//    test
+
 });

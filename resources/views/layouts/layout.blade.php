@@ -34,7 +34,7 @@
         <div class="container-fluid">
             @if(!Auth::guest())
                 <div class="navbar-btn">
-                    <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+                    <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-right-circle"></i></button>
                 </div>
             @endif
             <div id="navbar-menu">
