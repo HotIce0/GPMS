@@ -7,13 +7,16 @@
                     <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>信息管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                     <div id="subPages" class="collapse ">
                         <ul class="nav">
-                            <li><a href="page-profile.html" class="">学院信息管理</a></li>
-                            <li><a href="page-login.html" class="">班级信息管理</a></li>
-                            <li><a href="page-lockscreen.html" class="">教研室信息管理</a></li>
+                            <li><a href="page-a.html" class="">教师信息管理</a></li>
+                            <li><a href="page-b.html" class="">学生信息管理</a></li>
+                            <li><a href="page-c.html" class="">专业信息管理</a></li>
+                            <li><a href="page-d.html" class="">学院信息管理</a></li>
+                            <li><a href="page-e.html" class="">班级信息管理</a></li>
+                            <li><a href="page-f.html" class="">教研室信息管理</a></li>
                         </ul>
                     </div>
                 </li>
-                <li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>没用</span></a></li>
+                <li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>暂时没用</span></a></li>
                 <li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>这个下面的</span></a></li>
                 <li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>按钮</span></a></li>
                 <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
