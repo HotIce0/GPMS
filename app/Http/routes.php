@@ -59,6 +59,8 @@ Route::Group(['middleware'=>'auth'],function() {
         Route::get('cancelProjectApplication/{id}', 'Teacher\ManageProjectsController@cancelProjectApplication');
         Route::get('confirmStudentProjectApplication/{id}', 'Teacher\ManageProjectsController@confirmStudentProjectApplication');
         Route::get('rejectStudentProjectApplication/{id}', 'Teacher\ManageProjectsController@rejectStudentProjectApplication');
+        /*管理任务书(教师查看任务书的权限编号2.10)*/
+        Route::get('manageAssignmentBook', 'Teacher\ReleaseAssignmentBookController@index');
     });
 
     /**************

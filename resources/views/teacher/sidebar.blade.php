@@ -23,7 +23,10 @@
                                 <li><a href="{{url('createProject/ManageProjects')}}" class="">我的课题</a></li>
                             @endcan
                                 <li><a href="#" class="">我的历届课题</a></li>
-
+                            {{-- 2.10 是教师查看任务书的权限 --}}
+                            @can('permission', '2.10')
+                                <li><a href="{{url('createProject/manageAssignmentBook')}}" class="">管理任务书</a></li>
+                            @endcan
                         </ul>
                     </div>
                 </li>
