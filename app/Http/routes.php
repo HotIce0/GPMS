@@ -42,13 +42,13 @@ Route::Group(['middleware'=>'auth'],function() {
      *************/
     Route::get('/admin', 'Admin\AdminIndexController@index');
 
-    Route::Group(['prefix' => 'Manage_info'], function (){//信息管理路由群
+    Route::Group(['prefix' => 'manageInfo'], function (){//信息管理路由群
         Route::get('Teacher', 'Admin\ManageInfoController@test');
         Route::get('Student', 'Admin\ManageInfoController@test');
-        Route::get('Class', 'Admin\ManageInfoController@Class_info');
+        Route::get('Class', 'Admin\ManageInfoController@classInfo');
         Route::get('Major', 'Admin\ManageInfoController@test');
-        Route::get('College', 'Admin\ManageInfoController@College_info');
-        Route::get('StaffRoom', 'Admin\ManageInfoController@StaffRoom_info');
+        Route::get('College', 'Admin\ManageInfoController@collegeInfo');
+        Route::get('StaffRoom', 'Admin\ManageInfoController@staffRoomInfo');
      });
 });
 
