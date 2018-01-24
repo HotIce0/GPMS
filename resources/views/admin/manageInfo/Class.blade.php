@@ -20,18 +20,12 @@
         </div>
     @endif
     <!-- END ERROR TIP -->
-    <style>
-        .btnone{
-            position: relative;
-            top:-80px;
-        }
-    </style>
     <div class="panel">
         <div class="panel-heading" >
             <h3 class="panel-title">班级信息管理</h3>
+            <div class="right">
+                <a href="{{url('#')}}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增班级</span></a>
         </div>
-        <div class="right">
-            <button type="button" id="addClass" class="btn btn-success btnone ">新增班级</button>
         </div>
     <div class="panel-body">
         <table class="table table-striped">
@@ -51,41 +45,22 @@
             </tr>
             </thead>
             <tbody>
+                @foreach($classInfos as $classInfo)
                 <tr>
                     <td>
-                        <a href="{{ '#' }}">详情</a>
                         <a href="{{ '#' }}">修改</a>
                         <a href="{{ '#' }}"
                            onclick="if (confirm('确定要删除吗？') == false) return false;">删除</a>
                     </td>
-                    <th>1602</th>
-                    <th>计科16-2BJ</th>
-                    <th>计算机学院</th>
+                    <th>{{ $classInfo->class_identifier}}</th>
+                    <th>{{ $classInfo->class_name}}</th>
+                    <th>{{ $classInfo->class_info_id}}</th>
                 </tr>
-                <tr>
-                    <td>
-                        <a href="{{ '#' }}">详情</a>
-                        <a href="{{ '#' }}">修改</a>
-                        <a href="{{ '#' }}"
-                           onclick="if (confirm('确定要删除吗？') == false) return false;">删除</a>
-                    </td>
-                    <th>1607</th>
-                    <th>软件16-2BF</th>
-                    <th>计算机学院</th>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="{{ '#' }}">详情</a>
-                        <a href="{{ '#' }}">修改</a>
-                        <a href="{{ '#' }}"
-                           onclick="if (confirm('确定要删除吗？') == false) return false;">删除</a>
-                    </td>
-                    <th>1706</th>
-                    <th>软件17-1BF</th>
-                    <th>计算机学院</th>
+                @endforeach
                 </tr>
             </tbody>
     </table>
+
     </div>
 </div>
 
