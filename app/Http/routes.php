@@ -42,13 +42,29 @@ Route::Group(['middleware'=>'auth'],function() {
      *************/
     Route::get('/admin', 'Admin\AdminIndexController@index');
 
-    Route::Group(['prefix' => 'manageInfo'], function (){//信息管理路由群
+    Route::Group(['prefix' => 'manageInfo'], function (){
+        //信息管理路由群，by xiaoming
+
+        // 教师信息管理
         Route::get('Teacher', 'Admin\ManageInfoController@test');
+
+        // 学生信息管理
         Route::get('Student', 'Admin\ManageInfoController@test');
-        Route::get('Class', 'Admin\ManageInfoController@classInfo');
+
+        // 班级信息管理
+        Route::get('Class', 'Admin\ManageClassInfoController@classInfo');//主页信息浏览
+        Route::any('classUpdate', 'Admin\ManageClassInfoController@classInfoUpdate');//修改
+        Route::any('classCreate', 'Admin\ManageClassInfoController@classInfoCreate');//新增
+        Route::get('classDelete', 'Admin\ManageClassInfoController@classInfoDelete');//删除
+
+        // 专业信息管理
         Route::get('Major', 'Admin\ManageInfoController@test');
-        Route::get('College', 'Admin\ManageInfoController@collegeInfo');
-        Route::get('StaffRoom', 'Admin\ManageInfoController@staffRoomInfo');
+
+        // 学院信息管理
+        Route::get('College', 'Admin\ManageCollegeInfoController@collegeInfo');
+
+        // 教研室信息管理
+        Route::get('StaffRoom', 'Admin\ManageStaffRoomInfoController@staffRoomInfo');
      });
 });
 
