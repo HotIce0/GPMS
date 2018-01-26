@@ -4,6 +4,8 @@ namespace App\Http\Models;
 //By Sao Guang
 //update by xiaoming
 use Illuminate\Database\Eloquent\Model;
+//引入软删除
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ClassInfo extends Model
 {
@@ -14,6 +16,9 @@ class ClassInfo extends Model
     protected $table = 't_class_info';
 
     protected $primaryKey = 'class_info_id';
+
+    use SoftDeletes;//软删除
+    protected $dates=['delete_at'];
 
     protected $fillable = ['class_identifier', 'class_name', 'college_info_id'];
 

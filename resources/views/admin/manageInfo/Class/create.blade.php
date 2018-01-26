@@ -29,10 +29,11 @@
                 <div class="form-group {{$errors->has('class_name') ?  'has-error' : ''}}">
                     <label for="class_name" class="col-sm-2 control-label"><a class="text-danger">*</a>班级名称</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="class_name" name="ClassInfo[class_name]" placeholder="请输入班级名称（中间不能有空格） [ 格式如：软件16-2BF]"
+                        <input type="text" class="form-control" id="class_name" name="ClassInfo[class_name]" placeholder="请输入班级名称 [ 格式如：软件16-2BF]"
                                 value="{{old('ClassInfo')['class_name'] == null ? (isset($classInfos['class_name']) ?
                                 $classInfos['class_name']->class_identifier: old('ClassInfo')['class_name']) : old('ClassInfo')['class_name']}}">
                         <label class="control-label" for="class_name">{{$errors->first('class_name')}}</label>
+                        <label for="class_name" class="col-sm-pull-6 control-label"><a class="text-danger">班级名称示例:<a>计科16-1BJ&emsp;网络16-1BF&emsp;软件16-2BF</a><a class="text-danger">--中间不能有空格</a></a></label>
                     </div>
                 </div>
 

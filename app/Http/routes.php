@@ -53,9 +53,9 @@ Route::Group(['middleware'=>'auth'],function() {
 
         // 班级信息管理
         Route::get('Class', 'Admin\ManageClassInfoController@classInfo');//主页信息浏览
-        Route::any('classUpdate', 'Admin\ManageClassInfoController@classInfoUpdate');//修改
+        Route::any('classUpdate/{id}', 'Admin\ManageClassInfoController@classInfoUpdate');//修改
         Route::any('classCreate', 'Admin\ManageClassInfoController@classInfoCreate');//新增
-        Route::get('classDelete', 'Admin\ManageClassInfoController@classInfoDelete');//删除
+        Route::get('classDelete/{id}', 'Admin\ManageClassInfoController@classInfoDelete');//删除
 
         // 专业信息管理
         Route::get('Major', 'Admin\ManageInfoController@test');

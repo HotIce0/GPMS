@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="panel-body">
-        <table class="table table-striped">
+        <table class="table table-hover">
             <thead>
              <tr>
                 <th>操作</th>
@@ -42,8 +42,8 @@
                 @foreach($classInfos as $classInfo)
                 <tr>
                     <td>
-                        <a href="{{ url('manageInfo/classUpdate') }}">修改</a>
-                        <a href="{{ url('manageInfo/classDelete') }}"
+                        <a href="{{ url('manageInfo/classUpdate',['id' => $classInfo->class_info_id])}}">修改</a>
+                        <a href="{{ url('manageInfo/classDelete',['id' => $classInfo->class_info_id])}}"
                            onclick="if (confirm('确定要删除吗？') == false) return false;">删除</a>
                     </td>
                     <th>{{ $classInfo->class_identifier}}</th>
