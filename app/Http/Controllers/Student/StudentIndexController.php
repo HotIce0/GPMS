@@ -32,15 +32,15 @@ class StudentIndexController extends Controller
 //            }
 
         $o = ProjectChoice::where('project_name', $request->opening_name)->first();
-
+//        dd($request->project_name);
         $openingreport = new OpeningReport;
-//        $openingreport->project_id = 11;
+////        $openingreport->project_id = 11;
         if ($o) {
             $openingreport->project_id = $o->project_id;
         } else {
-            $openingreport->project_id = 11;
+            $openingreport->project_id = 1;
         }
-        //版本控制模块
+//        //版本控制模块
 //        $version = OpeningReport::where('version_number', $openingreport->project_id)->get();
 //        if ($version) {
 //            $openingreport->version_number =max($version->version_number)+1;
@@ -50,16 +50,15 @@ class StudentIndexController extends Controller
         $openingreport->version_number = 1;
         $openingreport->submit_date = date('y-m-d h:i:s');
         //$openingreport->teacher_view='不知道';
-        //$openingreport->section_view='拉拉看了';
-        //$openingreport->teacher_job_number='mmp1';
+        //$openingreport->section_view='拉拉看了';//$openingreport->teacher_job_number='mmp1';
         $openingreport->opening_report_status = '审查中';
         $openingreport->opening_report_content1 = $request->one;
         $openingreport->opening_report_content2 = $request->two;
         $openingreport->opening_report_content3 = $request->three;
         $openingreport->opening_report_content4 = $request->four;
         $openingreport->creator = $request->user()->user_id;
-        if ($openingreport->save()) {
-            return redirect('/my_opening');
+       if ($openingreport->save()) {
+           return redirect('/my_opening');
         }
     }
     public function my_opening()

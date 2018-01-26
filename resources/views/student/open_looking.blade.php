@@ -4,7 +4,7 @@
     @include('student.sidebar')
 @endsection
 @section('content')
-    <form action="{{url('/open_looking')}}" method="post">
+    <form action="{{url('/student/open')}}" method="post">
         <div class="main">
             <!-- MAIN CONTENT -->
             <div class="main-content">
@@ -16,12 +16,12 @@
                                 <div class="panel-body">
                                     <div class="input-group">
                                         <span class="input-group-addon">课题名称</span>
-                                        <input class="form-control" type="text" value="{{$project->project_name}}">
+                                        <input class="form-control" type="text" name="opening_name" value="{{$project->project_name}}">
                                     </div>
                                     <br>
                                     <div class="input-group">
                                         <span class="input-group-addon">指导老师</span>
-                                        <input class="form-control" type="text" value="{{$t->teacher_name}}">
+                                        <input class="form-control" type="text" name="teacher_name" value="{{$t->teacher_name}}" >
                                     </div>
                                     <br>
                                     <div class="">
