@@ -33,6 +33,12 @@ Route::Group(['middleware'=>'auth'],function() {
     Route::get('/selectProject', 'Student\SelectProjectController@index');
     Route::get('/select/{id}', 'Student\SelectProjectController@selectProject');
     Route::get('/cancelSelect/{id}', 'Student\SelectProjectController@cancelSelect');
+    //开题模块     By xcc
+    Route::get('/open','Student\StudentIndexController@open');
+    Route::post('/student/open','Student\StudentIndexController@submit');
+    Route::get('/my_opening','Student\StudentIndexController@my_opening');
+    Route::get('/open_looking/{opening_report_id}/{project_id}','Student\StudentIndexController@open_looking');
+    Route::get('/open_delete/{opening_report_id}','Student\StudentIndexController@open_delete');
     /************
      * 教师路由 *
      ***********/
@@ -62,11 +68,15 @@ Route::Group(['middleware'=>'auth'],function() {
         /*管理任务书(教师查看任务书的权限编号2.10)*/
         Route::get('manageAssignmentBook', 'Teacher\ReleaseAssignmentBookController@index');
     });
-
+    //开题模块      By xcc
+    Route::get('/student_opening','Teacher\TeacherIndexController@student_opening');
+    Route::get('/teacher/review/{opening_report_id}/{project_id}','Teacher\TeacherIndexController@opening_review');
+    Route::post('/teacher/review','Teacher\TeacherIndexController@submit');
     /**************
      * 管理员路由 *
      *************/
     Route::get('/admin', 'Admin\AdminIndexController@index');
+    Route::get('/summary','Admin\AdminIndexController@summary');
 });
 
 
@@ -77,4 +87,9 @@ Route::get('/setPermission', function (){
     dd( \App\Http\Models\Role::find(1)
         ->first()
         ->setPermission('1.1'));
+});
+
+//页面测试 By xcc
+Route::get('/test',function (){
+    return view('student.index');
 });

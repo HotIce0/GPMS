@@ -21,6 +21,7 @@ class CreateTUsersBasicInfoTable extends Migration
             $table->integer('role_id')->unsigned();                                             //外键约束
             $table->integer('user_type')->unsigned()->comment('0为学生，1为老师');
             $table->integer('user_info_id')->unsigned()->comment('学生信息表或教师信息表的ID');   //unique()原来有这个唯一属性
+
             $table->string('creator', 20)->nullable();
             $table->string('updater', 20)->nullable();
             $table->string('deleter', 20)->nullable();

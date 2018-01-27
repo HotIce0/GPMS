@@ -27,6 +27,7 @@
                             @can('permission', '2.10')
                                 <li><a href="{{url('createProject/manageAssignmentBook')}}" class="">管理任务书</a></li>
                             @endcan
+                            <li><a href="{{ url('/student_opening') }}" class="">学生的开题报告</a></li>
                         </ul>
                     </div>
                 </li>

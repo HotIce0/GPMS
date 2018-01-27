@@ -14,7 +14,7 @@ class CreateTOpeningReportTable extends Migration
     {
         Schema::create('t_opening_report', function (Blueprint $table) {
             $table->increments('opening_report_id')->comment('开题报告ID');
-            $table->integer('version_number')->unsigned()->unique()->comment('版本号：每下达一次版本号加1');
+            $table->integer('version_number')->unsigned()->comment('版本号：每下达一次版本号加1');
             $table->integer('project_id')->unsigned()->comment('课题ID');                         //外键
             $table->timestamp('submit_date')->comment('提交日期');
             $table->text('opening_report_content1')->comment('1.综述国内外对本课题的研究动态，说明选题的依据和意义');
