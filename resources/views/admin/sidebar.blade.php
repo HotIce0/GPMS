@@ -10,7 +10,6 @@
                         <ul class="nav">
                             <li><a href="{{ url('/summary') }}" class="">开题报告汇总</a></li>
                             <li><a href="page-login.html" class="">Login</a></li>
-                            <li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
                         </ul>
                     </div>
                 </li>

@@ -16,7 +16,6 @@
                         <ul class="nav">
                             <li><a href="{{ url('/open') }}" class="">开题报告编写</a></li>
                             <li><a href="{{ url('/my_opening') }}" class="">我的开题报告</a></li>
-                            <li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
                         </ul>
                     </div>
                 </li>
