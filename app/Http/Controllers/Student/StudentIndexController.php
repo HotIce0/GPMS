@@ -11,8 +11,6 @@ use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-
-
 class StudentIndexController extends Controller
 {
     public function index()
@@ -85,6 +83,11 @@ class StudentIndexController extends Controller
         else{
             return back();
         }
+    }
+    //测试路由
+    public function test()
+    {
+        echo 132;
     }
 
 }

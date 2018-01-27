@@ -41,6 +41,8 @@ Route::Group(['middleware'=>'auth'],function() {
     /*出题页面*/
     Route::get('/projectChecklist', 'Teacher\ProjectChecklistController@index');
     Route::get('/student_opening','Teacher\TeacherIndexController@student_opening');
+    Route::get('/teacher/review/{opening_report_id}/{project_id}','Teacher\TeacherIndexController@opening_review');
+    Route::post('/teacher/review','Teacher\TeacherIndexController@submit');
     /**************
      * 管理员路由 *
      *************/

@@ -20,7 +20,7 @@
             @foreach ($s_open as $student_open)
                 <tr>
                     <td>
-                        <a href="{{url('/opening_review')}}/{{$student_open->opening_report_id}}/{{$student_open->project_id}}"><button class="btn btn-link" value="">审查</button></a>
+                        <a href="{{url('/teacher/review')}}/{{$student_open->opening_report_id}}/{{$student_open->project_id}}"><button class="btn btn-link" value="">审查</button></a>
                     </td>
                     <td>{{ $student_open->opening_report_id }}</td>
                     <td>{{$student_open->project_name}}</td>
