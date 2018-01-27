@@ -68,12 +68,6 @@ class ManageClassInfoController extends Controller
     public function classInfoDelete($id)//删除信息
     {
         $classInfo=ClassInfo::find($id);
-//        $classInfo->delete();
-//        if($classInfo->trasher()){
-//            echo "软删除成功";
-//        }else{
-//            echo "软删除失败";
-//        }
 
         if($classInfo->delete()){
             return redirect('manageInfo/Class')->with('success', '删除成功!-'.$id);

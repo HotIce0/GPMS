@@ -32,7 +32,7 @@
         <table class="table table-hover">
             <thead>
              <tr>
-                <th>操作</th>
+                <th>操作管理</th>
                 <th>班级编号</th>
                 <th>班级名称</th>
                 <th>所属学院</th>
