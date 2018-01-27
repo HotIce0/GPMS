@@ -12,6 +12,8 @@ class CreateItemSetInfoTable extends Migration
      */
     public function up()
     {
+
+
         Schema::create('t_item_set_info', function (Blueprint $table) {
             $table->increments('item_id')->comment('选项ID');
             $table->integer('item_no')->unsigned()->unique()->comment('选项编号');

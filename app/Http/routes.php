@@ -27,15 +27,17 @@ Route::Group(['middleware'=>'auth'],function() {
     /************
      * 学生路由 *
      ***********/
-    Route::get('/student', 'Student\StudentIndexController@index');
-
+    Route::group(['prefix' => 'student'], function () {
+        Route::get('/', 'Student\StudentIndexController@index');
+        Route::get('/uploadThesis','Student\ThesisModule\UploadThesisController@index');
+        Route::post('/uploadThesis','Student\ThesisModule\UploadThesisController@store');
+    });
+    //Route::get('/student', 'Student\StudentIndexController@index');
     /************
      * 教师路由 *
      ***********/
     Route::get('/teacher', 'Teacher\TeacherIndexController@index');
     //出题模块 By Sao Guang
-    /*出题页面*/
-    Route::get('/projectChecklist', 'Teacher\ProjectChecklistController@index');
 
     /**************
      * 管理员路由 *
