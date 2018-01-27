@@ -77,6 +77,29 @@ Route::Group(['middleware'=>'auth'],function() {
      *************/
     Route::get('/admin', 'Admin\AdminIndexController@index');
     Route::get('/summary','Admin\AdminIndexController@summary');
+    //信息管理路由群，by xiaoming
+    Route::Group(['prefix' => 'manageInfo'], function (){
+        // 教师信息管理
+        Route::get('Teacher', 'Admin\ManageInfoController@test');
+
+        // 学生信息管理
+        Route::get('Student', 'Admin\ManageInfoController@test');
+
+        // 班级信息管理
+        Route::get('Class', 'Admin\ManageClassInfoController@classInfo');//主页信息浏览
+        Route::any('classUpdate/{id}', 'Admin\ManageClassInfoController@classInfoUpdate');//修改
+        Route::any('classCreate', 'Admin\ManageClassInfoController@classInfoCreate');//新增
+        Route::get('classDelete/{id}', 'Admin\ManageClassInfoController@classInfoDelete');//删除
+
+        // 专业信息管理
+        Route::get('Major', 'Admin\ManageInfoController@test');
+
+        // 学院信息管理
+        Route::get('College', 'Admin\ManageCollegeInfoController@collegeInfo');
+
+        // 教研室信息管理
+        Route::get('StaffRoom', 'Admin\ManageStaffRoomInfoController@staffRoomInfo');
+     });
 });
 
 
