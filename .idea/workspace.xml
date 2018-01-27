@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f59932d6-a1f0-47e2-b3bf-55a0f6cb6f44" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/permission.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env.example" afterPath="$PROJECT_DIR$/.env.example" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Models/Role.php" afterPath="$PROJECT_DIR$/app/Http/Models/Role.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Models/Thesis.php" afterPath="$PROJECT_DIR$/app/Http/Models/Thesis.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Models/UserBasicInfo.php" afterPath="$PROJECT_DIR$/app/Http/Models/UserBasicInfo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/Readme.txt" afterPath="$PROJECT_DIR$/database/migrations/Readme.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_071843_create_t_thesis_table.php" afterPath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_071843_create_t_thesis_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_082148_create_item_set_info_table.php" afterPath="$PROJECT_DIR$/database/migrations/table_creation/2017_11_25_082148_create_item_set_info_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/UsersBasicInfoTableSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/UsersBasicInfoTableSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/layoutSidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/layoutSidebar.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/student/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/student/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/student/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/student/sidebar.blade.php" />
-    </list>
+    <list default="true" id="f59932d6-a1f0-47e2-b3bf-55a0f6cb6f44" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +37,7 @@
       <file leaf-file-name="Thesis.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Models/Thesis.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
+            <state relative-caret-position="506">
               <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
               <folding />
             </state>
@@ -347,12 +330,20 @@
       <workItem from="1516888192118" duration="247000" />
       <workItem from="1516935857619" duration="24794000" />
       <workItem from="1517020321112" duration="10450000" />
-      <workItem from="1517035352970" duration="2590000" />
+      <workItem from="1517035352970" duration="3057000" />
     </task>
+    <task id="LOCAL-00001" summary="pull">
+      <created>1517038037642</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1517038037642</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106482000" />
+    <option name="totallyTimeSpent" value="106949000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="236" y="149" width="1786" height="1125" extended-state="0" />
@@ -407,6 +398,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="pull" />
+    <option name="LAST_COMMIT_MESSAGE" value="pull" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -787,7 +782,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Models/Thesis.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
+        <state relative-caret-position="506">
           <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
           <folding />
         </state>
