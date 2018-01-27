@@ -67,4 +67,6 @@ class UserBasicInfo extends Authenticatable
         }
         return null;
     }
+
+
 }

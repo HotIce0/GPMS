@@ -1,7 +1,7 @@
-Ç¨ÒÆ²Ù×÷
-µÚÒ»²½ php artisan migrate --path=/database/migrations/table_creation
-µÚ¶ş²½ php artisan migrate --path=/database/migrations/forign_key_creation
+è¿ç§»æ“ä½œ
+ç¬¬ä¸€æ­¥ php artisan migrate --path=/database/migrations/table_creation
+ç¬¬äºŒæ­¥ php artisan migrate --path=/database/migrations/forign_key_creation
 
-»Ø¹ö²Ù×÷
-µÚÒ»²½ php artisan migrate:rollback
-µÚ¶ş²½ php artisan migrate:rollback
+å›æ»šæ“ä½œ
+ç¬¬ä¸€æ­¥ php artisan migrate:rollback
+ç¬¬äºŒæ­¥ php artisan migrate:rollback

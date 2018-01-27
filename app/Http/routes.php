@@ -27,7 +27,6 @@ Route::Group(['middleware'=>'auth'],function() {
     /************
      * 学生路由 *
      ***********/
-    Route::get('/student', 'Student\StudentIndexController@index');
     //选题模块[选题]      By Sao Guang
     /*选择课题页面(权限编号2.4)*/
     Route::get('/selectProject', 'Student\SelectProjectController@index');
@@ -39,6 +38,13 @@ Route::Group(['middleware'=>'auth'],function() {
     Route::get('/my_opening','Student\StudentIndexController@my_opening');
     Route::get('/open_looking/{opening_report_id}/{project_id}','Student\StudentIndexController@open_looking');
     Route::get('/open_delete/{opening_report_id}','Student\StudentIndexController@open_delete');
+
+    Route::group(['prefix' => 'student'], function () {
+        Route::get('/', 'Student\StudentIndexController@index');
+        Route::get('/uploadThesis','Student\ThesisModule\UploadThesisController@index');
+        Route::post('/uploadThesis','Student\ThesisModule\UploadThesisController@store');
+    });
+    //Route::get('/student', 'Student\StudentIndexController@index');
     /************
      * 教师路由 *
      ***********/
