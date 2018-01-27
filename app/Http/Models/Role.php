@@ -14,24 +14,12 @@ class Role extends Model
      * @param $permission
      * @return bool
      */
-    //TODO 这里一个role有权限会判断所有角色都有权限
     public function hasPermission($permission)
     {
         //解析json，权限数组
         $permissions = json_decode($this->role_permission);
         //判断是否拥有对应权限
         return in_array($permission, $permissions);
-    }
-
-    /**
-     * 通过权限名判断此角色是否拥有$permission
-     * @return bool
-     * by tan
-     */
-    //TODO
-    public function hasPemissionName($permissionName,$role_id)
-    {
-
     }
 
     /**

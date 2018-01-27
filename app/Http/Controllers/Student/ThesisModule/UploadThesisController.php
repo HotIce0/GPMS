@@ -28,11 +28,11 @@ class UploadThesisController extends Controller
         $file=$request->file('thesis');
 
         //TODO
-        if(Auth::user()->can('permission','2.1')){
-            exit('学生有2.1权限！');
-        }
+//        if(Auth::user()->can('permission','2.1')){
+//            exit('学生有2.1权限！');
+//        }
 
-        return Thesis::insertThesisInfo($id,'a');
+        //return Thesis::insertThesisInfo($id);
 
         //验证表单格式
         $maxFileSize=10240;
