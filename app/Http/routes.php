@@ -44,7 +44,6 @@ Route::Group(['middleware'=>'auth'],function() {
         Route::get('/uploadThesis','Student\ThesisModule\UploadThesisController@index');
         Route::post('/uploadThesis','Student\ThesisModule\UploadThesisController@store');
     });
-    //Route::get('/student', 'Student\StudentIndexController@index');
     /************
      * 教师路由 *
      ***********/
