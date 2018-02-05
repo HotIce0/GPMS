@@ -37,7 +37,7 @@
                 <tr>
                     <th>操作管理</th>
                     <th>学号</th>
-                    <th>学生姓名</th>
+                    <th>学生名称</th>
                     <th>所属学院</th>
                     <th>所属班级</th>
                     <th>所学专业</th>
@@ -80,7 +80,6 @@
                 @endforeach
                 </tbody>
             </table>
-
         </div>
     </div>
 

@@ -88,6 +88,8 @@ Route::Group(['middleware'=>'auth'],function() {
         // 教师信息管理
         Route::get('Teacher', 'Admin\ManageTeacherInfoController@teacherInfo');//主页信息浏览
 
+        Route::any('teacherCreate','Admin\ManageTeacherInfoController@teacherInfoCreate');//新增
+
         // 学生信息管理
         Route::get('Student', 'Admin\ManageStudentInfoController@studentInfo');//主页信息浏览
 
@@ -101,6 +103,8 @@ Route::Group(['middleware'=>'auth'],function() {
 
         // 专业信息管理
         Route::get('Major', 'Admin\ManageMajorInfoController@majorInfo');//主页信息浏览
+
+        Route::any('majorCreate','Admin\ManageMajorInfoController@majorInfoCreate');//新增
 
         // 学院信息管理
         Route::get('College', 'Admin\ManageCollegeInfoController@collegeInfo');

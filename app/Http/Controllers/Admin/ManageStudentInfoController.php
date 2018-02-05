@@ -7,7 +7,7 @@ use App\Http\Models\StudentInfo;
 
 class ManageStudentInfoController extends Controller
 {
-    //学生列表页
+    //学生信息列表页
     public function studentInfo()
     {
         $studentInfos=StudentInfo::paginate(2);
@@ -17,6 +17,7 @@ class ManageStudentInfoController extends Controller
         ]);
     }
 
+    //学生信息新增页
     public function studentInfoCreate()
     {
         return view('admin.manageInfo.student.create');
