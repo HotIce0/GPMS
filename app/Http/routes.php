@@ -86,10 +86,12 @@ Route::Group(['middleware'=>'auth'],function() {
     //信息管理路由群，by xiaoming
     Route::Group(['prefix' => 'manageInfo'], function (){
         // 教师信息管理
-        Route::get('Teacher', 'Admin\ManageInfoController@test');
+        Route::get('Teacher', 'Admin\ManageTeacherInfoController@teacherInfo');//主页信息浏览
 
         // 学生信息管理
-        Route::get('Student', 'Admin\ManageInfoController@test');
+        Route::get('Student', 'Admin\ManageStudentInfoController@studentInfo');//主页信息浏览
+
+        Route::any('studentCreate','Admin\ManageStudentInfoController@studentInfoCreate');//新增
 
         // 班级信息管理
         Route::get('Class', 'Admin\ManageClassInfoController@classInfo');//主页信息浏览
@@ -98,7 +100,7 @@ Route::Group(['middleware'=>'auth'],function() {
         Route::get('classDelete/{id}', 'Admin\ManageClassInfoController@classInfoDelete');//删除
 
         // 专业信息管理
-        Route::get('Major', 'Admin\ManageInfoController@test');
+        Route::get('Major', 'Admin\ManageMajorInfoController@majorInfo');//主页信息浏览
 
         // 学院信息管理
         Route::get('College', 'Admin\ManageCollegeInfoController@collegeInfo');
