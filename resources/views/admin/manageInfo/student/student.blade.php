@@ -8,18 +8,18 @@
 
     {{--添加提示响应--}}
     <!-- ERROR TIP -->
-    {{--@if(Session::has('successMsg'))--}}
+    @if(Session::has('successMsg'))
         <div class="alert alert-success alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <i class="fa fa-check-circle"></i> 添加成功
+            <i class="fa fa-check-circle"></i>{{ Session::get('successMsg') }}
         </div>
-    {{--@endif--}}
-    {{--@if(Session::has('failureMsg'))--}}
+    @endif
+    @if(Session::has('failureMsg'))
         <div class="alert alert-danger alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <i class="fa fa-times-circle"></i> 添加失败
+            <i class="fa fa-times-circle"></i>{{ Session::get('failureMsg') }}
         </div>
-    {{--@endif--}}
+    @endif
     <!-- END ERROR TIP -->
 
 
@@ -52,9 +52,10 @@
                 @foreach($studentInfos as $studentInfo)
                     <tr>
                         <td>
-                            <a href="">详情</a>
-                            <a href="">修改</a>
-                            <a href="">删除</a>
+                            <a href="{{ url('manageInfo/studentDetail',['id'=>$studentInfo->student_info_id] )}}">详情</a>
+                            <a href="{{ url('manageInfo/studentUpdate',['id'=>$studentInfo->student_info_id] )}}">修改</a>
+                            <a href="{{ url('manageInfo/studentDelete',['id'=>$studentInfo->student_info_id] )}}"
+                                     onclick="if (confirm('确定要删除这条学生信息吗？') == false) return false;">删除</a>
                         </td>
                         <th>{{$studentInfo->student_number}}</th>
                         {{--学号--}}
