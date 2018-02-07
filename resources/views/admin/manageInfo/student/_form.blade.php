@@ -6,9 +6,7 @@
         <label for="student_number" class="col-sm-2 control-label"><a class="text-danger">*</a>学号</label>
         <div class="col-sm-8">
             <input type="text" class="form-control" id="student_number" name="StudentInfo[student_number]" placeholder="请输入学号[11个数字]"
-                   value="{{ old('StudentInfo') ['student_number'] ? old('StudentInfo') ['student_number'] : $studentInfo->student_number }}"
-                    {{--== null ? (isset($data['project']) ? $data['project']->project_name: old('projectName')) : old('projectName')--}}
-            >
+                   value="{{ old('StudentInfo') ['student_number'] ? old('StudentInfo') ['student_number'] : $studentInfo->student_number }}">
             <label class="control-label text-danger" for="student_number">{{ $errors->first('StudentInfo.student_number') }}</label>
         </div>
     </div>
@@ -18,9 +16,7 @@
         <label for="student_name" class="col-sm-2 control-label"><a class="text-danger">*</a>学生姓名</label>
         <div class="col-sm-8">
             <input type="text" class="form-control" id="student_name" name="StudentInfo[student_name]" placeholder="请输入学生姓名"
-                   value="{{ old('StudentInfo')['student_name'] ? old('StudentInfo')['student_name'] : $studentInfo->student_name }}"
-                    {{-- == null ? (isset($data['project']) ? $data['project']->project_name: old('projectName')) : old('projectName')}--}}
-            >
+                   value="{{ old('StudentInfo')['student_name'] ? old('StudentInfo')['student_name'] : $studentInfo->student_name }}">
             <label class="control-label text-danger" for="student_name">{{ $errors->first('StudentInfo.student_name') }}</label>
         </div>
     </div>
@@ -31,6 +27,7 @@
         <div class="col-sm-8">
             <select class="form-control" id="college_info_id" name="StudentInfo[college_info_id]">
                 @foreach($studentInfo->college_info_id() as $ind1=>$val1)
+                    {{--<input value="{{ old('StudentInfo')['college_info_id'] ? old('college_info_id')['college_info_id'] : $studentInfo->college_info_id }}">--}}
                     {{ isset($studentInfo->college_info_id) && $studentInfo->college_info_id == $ind1 ? 'checked' : '' }}
                     <option value= "{{$ind1}}">{{ $val1 }}</option>
                 @endforeach
@@ -72,9 +69,7 @@
         <label for="identity_card_number" class="col-sm-2 control-label"><a class="text-danger">*</a>身份证号码</label>
         <div class="col-sm-8">
             <input type="text" class="form-control" id="identity_card_number" name="StudentInfo[identity_card_number]" placeholder="请输入身份证号码[18个数字]"
-                   value="{{ old('StudentInfo')['identity_card_number'] ? old('StudentInfo')['identity_card_number'] :$studentInfo->identity_card_number }}"
-                    {{-- == null ? (isset($data['project']) ? $data['project']->project_name: old('projectName')) : old('projectName')}--}}
-            >
+                   value="{{ old('StudentInfo')['identity_card_number'] ? old('StudentInfo')['identity_card_number'] :$studentInfo->identity_card_number }}">
             <label class="control-label text-danger" for="identity_card_number">{{ $errors->first('StudentInfo.identity_card_number') }}</label>
         </div>
     </div>
@@ -84,9 +79,7 @@
         <label for="mail_address" class="col-sm-2 control-label"><a class="text-danger">*</a>邮箱地址</label>
         <div class="col-sm-8">
             <input type="text" class="form-control" id="mail_address" name="StudentInfo[mail_address]" placeholder="请输入邮箱地址"
-                   value="{{ old('StudentInfo')['mail_address'] ? old('StudentInfo')['mail_address'] : $studentInfo->mail_address }}"
-                    {{-- == null ? (isset($data['project']) ? $data['project']->project_name: old('projectName')) : old('projectName')}--}}
-            >
+                   value="{{ old('StudentInfo')['mail_address'] ? old('StudentInfo')['mail_address'] : $studentInfo->mail_address }}">
             <label class="control-label text-danger" for="mail_address">{{ $errors->first('StudentInfo.mail_address') }}</label>
         </div>
     </div>
@@ -108,9 +101,7 @@
         <label for="qq_number" class="col-sm-2 control-label"><a class="text-danger">*</a>QQ号</label>
         <div class="col-sm-8">
             <input type="text" class="form-control" id="qq_number" name="StudentInfo[qq_number]" placeholder="请输入QQ号"
-                   value="{{ old('StudentInfo')['qq_number'] ? old('StudentInfo')['qq_number'] : $studentInfo->qq_number }}"
-                    {{-- == null ? (isset($data['project']) ? $data['project']->project_name: old('projectName')) : old('projectName')}--}}
-            >
+                   value="{{ old('StudentInfo')['qq_number'] ? old('StudentInfo')['qq_number'] : $studentInfo->qq_number }}">
             <label class="control-label text-danger" for="qq_number">{{ $errors->first('StudentInfo.qq_number') }}</label>
         </div>
     </div>
@@ -120,9 +111,7 @@
         <label for="wechart_name" class="col-sm-2 control-label"><a class="text-danger">*</a>微信号</label>
         <div class="col-sm-8">
             <input type="text" class="form-control" id="wechart_name" name="StudentInfo[wechart_name]" placeholder="请输入微信号"
-                   value="{{ old('StudentInfo')['wechart_name'] ? old('StudentInfo')['wechart_name'] : $studentInfo->wechart_name }}"
-                    {{-- == null ? (isset($data['project']) ? $data['project']->project_name: old('projectName')) : old('projectName')}--}}
-            >
+                   value="{{ old('StudentInfo')['wechart_name'] ? old('StudentInfo')['wechart_name'] : $studentInfo->wechart_name }}">
             <label class="control-label text-danger" for="wechart_name">{{ $errors->first('StudentInfo.wechart_name') }}</label>
         </div>
     </div>
