@@ -21,6 +21,7 @@ class CreateTTeacherInfoTable extends Migration
             $table->string('mail_address', 80)->comment('邮箱地址');
             $table->string('phone_number', 20)->comment('电话号码');
             $table->string('positional_title', 10)->comment('职称');
+            $table->string('academic_degree', 10)->comment('学位');
             $table->string('qq_number', 20)->comment('QQ号');
             $table->string('wechart_name', 20)->comment('微信号');
             $table->tinyInteger('max_students')->comment('可指导最大学生数');
