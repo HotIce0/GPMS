@@ -53,7 +53,7 @@ class ManageClassInfoController extends Controller
             $data = $request->input('ClassInfo');
 
             if (ClassInfo::create($data) ) {
-                return redirect('manageInfo/Class')->with('success', '添加成功!');
+                return redirect('/admin/manageInfo/Class')->with('success', '添加成功!');
             } else {
                 return redirect()->back();
             }
@@ -70,9 +70,9 @@ class ManageClassInfoController extends Controller
         $classInfo=ClassInfo::find($id);
 
         if($classInfo->delete()){
-            return redirect('manageInfo/Class')->with('success', '删除成功!-'.$id);
+            return redirect('/admin/manageInfo/Class')->with('success', '删除成功!-'.$id);
         }else {
-            return redirect('manageInfo/Class')->with('error', '删除成功!-'.$id);
+            return redirect('/admin/manageInfo/Class')->with('error', '删除成功!-'.$id);
         }
     }
 
