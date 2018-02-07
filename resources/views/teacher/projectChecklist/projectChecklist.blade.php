@@ -32,7 +32,7 @@
             <h3 class="panel-title">填写选题审查表</h3>
         </div>
         <div class="panel-body">
-            <form class="form-horizontal" role="form" method="post" action="{{url('/createProject/projectChecklist')}}">
+            <form class="form-horizontal" role="form" method="post" action="{{url('/teacher/createProject/projectChecklist')}}">
                 {{csrf_field()}}
                 <div class="form-group" style="display: none">
                     <input type="text" class="form-control" name="projectID" value="{{isset($data['project']) ? $data['project']->project_id : ''}}">
@@ -120,7 +120,7 @@
             <!-- INITIALIZE SELECT2 -->
             $("#studentSelect").select2({
                 ajax:{
-                    url:"{{url('createProject/getStudentInfoByName')}}",
+                    url:"{{url('/teacher/createProject/getStudentInfoByName')}}",
                     dataType:'json',
                     delay:250,
                     data:function (params) {

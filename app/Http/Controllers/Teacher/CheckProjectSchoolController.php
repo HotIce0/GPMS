@@ -151,8 +151,8 @@ class CheckProjectSchoolController extends Controller
         $project->amendment = $request->amendment;
         $project->project_declaration_status = '6';                                      //选题申报状态 6 学校审查未通过
         if($project->save())
-            return redirect('createProject/checkProjectSchool')->with('successMsg', '选题申请退回成功!');
+            return redirect('/teacher/createProject/checkProjectSchool')->with('successMsg', '选题申请退回成功!');
         else
-            return redirect('createProject/checkProjectSchool')->with('failureMsg', '选题申请退回失败!');
+            return redirect('/teacher/createProject/checkProjectSchool')->with('failureMsg', '选题申请退回失败!');
     }
 }

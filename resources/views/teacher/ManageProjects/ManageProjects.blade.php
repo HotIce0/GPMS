@@ -71,7 +71,7 @@
             {{-- 2.1是出题权限 --}}
             @can('permission', '2.1')
                 <div class="right">
-                    <a href="{{url('createProject/projectChecklist')}}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;添加课题</span></a>
+                    <a href="{{url('/teacher/createProject/projectChecklist')}}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;添加课题</span></a>
                 </div>
             @endcan
         </div>
@@ -92,7 +92,7 @@
                 <th>修改意见</th>
             </tr>
             </thead>
-            <form class="form-horizontal" id="projectsForm" role="form" method="post" action="{{url('/createProject/adoptProjects')}}">
+            <form class="form-horizontal" id="projectsForm" role="form" method="post" action="{{url('/teacher/createProject/adoptProjects')}}">
                 {{csrf_field()}}
                 <tbody>
                 @foreach($data['projects'] as $project)
@@ -103,35 +103,35 @@
                             <td>
                                 @if($project->project_declaration_status == '1')
                                     {{--暂存状态--}}
-                                    <a href="{{url('createProject/projectChecklist', $project->project_id)}}"><span class="label label-primary">编辑</span></a>
-                                    <a href="{{url('createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
+                                    <a href="{{url('/teacher/createProject/projectChecklist', $project->project_id)}}"><span class="label label-primary">编辑</span></a>
+                                    <a href="{{url('/teacher/createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
                                 @elseif($project->project_declaration_status == '2')
                                     {{--等待院部审查状态--}}
-                                    <a href="{{url('createProject/cancelProjectApplication', $project->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a>
+                                    <a href="{{url('/teacher/createProject/cancelProjectApplication', $project->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a>
                                 @elseif($project->project_declaration_status == '3')
                                     {{--等待学校审查状态--}}
-                                    <a href="{{url('createProject/cancelProjectApplication', $project->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a>
+                                    <a href="{{url('/teacher/createProject/cancelProjectApplication', $project->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a>
                                 @elseif($project->project_declaration_status == '4')
                                     {{--院部审查未通过状态--}}
-                                    <a href="{{url('createProject/projectChecklist', $project->project_id)}}"><span class="label label-primary">编辑</span></a>
-                                    <a href="{{url('createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
+                                    <a href="{{url('/teacher/createProject/projectChecklist', $project->project_id)}}"><span class="label label-primary">编辑</span></a>
+                                    <a href="{{url('/teacher/createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
                                 @elseif($project->project_declaration_status == '5')
                                     {{--审查通过状态--}}
                                 @elseif($project->project_declaration_status == '6')
                                     {{--学校审查未通过状态--}}
-                                    <a href="{{url('createProject/projectChecklist', $project->project_id)}}"><span class="label label-primary">编辑</span></a>
-                                    <a href="{{url('createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
+                                    <a href="{{url('/teacher/createProject/projectChecklist', $project->project_id)}}"><span class="label label-primary">编辑</span></a>
+                                    <a href="{{url('/teacher/createProject/deleteProject', $project->project_id)}}" onclick="return confirm('确定要删除这条课题申请吗？');"><span class="label label-danger">删除</span></a>
                                 @endif
                                 {{--选题被选状态相关--}}
                                 @if($project->project_choice_status == '1')
                                     {{--项目被选状态_已被选状态--}}
                                     {{-- 2.7教师选定课题的权限 --}}
                                     @can('permission', '2.7')
-                                            <a href="{{url('createProject/confirmStudentProjectApplication', $project->project_id)}}" onclick="return confirm('是否要确定这位学生的选题申请');"><span class="label label-primary">确定选题</span></a>
+                                            <a href="{{url('/teacher/createProject/confirmStudentProjectApplication', $project->project_id)}}" onclick="return confirm('是否要确定这位学生的选题申请');"><span class="label label-primary">确定选题</span></a>
                                     @endcan
                                     {{-- 2.8教师退回已经选课题的学生的权限 --}}
                                     @can('permission', '2.8')
-                                            <a href="{{url('createProject/rejectStudentProjectApplication', $project->project_id)}}" onclick="return confirm('是否要退回这位学生的选题申请');"><span class="label label-danger">退回选题</span></a>
+                                            <a href="{{url('/teacher/createProject/rejectStudentProjectApplication', $project->project_id)}}" onclick="return confirm('是否要退回这位学生的选题申请');"><span class="label label-danger">退回选题</span></a>
                                     @endcan
                                 @endif
                                     {{--查看学生信息，在已被选和已确定的状态下--}}
@@ -193,7 +193,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-2">
-                        <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('createProject/ManageProjects')}}">
+                        <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('/teacher/createProject/ManageProjects')}}">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <select title="显示行数" id="selectPages" name="selectPages" class="form-control field">

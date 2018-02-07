@@ -12,20 +12,20 @@
                         <ul class="nav">
                             {{-- 2.2是审题权限(学院级别) --}}
                             @can('permission', '2.2')
-                                <li><a href="{{url('createProject/checkProject')}}" class="">题目审查(学院)</a></li>
+                                <li><a href="{{url('/teacher/createProject/checkProject')}}" class="">题目审查(学院)</a></li>
                             @endcan
                             {{-- 2.3是审题权限(学校级别) --}}
                             @can('permission', '2.3')
-                                <li><a href="{{url('createProject/checkProjectSchool')}}" class="">题目审查(学校)</a></li>
+                                <li><a href="{{url('/teacher/createProject/checkProjectSchool')}}" class="">题目审查(学校)</a></li>
                             @endcan
                             {{-- 2.5是教师查看选题申请的权限 --}}
                             @can('permission', '2.5')
-                                <li><a href="{{url('createProject/ManageProjects')}}" class="">我的课题</a></li>
+                                <li><a href="{{url('/teacher/createProject/ManageProjects')}}" class="">我的课题</a></li>
                             @endcan
                                 <li><a href="#" class="">我的历届课题</a></li>
                             {{-- 2.10 是教师查看任务书的权限 --}}
                             @can('permission', '2.10')
-                                <li><a href="{{url('createProject/manageAssignmentBook')}}" class="">管理任务书</a></li>
+                                <li><a href="{{url('/teacher/createProject/manageAssignmentBook')}}" class="">管理任务书</a></li>
                             @endcan
                             <li><a href="{{ url('/student_opening') }}" class="">学生的开题报告</a></li>
                         </ul>

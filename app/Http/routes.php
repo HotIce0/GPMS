@@ -27,52 +27,60 @@ Route::Group(['middleware'=>'auth'],function() {
     /************
      * 学生路由 *
      ***********/
-    //选题模块[选题]      By Sao Guang
-    /*选择课题页面(权限编号2.4)*/
-    Route::get('/selectProject', 'Student\SelectProjectController@index');
-    Route::get('/select/{id}', 'Student\SelectProjectController@selectProject');
-    Route::get('/cancelSelect/{id}', 'Student\SelectProjectController@cancelSelect');
-    //开题模块     By xcc
-    Route::get('/open','Student\StudentIndexController@open');
-    Route::post('/student/open','Student\StudentIndexController@submit');
-    Route::get('/my_opening','Student\StudentIndexController@my_opening');
-    Route::get('/open_looking/{opening_report_id}/{project_id}','Student\StudentIndexController@open_looking');
-    Route::get('/open_delete/{opening_report_id}','Student\StudentIndexController@open_delete');
-
     Route::group(['prefix' => 'student'], function () {
         Route::get('/', 'Student\StudentIndexController@index');
+
+        //选题模块[选题]      By Sao Guang
+        /*选择课题页面(权限编号2.4)*/
+        Route::get('/selectProject', 'Student\SelectProjectController@index');
+        Route::get('/select/{id}', 'Student\SelectProjectController@selectProject');
+        Route::get('/cancelSelect/{id}', 'Student\SelectProjectController@cancelSelect');
+
+        //开题模块     By xcc
+        Route::get('/open','Student\StudentIndexController@open');
+        Route::post('/student/open','Student\StudentIndexController@submit');
+        Route::get('/my_opening','Student\StudentIndexController@my_opening');
+        Route::get('/open_looking/{opening_report_id}/{project_id}','Student\StudentIndexController@open_looking');
+        Route::get('/open_delete/{opening_report_id}','Student\StudentIndexController@open_delete');
+
+        //by tan
         Route::get('/uploadThesis','Student\ThesisModule\UploadThesisController@index');
         Route::post('/uploadThesis','Student\ThesisModule\UploadThesisController@store');
     });
-    //Route::get('/student', 'Student\StudentIndexController@index');
+
     /************
      * 教师路由 *
      ***********/
-    Route::get('/teacher', 'Teacher\TeacherIndexController@index');
-    //选题模块[出题，审题] By Sao Guang
-    Route::Group(['prefix' => 'createProject'], function (){
-        /*出题申请(权限编号2.1)*/
-        Route::get('projectChecklist/{id?}', 'Teacher\ProjectChecklistController@index');
-        Route::post('projectChecklist', 'Teacher\ProjectChecklistController@saveChecklist');
-        Route::get('getStudentInfoByName', 'Teacher\ProjectChecklistController@getStudentInfoByName');
-        /*题目审查(学院级别权限编号2.2)*/
-        Route::get('checkProject', 'Teacher\CheckProjectController@index');
-        Route::post('adoptProjects', 'Teacher\CheckProjectController@adoptSelectedProjects');
-        Route::get('checkProjectDetail/{id}', 'Teacher\CheckProjectController@checkProjectIndex');
-        Route::post('rejectProject', 'Teacher\CheckProjectController@rejectProject');
-        /*题目审查(学校级别权限编号2.3)*/
-        Route::get('checkProjectSchool', 'Teacher\CheckProjectSchoolController@index');
-        Route::post('adoptProjectsSchool', 'Teacher\CheckProjectSchoolController@adoptSelectedProjects');
-        Route::get('checkProjectDetailSchool/{id}', 'Teacher\CheckProjectSchoolController@checkProjectIndex');
-        Route::post('rejectProjectSchool', 'Teacher\CheckProjectSchoolController@rejectProject');
-        /*管理选题(教师查看选题申请的权限编号2.5)*/
-        Route::get('ManageProjects', 'Teacher\ManageProjectsController@index');
-        Route::get('deleteProject/{id}', 'Teacher\ManageProjectsController@deleteProejct');
-        Route::get('cancelProjectApplication/{id}', 'Teacher\ManageProjectsController@cancelProjectApplication');
-        Route::get('confirmStudentProjectApplication/{id}', 'Teacher\ManageProjectsController@confirmStudentProjectApplication');
-        Route::get('rejectStudentProjectApplication/{id}', 'Teacher\ManageProjectsController@rejectStudentProjectApplication');
-        /*管理任务书(教师查看任务书的权限编号2.10)*/
-        Route::get('manageAssignmentBook', 'Teacher\ReleaseAssignmentBookController@index');
+    Route::group(['prefix' => 'teacher'], function () {
+        Route::get('/', 'Teacher\TeacherIndexController@index');
+
+        //选题模块[出题，审题] By Sao Guang
+        Route::Group(['prefix' => 'createProject'], function (){
+            /*出题申请(权限编号2.1)*/
+            Route::get('projectChecklist/{id?}', 'Teacher\ProjectChecklistController@index');
+            Route::post('projectChecklist', 'Teacher\ProjectChecklistController@saveChecklist');
+            Route::get('getStudentInfoByName', 'Teacher\ProjectChecklistController@getStudentInfoByName');
+            /*题目审查(学院级别权限编号2.2)*/
+            Route::get('checkProject', 'Teacher\CheckProjectController@index');
+            Route::post('adoptProjects', 'Teacher\CheckProjectController@adoptSelectedProjects');
+            Route::get('checkProjectDetail/{id}', 'Teacher\CheckProjectController@checkProjectIndex');
+            Route::post('rejectProject', 'Teacher\CheckProjectController@rejectProject');
+            /*题目审查(学校级别权限编号2.3)*/
+            Route::get('checkProjectSchool', 'Teacher\CheckProjectSchoolController@index');
+            Route::post('adoptProjectsSchool', 'Teacher\CheckProjectSchoolController@adoptSelectedProjects');
+            Route::get('checkProjectDetailSchool/{id}', 'Teacher\CheckProjectSchoolController@checkProjectIndex');
+            Route::post('rejectProjectSchool', 'Teacher\CheckProjectSchoolController@rejectProject');
+            /*管理选题(教师查看选题申请的权限编号2.5)*/
+            Route::get('ManageProjects', 'Teacher\ManageProjectsController@index');
+            Route::get('deleteProject/{id}', 'Teacher\ManageProjectsController@deleteProejct');
+            Route::get('cancelProjectApplication/{id}', 'Teacher\ManageProjectsController@cancelProjectApplication');
+            Route::get('confirmStudentProjectApplication/{id}', 'Teacher\ManageProjectsController@confirmStudentProjectApplication');
+            Route::get('rejectStudentProjectApplication/{id}', 'Teacher\ManageProjectsController@rejectStudentProjectApplication');
+            /*管理任务书(教师查看任务书的权限编号2.10)*/
+            Route::get('manageAssignmentBook', 'Teacher\ReleaseAssignmentBookController@index');
+        });
+
+
     });
     //开题模块      By xcc
     Route::get('/student_opening','Teacher\TeacherIndexController@student_opening');
@@ -81,7 +89,9 @@ Route::Group(['middleware'=>'auth'],function() {
     /**************
      * 管理员路由 *
      *************/
-    Route::get('/admin', 'Admin\AdminIndexController@index');
+    Route::group(['prefix' => 'student'], function () {
+        Route::get('/', 'Admin\AdminIndexController@index');
+    });
     Route::get('/summary','Admin\AdminIndexController@summary');
     //信息管理路由群，by xiaoming
     Route::Group(['prefix' => 'manageInfo'], function (){

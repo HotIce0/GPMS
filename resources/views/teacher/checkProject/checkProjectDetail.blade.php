@@ -12,7 +12,7 @@
         </div>
         <div class="panel-body">
 
-            <form class="form-horizontal" role="form" method="post" action="{{url('/createProject/rejectProject')}}">
+            <form class="form-horizontal" role="form" method="post" action="{{url('/teacher/createProject/rejectProject')}}">
                 {{csrf_field()}}
                 <input type="text" style="display: none" class="form-control" id="projectID" name="projectID" value="{{$data['projectChoice']->project_id}}">
                 <div class="form-group">

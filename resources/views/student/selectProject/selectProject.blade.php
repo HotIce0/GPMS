@@ -47,7 +47,7 @@
                     <tr>
                         {{--取消申请操作, 课题被选状态1代表课题已被选--}}
                         @if($data['selectedProject']->project_choice_status == '1')
-                            <td><a href="{{url('/cancelSelect', $data['selectedProject']->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a></td>
+                            <td><a href="{{url('/student/cancelSelect', $data['selectedProject']->project_id)}}" onclick="return confirm('确定要取消这条课题申请吗？');"><span class="label label-danger">取消申请</span></a></td>
                         @elseif($data['selectedProject']->project_choice_status == '2'){{--课题被选状态2，代表课题已确定，无法取消--}}
                         <td><span style="color: green"><i class="fa fa-check-circle"></i>选课申请已被采纳</span></td>
                         @endif
@@ -74,7 +74,7 @@
                         <h3 class="panel-title">可选课题</h3>
                     </div>
                     <div class="col-md-4 col-sm-4 col-lg-4">
-                        <form role="form" class="form-horizontal" method="get" action="{{url('selectProject')}}" id="searchTeacherForm">
+                        <form role="form" class="form-horizontal" method="get" action="{{url('/student/selectProject')}}" id="searchTeacherForm">
                             <div class="input-group">
                                 <input class="form-control" name="teacherName" type="text" placeholder="请输入教师姓名">
                                 <span class="input-group-btn"><a onclick="searchTeacher()" class="btn btn-primary">搜索</a></span>
@@ -104,7 +104,7 @@
                     <th>职称</th>
                 </tr>
                 </thead>
-                <form class="form-horizontal" id="projectsForm" role="form" method="post" action="{{url('/createProject/adoptProjects')}}">
+                <form class="form-horizontal" id="projectsForm" role="form" method="post" action="{{url('/student/createProject/adoptProjects')}}">
                     {{csrf_field()}}
                     <tbody>
                     @foreach($data['projects'] as $project)
@@ -114,7 +114,7 @@
                                 @if($data['selected'] || $project->project_choice_status == '1')
                                     <span class="label label-default">申请该题</span>
                                 @else
-                                    <a href="{{url('/select', $project->project_id)}}"><span class="label label-primary">申请该题</span></a>
+                                    <a href="{{url('/student/select', $project->project_id)}}"><span class="label label-primary">申请该题</span></a>
                                 @endif
                             </td>
                             <td>{{$project->project_id}}</td>
@@ -134,7 +134,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-2 col-sm-2 col-lg-2">
-                        <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('selectProject')}}">
+                        <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('/student/selectProject')}}">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <select title="显示行数" id="selectPages" name="selectPages" class="form-control field">
