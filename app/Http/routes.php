@@ -96,10 +96,16 @@ Route::Group(['middleware'=>'auth'],function() {
     //信息管理路由群，by xiaoming
     Route::Group(['prefix' => 'manageInfo'], function (){
         // 教师信息管理
-        Route::get('Teacher', 'Admin\ManageInfoController@test');
+        Route::get('Teacher', 'Admin\ManageTeacherInfoController@teacherInfo');//主页信息浏览
+
+        Route::any('teacherCreate','Admin\ManageTeacherInfoController@teacherInfoCreate');//新增
 
         // 学生信息管理
-        Route::get('Student', 'Admin\ManageInfoController@test');
+        Route::get('Student', 'Admin\ManageStudentInfoController@studentInfo');//主页信息浏览
+        Route::any('studentUpdate/{id}', 'Admin\ManageStudentInfoController@studentInfoUpdate');//修改
+        Route::any('studentCreate', 'Admin\ManageStudentInfoController@studentInfoCreate');//新增
+        Route::any('studentDetail/{id}', 'Admin\ManageStudentInfoController@studentInfoDetail');//详情
+        Route::any('studentDelete/{id}', 'Admin\ManageStudentInfoController@studentInfoDelete');//删除
 
         // 班级信息管理
         Route::get('Class', 'Admin\ManageClassInfoController@classInfo');//主页信息浏览
@@ -108,7 +114,9 @@ Route::Group(['middleware'=>'auth'],function() {
         Route::get('classDelete/{id}', 'Admin\ManageClassInfoController@classInfoDelete');//删除
 
         // 专业信息管理
-        Route::get('Major', 'Admin\ManageInfoController@test');
+        Route::get('Major', 'Admin\ManageMajorInfoController@majorInfo');//主页信息浏览
+
+        Route::any('majorCreate','Admin\ManageMajorInfoController@majorInfoCreate');//新增
 
         // 学院信息管理
         Route::get('College', 'Admin\ManageCollegeInfoController@collegeInfo');
