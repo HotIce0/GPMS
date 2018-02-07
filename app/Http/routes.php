@@ -89,7 +89,7 @@ Route::Group(['middleware'=>'auth'],function() {
     /**************
      * 管理员路由 *
      *************/
-    Route::group(['prefix' => 'student'], function () {
+    Route::group(['prefix' => 'admin'], function () {
         Route::get('/', 'Admin\AdminIndexController@index');
     });
     Route::get('/summary','Admin\AdminIndexController@summary');
