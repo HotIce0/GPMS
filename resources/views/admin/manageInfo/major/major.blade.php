@@ -8,18 +8,18 @@
 
     {{--添加提示响应--}}
     <!-- ERROR TIP -->
-    {{--@if(Session::has('successMsg'))--}}
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <i class="fa fa-check-circle"></i> 添加成功
-    </div>
-    {{--@endif--}}
-    {{--@if(Session::has('failureMsg'))--}}
-    <div class="alert alert-danger alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <i class="fa fa-times-circle"></i> 添加失败
-    </div>
-    {{--@endif--}}
+    @if(Session::has('successMsg'))
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <i class="fa fa-check-circle"></i>{{ Session::get('successMsg') }}
+        </div>
+    @endif
+    @if(Session::has('failureMsg'))
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <i class="fa fa-times-circle"></i>{{ Session::get('failureMsg') }}
+        </div>
+    @endif
     <!-- END ERROR TIP -->
 
 
@@ -45,15 +45,16 @@
                 @foreach($majorInfos as $majorInfo)
                     <tr>
                         <td>
-                            <a href="">详情</a>
-                            <a href="">修改</a>
-                            <a href="">删除</a>
+                            <a href="{{ url('manageInfo/majorDetail',['id'=>$majorInfo->major_info_id] )}}">详情</a>
+                            <a href="{{ url('manageInfo/majorUpdate',['id'=>$majorInfo->major_info_id] )}}">修改</a>
+                            <a href="{{ url('manageInfo/majorDelete',['id'=>$majorInfo->major_info_id] )}}"
+                               onclick="if (confirm('确定要删除这条专业信息吗？') == false) return false;">删除</a>
                         </td>
                         <th>{{$majorInfo->major_identifier}}</th>
                         {{--专业编号--}}
                         <th>{{$majorInfo->major_name}}</th>
                         {{--专业名称--}}
-                        <th>{{$majorInfo->major_info_id}}</th>
+                        <th>{{$majorInfo->college_info_id($majorInfo->college_info_id)}}</th>
                         {{--所属学院--}}
                     </tr>
                 @endforeach

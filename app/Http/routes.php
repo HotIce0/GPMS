@@ -117,8 +117,10 @@ Route::Group(['middleware'=>'auth'],function() {
 
         // 专业信息管理
         Route::get('Major', 'Admin\ManageMajorInfoController@majorInfo');//主页信息浏览
-
-        Route::any('majorCreate','Admin\ManageMajorInfoController@majorInfoCreate');//新增
+        Route::any('majorUpdate/{id}', 'Admin\ManageMajorInfoController@majorInfoUpdate');//修改
+        Route::any('majorCreate', 'Admin\ManageMajorInfoController@majorInfoCreate');//新增
+        Route::any('majorDetail/{id}', 'Admin\ManageMajorInfoController@majorInfoDetail');//详情
+        Route::any('majorDelete/{id}', 'Admin\ManageMajorInfoController@majorInfoDelete');//删除
 
         // 学院信息管理
         Route::get('College', 'Admin\ManageCollegeInfoController@collegeInfo');
