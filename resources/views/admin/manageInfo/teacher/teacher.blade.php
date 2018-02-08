@@ -8,18 +8,18 @@
 
     {{--添加提示响应--}}
     <!-- ERROR TIP -->
-    {{--@if(Session::has('successMsg'))--}}
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <i class="fa fa-check-circle"></i> 添加成功
-    </div>
-    {{--@endif--}}
-    {{--@if(Session::has('failureMsg'))--}}
-    <div class="alert alert-danger alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <i class="fa fa-times-circle"></i> 添加失败
-    </div>
-    {{--@endif--}}
+    @if(Session::has('successMsg'))
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <i class="fa fa-check-circle"></i>{{ Session::get('successMsg') }}
+        </div>
+    @endif
+    @if(Session::has('failureMsg'))
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <i class="fa fa-times-circle"></i>{{ Session::get('failureMsg') }}
+        </div>
+    @endif
     <!-- END ERROR TIP -->
 
 
@@ -40,42 +40,46 @@
                     <th>教师名称</th>
                     <th>所属学院</th>
                     <th>所属教研室</th>
-                    <th>邮箱地址</th>
-                    <th>电话号码</th>
                     <th>职称</th>
-                    <th>QQ号</th>
-                    <th>微信号</th>
                     <th>可指导最大学生数</th>
+                    {{--<th>学位</th>--}}
+                    {{--<th>邮箱地址</th>--}}
+                    {{--<th>电话号码</th>--}}
+                    {{--<th>QQ号</th>--}}
+                    {{--<th>微信号</th>--}}
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($teacherInfos as $teacherInfo)
                     <tr>
                         <td>
-                            <a href="">详情</a>
-                            <a href="">修改</a>
-                            <a href="">删除</a>
+                            <a href="{{ url('manageInfo/teacherDetail',['id'=>$teacherInfo->teacher_info_id] )}}">详情</a>
+                            <a href="{{ url('manageInfo/teacherUpdate',['id'=>$teacherInfo->teacher_info_id] )}}">修改</a>
+                            <a href="{{ url('manageInfo/teacherDelete',['id'=>$teacherInfo->teacher_info_id] )}}"
+                               onclick="if (confirm('确定要删除这条教师信息吗？') == false) return false;">删除</a>
                         </td>
                         <th>{{$teacherInfo->teacher_job_number}}</th>
                         {{--教师工号--}}
                         <th>{{$teacherInfo->teacher_name}}</th>
                         {{--教师名称--}}
-                        <th>{{$teacherInfo->college_info_id}}</th>
+                        <th>{{$teacherInfo->college_info_id($teacherInfo->college_info_id)}}</th>
                         {{--所属学院--}}
-                        <th>{{$teacherInfo->section_info_id}}</th>
+                        <th>{{$teacherInfo->section_info_id($teacherInfo->section_info_id)}}</th>
                         {{--所属教研室--}}
-                        <th>{{$teacherInfo->mail_address}}</th>
-                        {{--邮箱地址--}}
-                        <th>{{$teacherInfo->phone_number}}</th>
-                        {{--电话号码--}}
                         <th>{{$teacherInfo->positional_title}}</th>
                         {{--职称--}}
-                        <th>{{$teacherInfo->qq_number}}</th>
-                        {{--QQ号--}}
-                        <th>{{$teacherInfo->wechart_name}}</th>
-                        {{--微信号--}}
                         <th>{{$teacherInfo->max_students}}</th>
                         {{--可指导最大学生数--}}
+                        {{--<th>{{$teacherInfo->academic_degree}}</th>--}}
+                        {{--学位--}}
+                        {{--<th>{{$teacherInfo->mail_address}}</th>--}}
+                        {{--邮箱地址--}}
+                        {{--<th>{{$teacherInfo->phone_number}}</th>--}}
+                        {{--电话号码--}}
+                        {{--<th>{{$teacherInfo->qq_number}}</th>--}}
+                        {{--QQ号--}}
+                        {{--<th>{{$teacherInfo->wechart_name}}</th>--}}
+                        {{--微信号--}}
                     </tr>
                 @endforeach
                 </tbody>

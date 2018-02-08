@@ -26,28 +26,29 @@ class ManageStudentInfoController extends Controller
         if ($request->isMethod('POST')){
 
             $validator=\Validator::make($request->input(),[
-                'StudentInfo.student_number'=>'required|unique:t_student_info,student_number|integer|min:10000000000|max:99999999999',                           //学号
-                'StudentInfo.student_name'=>'required|min:2|max:20',                                                                                             //姓名
-                'StudentInfo.college_info_id'=>'required|integer',                                                                                               //学院
-                'StudentInfo.class_info_id'=>'required|integer',                                                                                                 //班级
-                'StudentInfo.major_info_id'=>'required|integer',                                                                                                 //专业
-                'StudentInfo.identity_card_number'=>'required|unique:t_student_info,identity_card_number|integer|min:100000000000000000|max:999999999999999999', //身份证号码
-                'StudentInfo.mail_address'=>'required|unique:t_student_info,mail_address',                                                                       //邮箱地址
-                'StudentInfo.phone_number'=>'required|unique:t_student_info,phone_number|integer|min:10000000000|max:99999999999',                               //电话号码
-                'StudentInfo.qq_number'=>'required|unique:t_student_info,qq_number|integer|min:100000|max:99999999999',                                          //QQ号
-                'StudentInfo.wechart_name'=>'required|unique:t_student_info,wechart_name',                                                                       //微信号
+                'StudentInfo.student_number'=>'required|unique:t_student_info,student_number|integer|min:10000000000|max:99999999999',  //学号
+                'StudentInfo.student_name'=>'required|min:2|max:20',                                                                    //姓名
+                'StudentInfo.college_info_id'=>'required|integer',                                                                      //学院
+                'StudentInfo.class_info_id'=>'required|integer',                                                                        //班级
+                'StudentInfo.major_info_id'=>'required|integer',                                                                        //专业
+                'StudentInfo.identity_card_number'=>'required|unique:t_student_info,identity_card_number|identitycards',                //身份证号码
+                'StudentInfo.mail_address'=>'required|email|unique:t_student_info,mail_address',                                        //邮箱地址
+                'StudentInfo.phone_number'=>'required|unique:t_student_info,phone_number|integer|min:10000000000|max:99999999999',      //电话号码
+                'StudentInfo.qq_number'=>'required|unique:t_student_info,qq_number|integer|min:100000|max:99999999999',                 //QQ号
+                'StudentInfo.wechart_name'=>'required|unique:t_student_info,wechart_name',                                              //微信号
             ],[
-                'required'=>':attribute 必须填写',
-                'min'=>':attribute 长度不符合要求',
-                'max'=>':attribute 长度不符合要求',
-                'integer'=>'必须为整数',
-                'unique'=>'该项信息已经存在',
+                'required'=>':attribute 必须填写！',
+                'min'=>':attribute 长度太短！',
+                'max'=>':attribute 长度太长！',
+                'integer'=>'必须为整数！',
+                'unique'=>'该项信息已经存在！',
+                'email'=>'请输入正确的邮箱地址！',
             ],[
                 'StudentInfo.student_number'=>'学号',
-                'StudentInfo.student_name'=>'姓名',
-                'StudentInfo.college_info_id'=>'学院',
-                'StudentInfo.class_info_id'=>'班级',
-                'StudentInfo.major_info_id'=>'专业',
+                'StudentInfo.student_name'=>'学生名称',
+                'StudentInfo.college_info_id'=>'所属学院',
+                'StudentInfo.class_info_id'=>'所属班级',
+                'StudentInfo.major_info_id'=>'所属专业',
                 'StudentInfo.identity_card_number'=>'身份证号码',
                 'StudentInfo.mail_address'=>'邮箱地址',
                 'StudentInfo.phone_number'=>'电话号码',
@@ -98,21 +99,23 @@ class ManageStudentInfoController extends Controller
         if ($request->isMethod('POST')){
 
             $validator=\Validator::make($request->input(),[
-                'StudentInfo.student_number'=>'required|integer|min:10000000000|max:99999999999',                       //学号
-                'StudentInfo.student_name'=>'required|min:2|max:20',                                                    //姓名
-                'StudentInfo.college_info_id'=>'required|integer',                                                      //学院
-                'StudentInfo.class_info_id'=>'required|integer',                                                        //班级
-                'StudentInfo.major_info_id'=>'required|integer',                                                        //专业
-                'StudentInfo.identity_card_number'=>'required|integer|min:100000000000000000|max:999999999999999999',   //身份证号码
-                'StudentInfo.mail_address'=>'required',                                                                 //邮箱地址
-                'StudentInfo.phone_number'=>'required|integer|min:10000000000|max:99999999999',                         //电话号码
-                'StudentInfo.qq_number'=>'required|integer|min:100000|max:99999999999',                                 //QQ号
-                'StudentInfo.wechart_name'=>'required',                                                                 //微信号
+                'StudentInfo.student_number'=>'required|integer|min:10000000000|max:99999999999|unique:t_student_info,student_number,'.$studentInfo->student_info_id.',student_info_id',//学号
+                'StudentInfo.student_name'=>'required|min:2|max:20',                                                                                                                    //姓名
+                'StudentInfo.college_info_id'=>'required|integer',                                                                                                                      //学院
+                'StudentInfo.class_info_id'=>'required|integer',                                                                                                                        //班级
+                'StudentInfo.major_info_id'=>'required|integer',                                                                                                                        //专业
+                'StudentInfo.identity_card_number'=>'required|identitycards|unique:t_student_info,identity_card_number,'.$studentInfo->student_info_id.',student_info_id',              //身份证号码
+                'StudentInfo.mail_address'=>'required|email|unique:t_student_info,mail_address,'.$studentInfo->student_info_id.',student_info_id',                                      //邮箱地址
+                'StudentInfo.phone_number'=>'required|integer|min:10000000000|max:99999999999|unique:t_student_info,phone_number,'.$studentInfo->student_info_id.',student_info_id',    //电话号码
+                'StudentInfo.qq_number'=>'required|integer|min:100000|max:99999999999|unique:t_student_info,qq_number,'.$studentInfo->student_info_id.',student_info_id',               //QQ号
+                'StudentInfo.wechart_name'=>'required|unique:t_student_info,wechart_name,'.$studentInfo->student_info_id.',student_info_id',                                            //微信号
             ],[
-                'required'=>':attribute 必须填写',
-                'min'=>':attribute 长度不符合要求',
-                'max'=>':attribute 长度不符合要求',
-                'integer'=>'必须为整数',
+                'required'=>':attribute 必须填写！',
+                'min'=>':attribute 长度太短！',
+                'max'=>':attribute 长度太长！',
+                'integer'=>'必须为整数！',
+                'unique'=>'该项信息已经存在！',
+                'email'=>'请输入正确的邮箱地址！',
             ],[
                 'StudentInfo.student_number'=>'学号',
                 'StudentInfo.student_name'=>'姓名',

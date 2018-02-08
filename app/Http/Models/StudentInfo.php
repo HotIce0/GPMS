@@ -16,15 +16,16 @@ class StudentInfo extends Model
 
     public $timestamps = true;
 
-    protected function getDateFormat()
-    {
-        return time();
-    }
 
-    protected function asDateTime($value)
-    {
-        return $value;
-    }
+//    protected function getDateFormat()
+//    {
+//        return time();
+//    }
+//
+//    protected function asDateTime($value)
+//    {
+//        return $value;
+//    }
 
 
 
@@ -40,7 +41,7 @@ class StudentInfo extends Model
             //名字写这儿
 //            self::nameCollege => '待定义学院',
             self::computerCollege => '计算机学院',
-            self::SJClass => '审计学院',
+            self::auditCollege=> '审计学院',
         ];
 
         if ($ind1 !== null) {

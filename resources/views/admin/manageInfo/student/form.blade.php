@@ -5,17 +5,17 @@
     <div class="form-group {{$errors->has('student_number') ?  'has-error' : ''}}">
         <label for="student_number" class="col-sm-2 control-label"><a class="text-danger">*</a>学号</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control" id="student_number" name="StudentInfo[student_number]" placeholder="请输入学号[11个数字]"
+            <input type="text" class="form-control" id="student_number" name="StudentInfo[student_number]" placeholder="请输入学号"
                    value="{{ old('StudentInfo') ['student_number'] ? old('StudentInfo') ['student_number'] : $studentInfo->student_number }}">
             <label class="control-label text-danger" for="student_number">{{ $errors->first('StudentInfo.student_number') }}</label>
         </div>
     </div>
 
-    {{--学生姓名--}}
+    {{--学生名称--}}
     <div class="form-group {{$errors->has('student_name') ?  'has-error' : ''}}">
-        <label for="student_name" class="col-sm-2 control-label"><a class="text-danger">*</a>学生姓名</label>
+        <label for="student_name" class="col-sm-2 control-label"><a class="text-danger">*</a>学生名称</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control" id="student_name" name="StudentInfo[student_name]" placeholder="请输入学生姓名"
+            <input type="text" class="form-control" id="student_name" name="StudentInfo[student_name]" placeholder="请输入学生名称"
                    value="{{ old('StudentInfo')['student_name'] ? old('StudentInfo')['student_name'] : $studentInfo->student_name }}">
             <label class="control-label text-danger" for="student_name">{{ $errors->first('StudentInfo.student_name') }}</label>
         </div>
@@ -31,7 +31,7 @@
                     <option value= "{{$ind1}}">{{ $val1 }}</option>
                 @endforeach
             </select>
-            <label class="control-label text-danger" for="student_number">{{ $errors->first('StudentInfo.college_info_id') }}</label>
+            <label class="control-label text-danger" for="college_info_id">{{ $errors->first('StudentInfo.college_info_id') }}</label>
         </div>
     </div>
 
@@ -45,7 +45,7 @@
                     <option value= "{{$ind2}}">{{ $val2 }}</option>
                 @endforeach
             </select>
-            <label class="control-label text-danger" for="student_number">{{ $errors->first('StudentInfo.class_info_id') }}</label>
+            <label class="control-label text-danger" for="class_info_id">{{ $errors->first('StudentInfo.class_info_id') }}</label>
         </div>
     </div>
 
@@ -59,7 +59,7 @@
                     <option value= "{{$ind3}}">{{ $val3 }}</option>
                 @endforeach
             </select>
-            <label class="control-label text-danger" for="student_number">{{ $errors->first('StudentInfo.major_info_id') }}</label>
+            <label class="control-label text-danger" for="major_info_id">{{ $errors->first('StudentInfo.major_info_id') }}</label>
         </div>
     </div>
 
@@ -67,7 +67,7 @@
     <div class="form-group {{$errors->has('identity_card_number') ?  'has-error' : ''}}">
         <label for="identity_card_number" class="col-sm-2 control-label"><a class="text-danger">*</a>身份证号码</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control" id="identity_card_number" name="StudentInfo[identity_card_number]" placeholder="请输入身份证号码[18个数字]"
+            <input type="text" class="form-control" id="identity_card_number" name="StudentInfo[identity_card_number]" placeholder="请输入身份证号码"
                    value="{{ old('StudentInfo')['identity_card_number'] ? old('StudentInfo')['identity_card_number'] :$studentInfo->identity_card_number }}">
             <label class="control-label text-danger" for="identity_card_number">{{ $errors->first('StudentInfo.identity_card_number') }}</label>
         </div>
@@ -87,7 +87,7 @@
     <div class="form-group {{$errors->has('phone_number') ?  'has-error' : ''}}">
         <label for="phone_number" class="col-sm-2 control-label"><a class="text-danger">*</a>电话号码</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control" id="phone_number" name="StudentInfo[phone_number]" placeholder="请输入电话号码[11个数字]"
+            <input type="text" class="form-control" id="phone_number" name="StudentInfo[phone_number]" placeholder="请输入电话号码"
                    value="{{ old('StudentInfo')['phone_number'] ? old('StudentInfo')['phone_number'] : $studentInfo->phone_number }}">
             <label class="control-label text-danger" for="phone_number">{{ $errors->first('StudentInfo.phone_number') }}</label>
         </div>

@@ -18,19 +18,19 @@
                     <td>{{ $studentInfo->student_number }}</td>
                 </tr>
                 <tr>
-                    <td>姓名</td>
+                    <td>学生名称</td>
                     <td>{{ $studentInfo->student_name }}</td>
                 </tr>
                 <tr>
-                    <td>学院</td>
+                    <td>所属学院</td>
                     <td>{{ $studentInfo->college_info_id($studentInfo->college_info_id) }}</td>
                 </tr>
                 <tr>
-                    <td>班级</td>
+                    <td>所属班级</td>
                     <td>{{ $studentInfo->class_info_id($studentInfo->class_info_id) }}</td>
                 </tr>
                 <tr>
-                    <td>专业</td>
+                    <td>所属专业</td>
                     <td>{{ $studentInfo->major_info_id($studentInfo->major_info_id) }}</td>
                 </tr>
                 <tr>
@@ -61,7 +61,7 @@
                     <td>最后修改</td>
                     <td>{{ $studentInfo->updated_at }}</td>
                 </tr>
-            </tbody>
+                </tbody>
             </table>
 
             <div class="form-group">

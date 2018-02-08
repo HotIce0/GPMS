@@ -97,8 +97,10 @@ Route::Group(['middleware'=>'auth'],function() {
     Route::Group(['prefix' => 'manageInfo'], function (){
         // 教师信息管理
         Route::get('Teacher', 'Admin\ManageTeacherInfoController@teacherInfo');//主页信息浏览
-
-        Route::any('teacherCreate','Admin\ManageTeacherInfoController@teacherInfoCreate');//新增
+        Route::any('teacherUpdate/{id}', 'Admin\ManageTeacherInfoController@teacherInfoUpdate');//修改
+        Route::any('teacherCreate', 'Admin\ManageTeacherInfoController@teacherInfoCreate');//新增
+        Route::any('teacherDetail/{id}', 'Admin\ManageTeacherInfoController@teacherInfoDetail');//详情
+        Route::any('teacherDelete/{id}', 'Admin\ManageTeacherInfoController@teacherInfoDelete');//删除
 
         // 学生信息管理
         Route::get('Student', 'Admin\ManageStudentInfoController@studentInfo');//主页信息浏览

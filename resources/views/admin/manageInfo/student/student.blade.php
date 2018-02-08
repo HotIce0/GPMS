@@ -60,7 +60,7 @@
                         <th>{{$studentInfo->student_number}}</th>
                         {{--学号--}}
                         <th>{{$studentInfo->student_name}}</th>
-                        {{--学生姓名--}}
+                        {{--学生名称--}}
                         <th>{{$studentInfo->college_info_id($studentInfo->college_info_id)}}</th>
                         {{--所属学院--}}
                         <th>{{$studentInfo->class_info_id($studentInfo->class_info_id)}}</th>
