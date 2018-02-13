@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Models\CollegeInfo;
 use App\Http\Models\MajorInfo;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,9 @@ class ManageMajorInfoController extends Controller
     public function majorInfoCreate(Request $request)
     {
         $majorInfo=new MajorInfo();
+
+        //获取数据库中其他表的数据
+        $date1 = CollegeInfo::get();
 
         if ($request->isMethod('POST')){
 
@@ -66,6 +70,7 @@ class ManageMajorInfoController extends Controller
 
         return view('admin.manageInfo.major.create',[
             'majorInfo'=>$majorInfo,
+            'date1'=>$date1,
         ]);
     }
 
@@ -73,6 +78,9 @@ class ManageMajorInfoController extends Controller
     public function majorInfoUpdate(Request $request,$id)
     {
         $majorInfo=MajorInfo::find($id);
+
+        //获取数据库中其他表的数据
+        $date1 = CollegeInfo::get();
 
         if ($request->isMethod('POST')){
 
@@ -111,6 +119,7 @@ class ManageMajorInfoController extends Controller
 
         return view('admin.manageInfo.major.update',[
             'majorInfo'=>$majorInfo,
+            'date1'=>$date1,
         ]);
     }
 

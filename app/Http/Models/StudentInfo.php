@@ -31,23 +31,32 @@ class StudentInfo extends Model
 
     //当向数据库中增加新的学院时，学院的名字写在这个模型
     //const nameCollege = 0;  //待定义学院
-    const computerCollege = 1;  //计算机学院
-    const auditCollege = 2;  //审计学院
+//    const computerCollege = 1;  //计算机学院
+//    const auditCollege = 2;  //审计学院
 
 
     public function college_info_id($ind1 = null)   //学院
     {
-        $arr1 = [
-            //名字写这儿
-//            self::nameCollege => '待定义学院',
-            self::computerCollege => '计算机学院',
-            self::auditCollege=> '审计学院',
-        ];
+//        $arr1 = [
+//            //名字写这儿
+////            self::nameCollege => '待定义学院',
+//            self::computerCollege => '计算机学院',
+//            self::auditCollege=> '审计学院',
+//        ];
+//
+//        if ($ind1 !== null) {
+//            return array_key_exists($ind1, $arr1) ? $arr1[$ind1] : $arr1[self::computerCollege];
+//        }
+//
+//        return $arr1;
 
-        if ($ind1 !== null) {
-            return array_key_exists($ind1, $arr1) ? $arr1[$ind1] : $arr1[self::computerCollege];
-        }
-
+        $date1=CollegeInfo::get();
+        foreach ($date1 as $college)
+            if ($college->college_info_id == $ind1)
+            {
+                $arr1 = $college->college_name;
+                break;
+            }
         return $arr1;
     }
 
@@ -56,24 +65,33 @@ class StudentInfo extends Model
 
 //    当向数据库中增加新的班级时，班级的名字写在这个模型
 //    const nameClass = 0;  //待定义班级
-    const BJClass = 1;  //计科
-    const SJClass = 2;  //审计
+//    const BJClass = 1;  //计科
+//    const SJClass = 2;  //审计
 
 
 
     public function class_info_id($ind2 = null)   //班级
     {
-        $arr2 = [
-            //名字写这儿
-//            self::nameClass => '待定义班级',
-            self::BJClass => '计科17-3BJ',
-            self::SJClass => '审计17-4SJ',
-        ];
+//        $arr2 = [
+//            //名字写这儿
+////            self::nameClass => '待定义班级',
+//            self::BJClass => '计科17-3BJ',
+//            self::SJClass => '审计17-4SJ',
+//        ];
+//
+//        if ($ind2 !== null) {
+//            return array_key_exists($ind2, $arr2) ? $arr2[$ind2] : $arr2[self::BJClass];
+//        }
+//
+//        return $arr2;
 
-        if ($ind2 !== null) {
-            return array_key_exists($ind2, $arr2) ? $arr2[$ind2] : $arr2[self::BJClass];
-        }
-
+        $date2=ClassInfo::get();
+        foreach ($date2 as $class)
+            if ($class->class_info_id == $ind2)
+            {
+                $arr2 = $class->class_name;
+                break;
+            }
         return $arr2;
     }
 
@@ -82,23 +100,32 @@ class StudentInfo extends Model
 
 //    当向数据库中增加新的专业时，专业的名字写在这个模型
 //    const nameMajor = 0;  //待定义专业
-    const computerMajor = 1;  //计算机科学与技术
-    const auditMajor = 2;   //审计学
+//    const computerMajor = 1;  //计算机科学与技术
+//    const auditMajor = 2;   //审计学
 
 
     public function major_info_id($ind3 = null)   //专业
     {
-        $arr3 = [
-            //名字写这儿
-//            self::nameMajor => '待定义专业',
-            self::computerMajor => '计算机科学与技术',
-            self::auditMajor => '审计学',
-        ];
+//        $arr3 = [
+//            //名字写这儿
+////            self::nameMajor => '待定义专业',
+//            self::computerMajor => '计算机科学与技术',
+//            self::auditMajor => '审计学',
+//        ];
+//
+//        if ($ind3 !== null) {
+//            return array_key_exists($ind3, $arr3) ? $arr3[$ind3] : $arr3[self::computerMajor];
+//        }
+//
+//        return $arr3;
 
-        if ($ind3 !== null) {
-            return array_key_exists($ind3, $arr3) ? $arr3[$ind3] : $arr3[self::computerMajor];
-        }
-
+        $date3=MajorInfo::get();
+        foreach ($date3 as $major)
+            if ($major->major_info_id == $ind3)
+            {
+                $arr3 = $major->major_name;
+                break;
+            }
         return $arr3;
     }
 }

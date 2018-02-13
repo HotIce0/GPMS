@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Models\ClassInfo;
+use App\Http\Models\CollegeInfo;
+use App\Http\Models\MajorInfo;
 use App\Http\Models\StudentInfo;
 use Illuminate\Http\Request;
 
@@ -22,6 +25,11 @@ class ManageStudentInfoController extends Controller
     public function studentInfoCreate(Request $request)
     {
         $studentInfo=new StudentInfo();
+
+        //获取数据库中其他表的数据
+        $date1 = CollegeInfo::get();
+        $date2 = ClassInfo::get();
+        $date3 = MajorInfo::get();
 
         if ($request->isMethod('POST')){
 
@@ -88,6 +96,9 @@ class ManageStudentInfoController extends Controller
 
         return view('admin.manageInfo.student.create',[
             'studentInfo'=>$studentInfo,
+            'date1'=>$date1,
+            'date2'=>$date2,
+            'date3'=>$date3,
         ]);
     }
 
@@ -95,6 +106,11 @@ class ManageStudentInfoController extends Controller
     public function studentInfoUpdate(Request $request,$id)
     {
         $studentInfo=StudentInfo::find($id);
+
+        //获取数据库中其他表的数据
+        $date1 = CollegeInfo::get();
+        $date2 = ClassInfo::get();
+        $date3 = MajorInfo::get();
 
         if ($request->isMethod('POST')){
 
@@ -154,6 +170,9 @@ class ManageStudentInfoController extends Controller
 
         return view('admin.manageInfo.student.update',[
             'studentInfo'=>$studentInfo,
+            'date1'=>$date1,
+            'date2'=>$date2,
+            'date3'=>$date3,
         ]);
     }
 

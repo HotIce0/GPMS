@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Models\CollegeInfo;
+use App\Http\Models\SectionInfo;
 use App\Http\Models\TeacherInfo;
 use Illuminate\Http\Request;
 
@@ -22,6 +24,10 @@ class ManageTeacherInfoController extends Controller
     public function teacherInfoCreate(Request $request)
     {
         $teacherInfo=new TeacherInfo();
+
+        //获取数据库中其他表的数据
+        $date1 = CollegeInfo::get();
+        $date2 = SectionInfo::get();
 
         if ($request->isMethod('POST')){
 
@@ -91,6 +97,8 @@ class ManageTeacherInfoController extends Controller
 
         return view('admin.manageInfo.teacher.create',[
             'teacherInfo'=>$teacherInfo,
+            'date1'=>$date1,
+            'date2'=>$date2,
         ]);
     }
 
@@ -98,6 +106,10 @@ class ManageTeacherInfoController extends Controller
     public function teacherInfoUpdate(Request $request,$id)
     {
         $teacherInfo=TeacherInfo::find($id);
+
+        //获取数据库中其他表的数据
+        $date1 = CollegeInfo::get();
+        $date2 = SectionInfo::get();
 
         if ($request->isMethod('POST')){
 
@@ -161,6 +173,8 @@ class ManageTeacherInfoController extends Controller
 
         return view('admin.manageInfo.teacher.update',[
             'teacherInfo'=>$teacherInfo,
+            'date1'=>$date1,
+            'date2'=>$date2,
         ]);
     }
 
