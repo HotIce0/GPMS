@@ -24,67 +24,40 @@
     <div class="panel">
         <div class="panel-heading" >
             <h3 class="panel-title">教研室信息管理</h3>
-            {{--<div class="right">--}}
-                {{--<a href="{{url('#')}}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增班级</span></a>--}}
-            {{--</div>--}}
+            <div class="right">
+                <a href="{{url('/admin/manageInfo/sectionCreate')}}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增教研室</span></a>
+            </div>
         </div>
-        {{--<div class="right">--}}
-            {{--<button type="button" id="addClass" class="btn btn-success btnone ">新增</button>--}}
-        {{--</div>--}}
-        {{--<div class="panel-body">--}}
-            {{--<table class="table table-striped">--}}
-                {{--<thead>--}}
-                {{--<tr>--}}
-                    {{--<td>--}}
-                    {{--<a href="{{ url('student/detail', ['id' => $student->id]) }}">详情</a>--}}
-                    {{--<a href="{{ url('student/update', ['id' => $student->id]) }}">修改</a>--}}
-                    {{--<a href="{{ url('student/delete', ['id' => $student->id]) }}"--}}
-                    {{--onclick="if (confirm('确定要删除吗？') == false) return false;">删除</a>--}}
-                    {{--</td>--}}
+        <div class="panel-body">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>操作管理</th>
+                    {{--<th>教研室编号</th>--}}
+                    <th>教研室名称</th>
+                    <th>所属学院</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($sectionInfos as $sectionInfo)
+                    <tr>
+                        <td>
+                            <a href="{{ url('/admin/manageInfo/collegeUpdate',['id' => $sectionInfo->section_info_id])}}">修改</a>
+                            <a href="{{ url('/admin/manageInfo/collegeDelete',['id' => $sectionInfo->section_info_id])}}"
+                               onclick="if (confirm('确定要删除吗？') == false) return false;">删除</a>
+                        </td>
+                        {{--教研室编号--}}
+                        {{--<th>{{ $sectionInfo->section_identifier}}</th>--}}
+                        {{--教研室名称--}}
+                        <th>{{ $sectionInfo->section_name}}</th>
+                        {{--所属学院--}}
+                        <th>{{ $sectionInfo->getCollegeInfo["college_name"]}}</th>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
 
-                    {{--<th>操作</th>--}}
-                    {{--<th>班级编号</th>--}}
-                    {{--<th>班级名称</th>--}}
-                    {{--<th>所属学院</th>--}}
-                {{--</tr>--}}
-                {{--</thead>--}}
-                {{--<tbody>--}}
-                {{--<tr>--}}
-                    {{--<td>--}}
-                        {{--<a href="{{ '#' }}">详情</a>--}}
-                        {{--<a href="{{ '#' }}">修改</a>--}}
-                        {{--<a href="{{ '#' }}"--}}
-                           {{--onclick="if (confirm('确定要删除吗？') == false) return false;">删除</a>--}}
-                    {{--</td>--}}
-                    {{--<th>1602</th>--}}
-                    {{--<th>计科16-2BJ</th>--}}
-                    {{--<th>计算机学院</th>--}}
-                {{--</tr>--}}
-                {{--<tr>--}}
-                    {{--<td>--}}
-                        {{--<a href="{{ '#' }}">详情</a>--}}
-                        {{--<a href="{{ '#' }}">修改</a>--}}
-                        {{--<a href="{{ '#' }}"--}}
-                           {{--onclick="if (confirm('确定要删除吗？') == false) return false;">删除</a>--}}
-                    {{--</td>--}}
-                    {{--<th>1607</th>--}}
-                    {{--<th>软件16-2BF</th>--}}
-                    {{--<th>计算机学院</th>--}}
-                {{--</tr>--}}
-                {{--<tr>--}}
-                    {{--<td>--}}
-                        {{--<a href="{{ '#' }}">详情</a>--}}
-                        {{--<a href="{{ '#' }}">修改</a>--}}
-                        {{--<a href="{{ '#' }}"--}}
-                           {{--onclick="if (confirm('确定要删除吗？') == false) return false;">删除</a>--}}
-                    {{--</td>--}}
-                    {{--<th>1706</th>--}}
-                    {{--<th>软件17-1BF</th>--}}
-                    {{--<th>计算机学院</th>--}}
-                {{--</tr>--}}
-                {{--</tbody>--}}
-            {{--</table>--}}
-        {{--</div>--}}
+        </div>
     </div>
 
 @endsection
