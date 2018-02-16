@@ -9,10 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ClassInfo extends Model
 {
-    //当向数据库中增加新的学院时，学院的名字写在这个模型
-//    const nameCollege = 0;  //待定义学院
-    const computerCollege = 1;  //计算机学院
-
     protected $table = 't_class_info';
 
     protected $primaryKey = 'class_info_id';
@@ -35,19 +31,9 @@ class ClassInfo extends Model
     }
 
 
-    public function college_info_id($ind = null)
+    protected function getCollegeInfo()
     {
-        $arr = [
-            //名字写这儿
-//            self::nameCollege => '待定义学院',
-            self::computerCollege => '计算机学院',
-        ];
-
-        if ($ind !== null) {
-            return array_key_exists($ind, $arr) ? $arr[$ind] : $arr[self::computerCollege];
-        }
-
-        return $arr;
+        return parent::belongsTo('App\Http\Models\CollegeInfo','college_info_id','college_info_id');
     }
 
 }

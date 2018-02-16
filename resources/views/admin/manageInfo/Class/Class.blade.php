@@ -46,12 +46,12 @@
                         <a href="{{ url('/admin/manageInfo/classDelete',['id' => $classInfo->class_info_id])}}"
                            onclick="if (confirm('确定要删除吗？') == false) return false;">删除</a>
                     </td>
-                    <th>{{ $classInfo->class_identifier}}</th>
                     {{--班级编号--}}
-                    <th>{{ $classInfo->class_name}}</th>
+                    <th>{{ $classInfo->class_identifier}}</th>
                     {{--班级名称--}}
-                    <th>{{ $classInfo->college_info_id($classInfo->college_info_id)}}</th>
+                    <th>{{ $classInfo->class_name}}</th>
                     {{--所属学院--}}
+                    <th>{{ $classInfo->getCollegeInfo["college_name"]}}</th>
                 </tr>
                 @endforeach
             </tbody>

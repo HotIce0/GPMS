@@ -27,18 +27,17 @@ class ManageClassInfoController extends Controller
     {
         $classInfo=new ClassInfo();
 
-
         if ($request->isMethod('post')) {
 
             //Validator类验证
             $validator = \Validator::make($request->input(), [
                 'ClassInfo.class_identifier' => 'required|integer|min:1000|max:9999',
                 'ClassInfo.class_name' => 'required|min:8|max:8',
-                'ClassInfo.college_info_id' => 'required|integer|min:0|max:99',
+                'ClassInfo.college_info_id' => 'required|integer',
             ], [
                 'required' => ':attribute 为必填项',
-                'min' => ':attribute 长度不符合要求（应该为4为有效数字）',
-                'max' => ':attribute 长度不符合要求（应该为4为有效数字）',
+                'min' => ':attribute 长度过短（应该为4为有效数字）',
+                'max' => ':attribute 长度过长（应该为4为有效数字）',
                 'integer' => ':attribute 必须为整数',
             ], [
                 'ClassInfo.class_identifier' => '班级编号',

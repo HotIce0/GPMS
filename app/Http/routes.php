@@ -113,7 +113,7 @@ Route::Group(['middleware'=>'auth'],function() {
             Route::get('College', 'Admin\ManageCollegeInfoController@collegeInfo');
 
             // 教研室信息管理
-            Route::get('StaffRoom', 'Admin\ManageStaffRoomInfoController@staffRoomInfo');
+            Route::get('StaffRoom', 'Admin\ManageSectionInfoController@sectionInfo');
         });
     });
     Route::get('/summary','Admin\AdminIndexController@summary');
