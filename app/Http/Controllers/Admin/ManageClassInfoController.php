@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;;
 
 use App\Http\Models\ClassInfo;
+use App\Http\Models\CollegeInfo;
 use Illuminate\Http\Request;
 
 class ManageClassInfoController extends Controller
@@ -13,7 +14,7 @@ class ManageClassInfoController extends Controller
     {
         $classInfos=ClassInfo::paginate(10);
 
-        return view('admin.manageInfo.Class.Class',[
+        return view('admin.manageInfo.class.class',[
             'classInfos' => $classInfos,
         ]);
     }
@@ -26,6 +27,7 @@ class ManageClassInfoController extends Controller
     public function classInfoCreate(Request $request)// 新增信息          //    错误信息提示有待于完成
     {
         $classInfo=new ClassInfo();
+        $collegeInfos=CollegeInfo::get();
 
         if ($request->isMethod('post')) {
 
@@ -35,9 +37,9 @@ class ManageClassInfoController extends Controller
                 'ClassInfo.class_name' => 'required|min:8|max:8',
                 'ClassInfo.college_info_id' => 'required|integer',
             ], [
-                'required' => ':attribute 为必填项',
-                'min' => ':attribute 长度过短（应该为4为有效数字）',
-                'max' => ':attribute 长度过长（应该为4为有效数字）',
+                'required' => ':attribute 必须填写！',
+                'min' => ':attribute 长度过短！',
+                'max' => ':attribute 长度过长！',
                 'integer' => ':attribute 必须为整数',
             ], [
                 'ClassInfo.class_identifier' => '班级编号',
@@ -52,14 +54,15 @@ class ManageClassInfoController extends Controller
             $data = $request->input('ClassInfo');
 
             if (ClassInfo::create($data) ) {
-                return redirect('/admin/manageInfo/Class')->with('success', '添加成功!');
+                return redirect('/admin/manageInfo/class')->with('success', '添加成功!');
             } else {
                 return redirect()->back();
             }
         }
 
-        return view('admin.manageInfo.Class.create', [
-            'classInfo' => $classInfo
+        return view('admin.manageInfo.class.create', [
+            'classInfo' => $classInfo,
+            'collegeInfos'=>$collegeInfos
         ]);
 
     }
@@ -69,9 +72,9 @@ class ManageClassInfoController extends Controller
         $classInfo=ClassInfo::find($id);
 
         if($classInfo->delete()){
-            return redirect('/admin/manageInfo/Class')->with('success', '删除成功!-'.$id);
+            return redirect('/admin/manageInfo/class')->with('success', '删除成功!-'.$id);
         }else {
-            return redirect('/admin/manageInfo/Class')->with('error', '删除成功!-'.$id);
+            return redirect('/admin/manageInfo/class')->with('error', '删除成功!-'.$id);
         }
     }
 

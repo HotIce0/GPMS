@@ -101,7 +101,7 @@ Route::Group(['middleware'=>'auth'],function() {
             Route::get('Student', 'Admin\ManageInfoController@test');
 
             // 班级信息管理
-            Route::get('Class', 'Admin\ManageClassInfoController@classInfo');//主页信息浏览
+            Route::get('class', 'Admin\ManageClassInfoController@classInfo');//主页信息浏览
             Route::any('classUpdate/{id}', 'Admin\ManageClassInfoController@classInfoUpdate');//修改
             Route::any('classCreate', 'Admin\ManageClassInfoController@classInfoCreate');//新增
             Route::get('classDelete/{id}', 'Admin\ManageClassInfoController@classInfoDelete');//删除
@@ -110,7 +110,7 @@ Route::Group(['middleware'=>'auth'],function() {
             Route::get('Major', 'Admin\ManageInfoController@test');
 
             // 学院信息管理
-            Route::get('College', 'Admin\ManageCollegeInfoController@collegeInfo');
+            Route::get('college', 'Admin\ManageCollegeInfoController@collegeInfo');
 
             // 教研室信息管理
             Route::get('StaffRoom', 'Admin\ManageSectionInfoController@sectionInfo');

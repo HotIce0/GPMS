@@ -8,7 +8,7 @@ class ManageCollegeInfoController extends Controller
 {
     public function collegeInfo()//学院信息管理
     {
-        return view('admin.manageInfo.College.College');
+        return view('admin.manageInfo.college.college');
     }
 
 }

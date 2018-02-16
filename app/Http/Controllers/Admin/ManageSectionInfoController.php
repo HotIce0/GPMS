@@ -9,7 +9,7 @@ class ManageSectionInfoController extends Controller
 {
     public function sectionInfo()//教研室信息管理
     {
-        return view('admin.manageInfo.Section.Section');
+        return view('admin.manageInfo.section.section');
     }
 
 }
