@@ -4,6 +4,7 @@ namespace App\Http\Models;
 //By Sao Guang
 //update by LHW
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class MajorInfo extends Model
 {
@@ -14,6 +15,22 @@ class MajorInfo extends Model
     protected $fillable=['major_identifier','major_name','college_info_id'];
 
     public $timestamps = true;
+
+    //软删除
+    use SoftDeletes;
+    protected $dates = ['delete_at'];
+//    软删除恢复（单个）
+//    $flight = MajorInfo::withTrashed()->find(9); //这里要注意如果被软删除直接find是查不到的
+//    $flight->restore();
+//    onlyTrashed 方法会只获取已被软删除的模型：
+//　　$flights = MajorInfo::onlyTrashed() ->where('major_info_id', 1) ->get();
+//    恢复多个模型
+//　　MajorInfo::withTrashed() ->where('major_info_id', 1) ->restore();
+//    强制删除单个模型实例
+//　　$flight->forceDelete();
+//    强制删除所有相关模型
+//　　$flight->history()->forceDelete();
+
 
 //    protected function getDateFormat()
 //    {

@@ -20,7 +20,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="teacher_job_number" name="TeacherInfo[teacher_job_number]" placeholder="请输入教师工号"
                                value="{{ old('TeacherInfo') ['teacher_job_number'] }}">
-                        <label class="control-label text-danger" for="teacher_job_number">{{ $errors->first('TeacherInfo.teacher_job_number') }}</label>
+                        {{--<label class="control-label text-danger" for="teacher_job_number">{{ $errors->first('TeacherInfo.teacher_job_number') }}</label>--}}
+                        @if($errors->has('TeacherInfo.teacher_job_number'))
+                            <label class="control-label text-danger" for="teacher_job_number">{{ $errors->first('TeacherInfo.teacher_job_number') }}</label>
+                        @endif
                     </div>
                 </div>
 
@@ -30,7 +33,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="teacher_name" name="TeacherInfo[teacher_name]" placeholder="请输入教师名称"
                                value="{{ old('TeacherInfo')['teacher_name'] }}">
-                        <label class="control-label text-danger" for="teacher_name">{{ $errors->first('TeacherInfo.teacher_name') }}</label>
+                        {{--<label class="control-label text-danger" for="teacher_name">{{ $errors->first('TeacherInfo.teacher_name') }}</label>--}}
+                        @if($errors->has('TeacherInfo.teacher_name'))
+                            <label class="control-label text-danger" for="teacher_name">{{ $errors->first('TeacherInfo.teacher_name') }}</label>
+                        @endif
                     </div>
                 </div>
 
@@ -41,12 +47,15 @@
                         <select class="form-control" id="college_info_id" name="TeacherInfo[college_info_id]">
                             <option value="">--请选择所属学院--</option>
                             @foreach($date1 as $college)
-                                <option value="{{$college->college_info_id}}"{{ $college->college_info_id == old('StudentInfo')['college_info_id'] ? 'selected' : '' }}>
+                                <option value="{{$college->college_info_id}}"{{ $college->college_info_id == old('TeacherInfo')['college_info_id'] ? 'selected' : '' }}>
                                     {{$college->college_name}}
                                 </option>
                             @endforeach
                         </select>
-                        <label class="control-label text-danger" for="college_info_id">{{ $errors->first('TeacherInfo.college_info_id') }}</label>
+                        {{--<label class="control-label text-danger" for="college_info_id">{{ $errors->first('TeacherInfo.college_info_id') }}</label>--}}
+                        @if($errors->has('TeacherInfo.college_info_id'))
+                            <label class="control-label text-danger" for="college_info_id">{{ $errors->first('TeacherInfo.college_info_id') }}</label>
+                        @endif
                     </div>
                 </div>
 
@@ -57,12 +66,15 @@
                         <select class="form-control" id="section_info_id" name="TeacherInfo[section_info_id]">
                             <option value="">--请选择所属教研室--</option>
                             @foreach($date2 as $section)
-                                <option value="{{$section->section_info_id}}"{{ $section->section_info_id == old('StudentInfo')['section_info_id'] ? 'selected' : '' }}>
+                                <option value="{{$section->section_info_id}}"{{ $section->section_info_id == old('TeacherInfo')['section_info_id'] ? 'selected' : '' }}>
                                     {{$section->section_name}}
                                 </option>
                             @endforeach
                         </select>
-                        <label class="control-label text-danger" for="section_info_id">{{ $errors->first('TeacherInfo.section_info_id') }}</label>
+                        {{--<label class="control-label text-danger" for="section_info_id">{{ $errors->first('TeacherInfo.section_info_id') }}</label>--}}
+                        @if($errors->has('TeacherInfo.section_info_id'))
+                            <label class="control-label text-danger" for="section_info_id">{{ $errors->first('TeacherInfo.section_info_id') }}</label>
+                        @endif
                     </div>
                 </div>
 
@@ -72,7 +84,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="positional_title" name="TeacherInfo[positional_title]" placeholder="请输入教师职称"
                                value="{{ old('TeacherInfo')['positional_title'] }}">
-                        <label class="control-label text-danger" for="positional_title">{{ $errors->first('TeacherInfo.positional_title') }}</label>
+                        {{--<label class="control-label text-danger" for="positional_title">{{ $errors->first('TeacherInfo.positional_title') }}</label>--}}
+                        @if($errors->has('TeacherInfo.positional_title'))
+                            <label class="control-label text-danger" for="positional_title">{{ $errors->first('TeacherInfo.positional_title') }}</label>
+                        @endif
                     </div>
                 </div>
 
@@ -82,7 +97,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="max_students" name="TeacherInfo[max_students]" placeholder="请输入该教师可指导的最大学生数"
                                value="{{ old('TeacherInfo')['max_students'] }}">
-                        <label class="control-label text-danger" for="max_students">{{ $errors->first('TeacherInfo.max_students') }}</label>
+                        {{--<label class="control-label text-danger" for="max_students">{{ $errors->first('TeacherInfo.max_students') }}</label>--}}
+                        @if($errors->has('TeacherInfo.max_students'))
+                            <label class="control-label text-danger" for="max_students">{{ $errors->first('TeacherInfo.max_students') }}</label>
+                        @endif
                     </div>
                 </div>
 
@@ -92,7 +110,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="academic_degree" name="TeacherInfo[academic_degree]" placeholder="请输入该教师的学位"
                                value="{{ old('TeacherInfo')['academic_degree'] }}">
-                        <label class="control-label text-danger" for="academic_degree">{{ $errors->first('TeacherInfo.academic_degree') }}</label>
+                        {{--<label class="control-label text-danger" for="academic_degree">{{ $errors->first('TeacherInfo.academic_degree') }}</label>--}}
+                        @if($errors->has('TeacherInfo.academic_degree'))
+                            <label class="control-label text-danger" for="academic_degree">{{ $errors->first('TeacherInfo.academic_degree') }}</label>
+                        @endif
                     </div>
                 </div>
 
@@ -102,7 +123,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="mail_address" name="TeacherInfo[mail_address]" placeholder="请输入邮箱地址"
                                value="{{ old('TeacherInfo')['mail_address'] }}">
-                        <label class="control-label text-danger" for="mail_address">{{ $errors->first('TeacherInfo.mail_address') }}</label>
+                        {{--<label class="control-label text-danger" for="mail_address">{{ $errors->first('TeacherInfo.mail_address') }}</label>--}}
+                        @if($errors->has('TeacherInfo.mail_address'))
+                            <label class="control-label text-danger" for="mail_address">{{ $errors->first('TeacherInfo.mail_address') }}</label>
+                        @endif
                     </div>
                 </div>
 
@@ -112,7 +136,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="phone_number" name="TeacherInfo[phone_number]" placeholder="请输入电话号码"
                                value="{{ old('TeacherInfo')['phone_number'] }}">
-                        <label class="control-label text-danger" for="phone_number">{{ $errors->first('TeacherInfo.phone_number') }}</label>
+                        {{--<label class="control-label text-danger" for="phone_number">{{ $errors->first('TeacherInfo.phone_number') }}</label>--}}
+                        @if($errors->has('TeacherInfo.phone_number'))
+                            <label class="control-label text-danger" for="phone_number">{{ $errors->first('TeacherInfo.phone_number') }}</label>
+                        @endif
                     </div>
                 </div>
 
@@ -122,7 +149,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="qq_number" name="TeacherInfo[qq_number]" placeholder="请输入QQ号"
                                value="{{ old('TeacherInfo')['qq_number'] }}">
-                        <label class="control-label text-danger" for="qq_number">{{ $errors->first('TeacherInfo.qq_number') }}</label>
+                        {{--<label class="control-label text-danger" for="qq_number">{{ $errors->first('TeacherInfo.qq_number') }}</label>--}}
+                        @if($errors->has('TeacherInfo.qq_number'))
+                            <label class="control-label text-danger" for="qq_number">{{ $errors->first('TeacherInfo.qq_number') }}</label>
+                        @endif
                     </div>
                 </div>
 
@@ -132,7 +162,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="wechart_name" name="TeacherInfo[wechart_name]" placeholder="请输入微信号"
                                value="{{ old('TeacherInfo')['wechart_name'] }}">
-                        <label class="control-label text-danger" for="wechart_name">{{ $errors->first('TeacherInfo.wechart_name') }}</label>
+                        {{--<label class="control-label text-danger" for="wechart_name">{{ $errors->first('TeacherInfo.wechart_name') }}</label>--}}
+                        @if($errors->has('TeacherInfo.wechart_name'))
+                            <label class="control-label text-danger" for="wechart_name">{{ $errors->first('TeacherInfo.wechart_name') }}</label>
+                        @endif
                     </div>
                 </div>
 

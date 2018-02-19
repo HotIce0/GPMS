@@ -20,7 +20,9 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="major_identifier" name="MajorInfo[major_identifier]" placeholder="请输入专业编号"
                                value="{{ old('MajorInfo') ['major_identifier'] }}">
-                        <label class="control-label text-danger" for="major_identifier">{{ $errors->first('MajorInfo.major_identifier') }}</label>
+                        @if($errors->has('MajorInfo.major_identifier'))
+                            <label class="control-label text-danger" for="major_identifier">{{ $errors->first('MajorInfo.major_identifier') }}</label>
+                        @endif
                     </div>
                 </div>
 
@@ -30,7 +32,9 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="major_name" name="MajorInfo[major_name]" placeholder="请输入专业名称"
                                value="{{ old('MajorInfo')['major_name'] }}">
-                        <label class="control-label text-danger" for="major_name">{{ $errors->first('MajorInfo.major_name') }}</label>
+                        @if($errors->has('MajorInfo.major_name'))
+                            <label class="control-label text-danger" for="major_name">{{ $errors->first('MajorInfo.major_name') }}</label>
+                        @endif
                     </div>
                 </div>
 
@@ -46,7 +50,9 @@
                                 </option>
                             @endforeach
                         </select>
-                        <label class="control-label text-danger" for="college_info_id">{{ $errors->first('MajorInfo.college_info_id') }}</label>
+                        @if($errors->has('MajorInfo.college_info_id'))
+                            <label class="control-label text-danger" for="college_info_id">{{ $errors->first('MajorInfo.college_info_id') }}</label>
+                        @endif
                     </div>
                 </div>
 

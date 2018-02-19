@@ -121,6 +121,11 @@ Route::Group(['middleware'=>'auth'],function() {
         Route::any('majorCreate', 'Admin\ManageMajorInfoController@majorInfoCreate');//新增
         Route::any('majorDetail/{id}', 'Admin\ManageMajorInfoController@majorInfoDetail');//详情
         Route::any('majorDelete/{id}', 'Admin\ManageMajorInfoController@majorInfoDelete');//删除
+        Route::any('majorRecyclePage', 'Admin\ManageMajorInfoController@majorInfoRecyclePage');//回收页面
+        Route::any('majorRecycle/{id}', 'Admin\ManageMajorInfoController@majorInfoRecycle');//回收
+        Route::any('majorRemove/{id}', 'Admin\ManageMajorInfoController@majorInfoRemove');//彻底删除
+        Route::any('majorRecycleAll', 'Admin\ManageMajorInfoController@majorInfoRecycleAll');//全部回收
+        Route::any('majorRemoveAll', 'Admin\ManageMajorInfoController@majorInfoRemoveAll');//全部彻底删除
 
         // 学院信息管理
         Route::get('College', 'Admin\ManageCollegeInfoController@collegeInfo');

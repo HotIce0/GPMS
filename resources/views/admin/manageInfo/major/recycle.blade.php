@@ -26,9 +26,14 @@
     {{--自定义内容--}}
     <div class="panel">
         <div class="panel-heading" >
-            <h3 class="panel-title">专业信息管理</h3>
+            <h3 class="panel-title">专业信息回收</h3>
             <div class="right">
-                <a href="{{ url('manageInfo/majorCreate') }}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增专业</span></a>
+                <a href="{{ url('manageInfo/majorRecycleAll') }}"
+                   onclick="if (confirm('确定要全部回收这些专业信息吗？') == false) return false;"
+                ><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;全部回收</span></a>
+                <a href="{{ url('manageInfo/majorRemoveAll') }}"
+                   onclick="if (confirm('确定要全部彻底删除这些专业信息吗？') == false) return false;"
+                ><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;全部彻底删除</span></a>
             </div>
         </div>
         <div class="panel-body">
@@ -45,10 +50,10 @@
                 @foreach($majorInfos as $majorInfo)
                     <tr>
                         <td>
-                            <a href="{{ url('manageInfo/majorDetail',['id'=>$majorInfo->major_info_id] )}}">详情</a>
-                            <a href="{{ url('manageInfo/majorUpdate',['id'=>$majorInfo->major_info_id] )}}">修改</a>
-                            <a href="{{ url('manageInfo/majorDelete',['id'=>$majorInfo->major_info_id] )}}"
-                               onclick="if (confirm('确定要删除这条专业信息吗？') == false) return false;">删除</a>
+                            <a href="{{ url('manageInfo/majorRecycle',['id'=>$majorInfo->major_info_id] )}}"
+                               onclick="if (confirm('确定要回收这条专业信息吗？') == false) return false;">回收</a>
+                            <a href="{{ url('manageInfo/majorRemove',['id'=>$majorInfo->major_info_id] )}}"
+                               onclick="if (confirm('确定要彻底删除这条专业信息吗？') == false) return false;">彻底删除</a>
                         </td>
                         <th>{{$majorInfo->major_identifier}}</th>
                         {{--专业编号--}}
@@ -61,11 +66,6 @@
                 </tbody>
             </table>
         </div>
-        <div class="panel-heading" >
-            <div class="right">
-                <a href="{{ url('manageInfo/majorRecyclePage') }}"><span class="label label-primary"><i class="fa fa-recycle"></i>&nbsp;回收专业</span></a>
-            </div>
-        </div>
     </div>
 
 
@@ -73,6 +73,12 @@
     <div>
         <div class="pull-left">
             {{ $majorInfos->render() }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-5 col-sm-6">
+            <a  class="btn btn-primary" href="{{ url('manageInfo/Major') }}">返回</a>
         </div>
     </div>
 @stop

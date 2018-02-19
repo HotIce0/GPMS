@@ -19,8 +19,10 @@
                     <label for="major_identifier" class="col-sm-2 control-label"><a class="text-danger">*</a>专业编号</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="major_identifier" name="MajorInfo[major_identifier]" placeholder="请输入专业编号"
-                               value="{{ $majorInfo->major_identifier }}">
-                        <label class="control-label text-danger" for="major_identifier">{{ $errors->first('MajorInfo.major_identifier') }}</label>
+                               value="{{ old('MajorInfo')['major_identifier'] ? old('MajorInfo')['major_identifier'] : $majorInfo->major_identifier }}">
+                        @if($errors->has('MajorInfo.major_identifier'))
+                            <label class="control-label text-danger" for="major_identifier">{{ $errors->first('MajorInfo.major_identifier') }}</label>
+                        @endif
                     </div>
                 </div>
 
@@ -29,8 +31,10 @@
                     <label for="major_name" class="col-sm-2 control-label"><a class="text-danger">*</a>专业名称</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="major_name" name="MajorInfo[major_name]" placeholder="请输入专业名称"
-                               value="{{ $majorInfo->major_name }}">
-                        <label class="control-label text-danger" for="major_name">{{ $errors->first('MajorInfo.major_name') }}</label>
+                               value="{{ old('MajorInfo')['major_name'] ? old('MajorInfo')['major_name'] : $majorInfo->major_name }}">
+                        @if($errors->has('MajorInfo.major_name'))
+                            <label class="control-label text-danger" for="major_name">{{ $errors->first('MajorInfo.major_name') }}</label>
+                        @endif
                     </div>
                 </div>
 
@@ -40,12 +44,14 @@
                     <div class="col-sm-8">
                         <select class="form-control" id="college_info_id" name="MajorInfo[college_info_id]">
                             @foreach($date1 as $college)
-                                <option value="{{$college->college_info_id}}"{{ $college->college_info_id == $majorInfo->college_info_id ? 'selected' : '' }}>
+                                <option value="{{$college->college_info_id}}"{{ $college->college_info_id == (old('MajorInfo')['college_info_id'] ? old('MajorInfo')['college_info_id'] : $majorInfo->college_info_id) ? 'selected' : '' }}>
                                     {{$college->college_name}}
                                 </option>
                             @endforeach
                         </select>
-                        <label class="control-label text-danger" for="college_info_id">{{ $errors->first('MajorInfo.college_info_id') }}</label>
+                        @if($errors->has('MajorInfo.college_info_id'))
+                            <label class="control-label text-danger" for="college_info_id">{{ $errors->first('MajorInfo.college_info_id') }}</label>
+                        @endif
                     </div>
                 </div>
 

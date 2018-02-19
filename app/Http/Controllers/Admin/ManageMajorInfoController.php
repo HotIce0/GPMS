@@ -144,5 +144,56 @@ class ManageMajorInfoController extends Controller
         }
     }
 
+    //专业信息回收页面
+    public function majorInfoRecyclePage()
+    {
+        $majorInfos = MajorInfo::onlyTrashed()->paginate(2);
+
+        return view('admin.manageInfo.major.recycle',[
+            'majorInfos'=>$majorInfos,
+        ]);
+    }
+
+    //专业信息回收
+    public function majorInfoRecycle($id)
+    {
+        $majorInfo = MajorInfo::withTrashed()->find($id);
+        if ($majorInfo->restore()){
+            return redirect('manageInfo/majorRecyclePage')->with('successMsg','回收成功！'.'回收的专业名称为：'.$majorInfo->major_name);
+        }else{
+            return redirect()->back()->with('failureMsg','回收失败！');
+        }
+    }
+
+    //专业信息全部回收
+    public function majorInfoRecycleAll()
+    {
+        if (MajorInfo::withTrashed()->restore()){
+            return redirect('manageInfo/Major')->with('successMsg','全部回收成功！');
+        }else{
+            return redirect()->back()->with('failureMsg','全部回收失败！');
+        }
+    }
+
+    //专业信息彻底删除
+    public function majorInfoRemove($id)
+    {
+        $majorInfo = MajorInfo::withTrashed()->find($id);
+        if ($majorInfo->forceDelete()){
+            return redirect('manageInfo/majorRecyclePage')->with('successMsg','彻底删除成功！'.'彻底删除的专业名称为：'.$majorInfo->major_name);
+        }else{
+            return redirect()->back()->with('failureMsg','彻底删除失败！');
+        }
+    }
+
+    //专业信息全部彻底删除
+    public function majorInfoRemoveAll()
+    {
+        if (MajorInfo::onlyTrashed()->forceDelete()){
+            return redirect('manageInfo/Major')->with('successMsg','全部彻底删除成功！');
+        }else{
+            return redirect()->back()->with('failureMsg','全部彻底删除失败！');
+        }
+    }
 
 }
