@@ -5,8 +5,8 @@
         <label for="section_name" class="col-sm-2 control-label"><a class="text-danger">*</a>教研室名称</label>
         <div class="col-sm-8">
             <input type="text" class="form-control" id="section_name" name="SectionInfo[section_name]" placeholder="请输入教研室名称（长度为一至十） [ 格式如：软件工程教研室]"
-                   value="{{old('SectionInfo')['section_name'] == null ? (isset($sectionInfos['section_name']) ?
-                                $sectionInfos['section_name']->section_name: old('SectionInfo')['section_name']) : old('SectionInfo')['section_name']}}">
+                   value="{{old('SectionInfo')['section_name'] == null ? (isset($sectionInfo['section_name']) ?
+                                $sectionInfo->section_name: old('SectionInfo')['section_name']) : old('SectionInfo')['section_name']}}">
             <div>
                 <label class="control-label" for="class_name">{{$errors->first('SectionInfo.section_name')}}</label>
             </div>
@@ -19,7 +19,8 @@
             <select class="form-control" id="college_info_id" name="SectionInfo[college_info_id]">
                 <option value="">--请选择所属学院--</option>
                 @foreach($collegeInfos as $collegeInfo)
-                    <option value="{{$collegeInfo->college_info_id}}"{{ $collegeInfo->college_info_id == old('SectionInfo')['college_info_id'] ? 'selected' : '' }}>
+                    <option value="{{$collegeInfo->college_info_id}}"{{ $collegeInfo->college_info_id == (old('SectionInfo')['college_info_id']==null? $sectionInfo->college_info_id: old('Section')['college_info_id'])? 'selected' : ''}}>
+{{--                    <option value="{{$collegeInfo->college_info_id}}"{{ $collegeInfo->college_info_id == old('SectionInfo')['college_info_id'] ? 'selected' : '' }}>--}}
                         {{$collegeInfo->college_name}}
                     </option>
                 @endforeach
@@ -31,6 +32,7 @@
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-6">
             <button type="submit" id="createBtn" class="btn btn-primary">提交</button>
+            <a   href="#"   class="btn btn-primary" onclick="javascript:history.back();">返回</a>
         </div>
     </div>
 

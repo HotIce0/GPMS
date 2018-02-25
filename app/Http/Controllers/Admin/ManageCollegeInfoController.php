@@ -18,9 +18,45 @@ class ManageCollegeInfoController extends Controller
         ]);
     }
 
-    public function collegeInfoUpdate()//修改信息
+    public function collegeInfoUpdate(Request $request,$id)//修改信息
     {
-        return '修改信息';
+        $collegeInfo=CollegeInfo::find($id);//修改，所以找到对应数据
+
+        if ($request->isMethod('post')) {
+
+            //Validator类验证
+            $validator = \Validator::make($request->input(), [
+                'CollegeInfo.college_identifier' => 'required|integer|min:0|max:999',
+                'CollegeInfo.college_name' => 'required|min:4|max:10',
+            ], [
+                'required' => ':attribute 必须填写！',
+                'min' => ':attribute 长度过短！',
+                'max' => ':attribute 长度过长！',
+                'integer' => ':attribute 必须为整数',
+            ], [
+                'CollegeInfo.college_identifier' => '学院编号',
+                'CollegeInfo.college_name' => '学院名称',
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+
+
+            $data = $request->input('CollegeInfo');//获取输入的数据
+
+            $collegeInfo->college_identifier = $data['college_identifier'];//赋值
+            $collegeInfo->college_name = $data['college_name'];
+
+            if ($collegeInfo->save() ) {//保持成功与失败
+                return redirect('/admin/manageInfo/college')->with('success', '修改成功!');
+            } else {
+                return redirect()->back()->with('success', '修改失败!');
+            }
+        }
+        return view('admin.manageInfo.college.update', [//视图
+            'collegeInfo' =>$collegeInfo,
+        ]);
     }
 
     public function collegeInfoCreate(Request $request)// 新增信息          //    错误信息提示有待于完成
