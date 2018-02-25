@@ -25,7 +25,7 @@
         <div class="panel-heading" >
             <h3 class="panel-title">学院信息管理</h3>
             <div class="right">
-                <a href="{{url('/admin/manageInfo/collegeCreate')}}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增班级</span></a>
+                <a href="{{url('/admin/manageInfo/collegeCreate')}}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增学院</span></a>
             </div>
         </div>
         <div class="panel-body">

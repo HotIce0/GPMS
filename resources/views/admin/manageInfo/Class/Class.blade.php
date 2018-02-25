@@ -28,8 +28,8 @@
             <a href="{{ url('/admin/manageInfo/classCreate') }}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增班级</span></a>
         </div>
     </div>
-    <div class="panel-body">
-        <table class="table table-hover">
+    <table class="table table-hover">
+        {{--<div class="panel-body">--}}
             <thead>
              <tr>
                 <th>操作管理</th>
@@ -55,11 +55,26 @@
                 </tr>
                 @endforeach
             </tbody>
-        </table>
+    </table>
+        {{--</div>--}}
 
+    <div class="panel-footer">
+        <div class="container">
+            <div class="row">
+                <label for="待写" class="col-sm-2 control-label">当前所显示年级</label>
+                <div class="col-md-2">
+                    <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('createProject/ManageProjects')}}">
+                        {{csrf_field()}}
+                        <div class="form-group">
+                            <select title="显示行数" id="selectPages" name="selectPages" class="form-control field">
+                                <option value="16" id="16">16级</option>
+                                <option value="15" id="15">15级</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-        <div class="pull-right">
-            {{ $classInfos->render() }}
-        </div>
 @stop

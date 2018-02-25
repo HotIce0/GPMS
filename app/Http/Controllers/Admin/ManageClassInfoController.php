@@ -12,7 +12,8 @@ class ManageClassInfoController extends Controller
 {
     public function classInfo()//班级信息管理
     {
-        $classInfos=ClassInfo::paginate(10);
+        $classInfoss=ClassInfo::all();
+        $classInfos=$classInfoss->sortBy('class_identifier');
 
         return view('admin.manageInfo.class.class',[
             'classInfos' => $classInfos,
