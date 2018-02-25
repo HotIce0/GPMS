@@ -4,8 +4,7 @@ namespace App\Http\Models;
 //By Sao Guang
 //update by xiaoming
 use Illuminate\Database\Eloquent\Model;
-//引入软删除
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes;//引入软删除
 
 class ClassInfo extends Model
 {

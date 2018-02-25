@@ -36,7 +36,7 @@
                         <label for="class_name" class="col-sm-pull-6 control-label"><a class="text-danger">班级名称示例:<a>计科16-1BJ&emsp;网络16-1BF&emsp;软件16-2BF</a><a class="text-danger">--中间不能有空格</a></a></label>
                     </div>
                 </div>
-
+                {{--所属学院--}}
                 <div class="form-group">
                     <label for="college_info_id" class="col-sm-2 control-label"><a class="text-danger">*</a>所属学院</label>
                     <div class="col-sm-8">
