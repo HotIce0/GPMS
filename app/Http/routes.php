@@ -109,9 +109,9 @@ Route::Group(['middleware'=>'auth'],function() {
 
             // 教研室信息管理
             Route::get('section', 'Admin\ManageSectionInfoController@sectionInfo');//主页信息浏览
-            Route::any('sectionUpdate/{id}', 'Admin\ManageCollegeInfoController@collegeInfoUpdate');//修改
-            Route::any('sectionCreate', 'Admin\ManageCollegeInfoController@collegeInfoCreate');//新增
-            Route::get('sectionDelete/{id}', 'Admin\ManageCollegeInfoController@collegeInfoDelete');//删除
+            Route::any('sectionUpdate/{id}', 'Admin\ManageSectionInfoController@collegeInfoUpdate');//修改
+            Route::any('sectionCreate', 'Admin\ManageSectionInfoController@sectionInfoCreate');//新增
+            Route::get('sectionDelete/{id}', 'Admin\ManageSectionInfoController@sectionInfoDelete');//删除
         });
     });
     Route::get('/summary','Admin\AdminIndexController@summary');

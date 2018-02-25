@@ -15,7 +15,7 @@ class SectionInfo extends Model
     use SoftDeletes;//软删除
     protected $dates=['delete_at'];
 
-    protected $fillable = ['section_identifier', 'section_name', 'college_info_id'];
+    protected $fillable = ['section_name', 'college_info_id'];
 
     public $timestamps = true;
 

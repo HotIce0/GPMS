@@ -42,8 +42,8 @@
                 @foreach($sectionInfos as $sectionInfo)
                     <tr>
                         <td>
-                            <a href="{{ url('/admin/manageInfo/collegeUpdate',['id' => $sectionInfo->section_info_id])}}">修改</a>
-                            <a href="{{ url('/admin/manageInfo/collegeDelete',['id' => $sectionInfo->section_info_id])}}"
+                            <a href="{{ url('/admin/manageInfo/sectionUpdate',['id' => $sectionInfo->section_info_id])}}">修改</a>
+                            <a href="{{ url('/admin/manageInfo/sectionDelete',['id' => $sectionInfo->section_info_id])}}"
                                onclick="if (confirm('确定要删除吗？') == false) return false;">删除</a>
                         </td>
                         {{--教研室编号--}}

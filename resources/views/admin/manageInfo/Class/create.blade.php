@@ -29,7 +29,7 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="class_name" name="ClassInfo[class_name]" placeholder="请输入班级名称 [ 格式如：软件16-2BF]"
                                 value="{{old('ClassInfo')['class_name'] == null ? (isset($classInfos['class_name']) ?
-                                $classInfos['class_name']->class_identifier: old('ClassInfo')['class_name']) : old('ClassInfo')['class_name']}}">
+                                $classInfos['class_name']->class_name: old('ClassInfo')['class_name']) : old('ClassInfo')['class_name']}}">
                         <div>
                             <label class="control-label" for="class_name">{{$errors->first('ClassInfo.class_name')}}</label>
                         </div>
