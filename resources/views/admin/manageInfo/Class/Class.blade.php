@@ -61,7 +61,23 @@
     <div class="panel-footer">
         <div class="container">
             <div class="row">
-                <label for="待写" class="col-sm-2 control-label">当前所显示年级</label>
+                <div>
+                    <label for="待写" class="col-sm-2 control-label">当前显示学院：</label>
+                </div>
+                <div class="col-md-2">
+                    <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('createProject/ManageProjects')}}">
+                        {{csrf_field()}}
+                        <div class="form-group">
+                            <select title="显示行数" id="selectPages" name="selectPages" class="form-control field">
+                                <option value="1" id="1">计算机学院</option>
+                                <option value="2" id="2">数学学院</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <label for="待写" class="col-sm-2 control-label">当前显示年级：</label>
+                </div>
                 <div class="col-md-2">
                     <form class="form-inline" id="pageNumForm" role="form" method="get" action="{{url('createProject/ManageProjects')}}">
                         {{csrf_field()}}

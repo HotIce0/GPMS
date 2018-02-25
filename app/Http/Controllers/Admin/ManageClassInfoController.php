@@ -20,15 +20,10 @@ class ManageClassInfoController extends Controller
         ]);
     }
 
-    public function classInfoUpdate()//修改信息
+    public function classInfoUpdate(Request $request,$id)//修改信息
     {
-        return '修改信息';
-    }
-
-    public function classInfoCreate(Request $request)// 新增信息          //    错误信息提示有待于完成
-    {
-        $classInfo=new ClassInfo();
-        $collegeInfos=CollegeInfo::get();
+        $classInfo=ClassInfo::find($id);//修改，所以找到对应数据
+        $collegeInfos=CollegeInfo::get();//获取数据库中其他表的数据
 
         if ($request->isMethod('post')) {
 
@@ -37,6 +32,51 @@ class ManageClassInfoController extends Controller
                 'ClassInfo.class_identifier' => 'required|integer|min:1000|max:9999',
                 'ClassInfo.class_name' => 'required|min:8|max:8',
                 'ClassInfo.college_info_id' => 'required|integer',
+            ], [
+                'required' => ':attribute 必须填写！',
+                'min' => ':attribute 长度过短！',
+                'max' => ':attribute 长度过长！',
+                'integer' => ':attribute 必须为整数',
+            ], [
+                'ClassInfo.class_identifier' => '班级编号',
+                'ClassInfo.class_name' => '班级名称',
+                'ClassInfo.college_info_id' => '所属学院',
+            ]);
+
+            if ($validator->fails()) {//验证失败处理
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+
+            $data = $request->input('ClassInfo');//获取输入的数据
+
+            $classInfo->class_identifier = $data['class_identifier'];//赋值
+            $classInfo->class_name = $data['class_name'];
+            $classInfo->college_info_id = $data['college_info_id'];
+
+            if ($classInfo->save() ) {//保持成功与失败
+                return redirect('/admin/manageInfo/class')->with('success', '修改成功!');
+            } else {
+                return redirect()->back()->with('success', '修改失败!');
+            }
+        }
+        return view('admin.manageInfo.class.update', [//视图
+            'classInfo' => $classInfo,
+            'collegeInfos'=>$collegeInfos
+        ]);
+    }
+
+    public function classInfoCreate(Request $request)// 新增信息          //    错误信息提示有待于完成
+    {
+        $classInfo=new ClassInfo();//新增，所以新建个模型
+        $collegeInfos=CollegeInfo::get();//获取数据库中其他表的数据
+
+        if ($request->isMethod('post')) {
+
+            //Validator类验证
+            $validator = \Validator::make($request->input(), [
+                'ClassInfo.class_identifier' => 'required|integer|min:1000|max:9999',//班级编号整数型，范围1000-9999（四位）
+                'ClassInfo.class_name' => 'required|min:8|max:8',//班级名称是8个字符
+                'ClassInfo.college_info_id' => 'required|integer',//班级所属学院
             ], [
                 'required' => ':attribute 必须填写！',
                 'min' => ':attribute 长度过短！',
@@ -57,7 +97,7 @@ class ManageClassInfoController extends Controller
             if (ClassInfo::create($data) ) {
                 return redirect('/admin/manageInfo/class')->with('success', '添加成功!');
             } else {
-                return redirect()->back();
+                return redirect()->back()->with('success', '添加失败!');
             }
         }
 
@@ -70,9 +110,9 @@ class ManageClassInfoController extends Controller
 
     public function classInfoDelete($id)//删除信息
     {
-        $classInfo=ClassInfo::find($id);
+        $classInfo=ClassInfo::find($id);//找到要删除信息的id
 
-        if($classInfo->delete()){
+        if($classInfo->delete()){//此处在模型中有处理，为软删除
             return redirect('/admin/manageInfo/class')->with('success', '删除成功!-'.$id);
         }else {
             return redirect('/admin/manageInfo/class')->with('error', '删除成功!-'.$id);
