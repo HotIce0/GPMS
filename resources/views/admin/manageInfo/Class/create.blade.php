@@ -33,24 +33,26 @@
                         <div>
                             <label class="control-label" for="class_name">{{$errors->first('ClassInfo.class_name')}}</label>
                         </div>
-                        <label for="class_name" class="col-sm-pull-6 control-label"><a class="text-danger">班级名称示例:<a>计科16-1BJ&emsp;网络16-1BF&emsp;软件16-2BF</a><a class="text-danger">--中间不能有空格</a></a></label>
+                        <div>
+                            <label for="class_name" class="col-sm-pull-6 control-label"><a class="text-danger">班级名称示例:<a>计科16-1BJ&emsp;网络16-1BF&emsp;软件16-2BF</a><a class="text-danger">--中间不能有空格</a></a></label>
+                        </div>
                     </div>
                 </div>
                 {{--所属学院--}}
-                <div class="form-group">
+                <div class="form-group {{$errors->has('ClassInfo.college_info_id') ?  'has-error' : ''}}">
                     <label for="college_info_id" class="col-sm-2 control-label"><a class="text-danger">*</a>所属学院</label>
                     <div class="col-sm-8">
                         <select class="form-control" id="college_info_id" name="ClassInfo[college_info_id]">
-                            </option>
+                            <option value="">--请选择所属学院--</option>
                             @foreach($collegeInfos as $collegeInfo)
                                 <option value="{{$collegeInfo->college_info_id}}"{{ $collegeInfo->college_info_id == old('ClassInfo')['college_info_id'] ? 'selected' : '' }}>
                                     {{$collegeInfo->college_name}}
                                 </option>
                             @endforeach
                         </select>
+                        <label class="control-label" for="college_info_id">{{$errors->first('ClassInfo.college_info_id')}}</label>
                     </div>
                 </div>
-
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-6">

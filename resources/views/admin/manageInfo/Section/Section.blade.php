@@ -46,7 +46,7 @@
                             <a href="{{ url('/admin/manageInfo/sectionDelete',['id' => $sectionInfo->section_info_id])}}"
                                onclick="if (confirm('确定要删除吗？') == false) return false;">删除</a>
                         </td>
-                        {{--教研室编号--}}
+                        {{--教研室编号(表中没有这个，就注释掉了--}}
                         {{--<th>{{ $sectionInfo->section_identifier}}</th>--}}
                         {{--教研室名称--}}
                         <th>{{ $sectionInfo->section_name}}</th>

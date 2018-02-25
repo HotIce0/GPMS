@@ -33,7 +33,6 @@
                         <div>
                             <label class="control-label" for="college_name">{{$errors->first('CollegeInfo.college_name')}}</label>
                         </div>
-                        <label for="college_name" class="col-sm-pull-6 control-label"><a class="text-danger">学院名称示例:<a>计算机学院</a><a class="text-danger">--中间不能有空格</a></a></label>
                     </div>
                 </div>
 
