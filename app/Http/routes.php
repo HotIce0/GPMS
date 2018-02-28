@@ -91,8 +91,7 @@ Route::Group(['middleware'=>'auth'],function() {
      *************/
     Route::group(['prefix' => 'admin'], function () {
         Route::get('/', 'Admin\AdminIndexController@index');
-    });
-    Route::get('/summary','Admin\AdminIndexController@summary');
+
     //信息管理路由群，by xiaoming
     Route::Group(['prefix' => 'manageInfo'], function (){
         // 教师信息管理
@@ -133,6 +132,8 @@ Route::Group(['middleware'=>'auth'],function() {
         // 教研室信息管理
         Route::get('StaffRoom', 'Admin\ManageStaffRoomInfoController@staffRoomInfo');
      });
+    });
+    Route::get('/summary','Admin\AdminIndexController@summary');
 });
 
 

@@ -28,10 +28,10 @@
         <div class="panel-heading" >
             <h3 class="panel-title">专业信息回收</h3>
             <div class="right">
-                <a href="{{ url('manageInfo/majorRecycleAll') }}"
+                <a href="{{ url('admin/manageInfo/majorRecycleAll') }}"
                    onclick="if (confirm('确定要全部回收这些专业信息吗？') == false) return false;"
                 ><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;全部回收</span></a>
-                <a href="{{ url('manageInfo/majorRemoveAll') }}"
+                <a href="{{ url('admin/manageInfo/majorRemoveAll') }}"
                    onclick="if (confirm('确定要全部彻底删除这些专业信息吗？') == false) return false;"
                 ><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;全部彻底删除</span></a>
             </div>
@@ -50,9 +50,9 @@
                 @foreach($majorInfos as $majorInfo)
                     <tr>
                         <td>
-                            <a href="{{ url('manageInfo/majorRecycle',['id'=>$majorInfo->major_info_id] )}}"
+                            <a href="{{ url('admin/manageInfo/majorRecycle',['id'=>$majorInfo->major_info_id] )}}"
                                onclick="if (confirm('确定要回收这条专业信息吗？') == false) return false;">回收</a>
-                            <a href="{{ url('manageInfo/majorRemove',['id'=>$majorInfo->major_info_id] )}}"
+                            <a href="{{ url('admin/manageInfo/majorRemove',['id'=>$majorInfo->major_info_id] )}}"
                                onclick="if (confirm('确定要彻底删除这条专业信息吗？') == false) return false;">彻底删除</a>
                         </td>
                         <th>{{$majorInfo->major_identifier}}</th>
@@ -78,7 +78,7 @@
 
     <div class="form-group">
         <div class="col-sm-offset-5 col-sm-6">
-            <a  class="btn btn-primary" href="{{ url('manageInfo/Major') }}">返回</a>
+            <a  class="btn btn-primary" href="{{ url('admin/manageInfo/Major') }}">返回</a>
         </div>
     </div>
 @stop

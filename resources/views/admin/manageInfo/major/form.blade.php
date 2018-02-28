@@ -39,7 +39,7 @@
     {{--<div class="form-group">--}}
         {{--<div class="col-sm-offset-5 col-sm-6">--}}
             {{--<button type="submit" class="btn btn-primary">提交</button>--}}
-            {{--<a  class="btn btn-primary" href="{{ url('manageInfo/Major') }}">返回</a>--}}
+            {{--<a  class="btn btn-primary" href="{{ url('admin/manageInfo/Major') }}">返回</a>--}}
         {{--</div>--}}
     {{--</div>--}}
 

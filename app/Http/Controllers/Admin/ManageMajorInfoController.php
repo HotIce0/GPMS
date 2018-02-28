@@ -10,12 +10,25 @@ use Illuminate\Http\Request;
 class ManageMajorInfoController extends Controller
 {
     //专业信息列表页
-    public function majorInfo()
+    public function majorInfo(Request $request)
     {
-        $majorInfos=MajorInfo::paginate(5);
+        $date1 = CollegeInfo::get();
+
+        //条件筛选
+//        $majorInfos=MajorInfo::where('college_info_id','1')->paginate(5);
+        if ($request->has('major_identifier')){
+            $majorInfos=MajorInfo::where('major_identifier',$request->input('major_identifier'))->paginate(5);
+        }else if ($request->has('major_name')) {
+            $majorInfos = MajorInfo::where('major_name', $request->input('major_name'))->paginate(5);
+        }else if ($request->has('college_info_id')) {
+            $majorInfos = MajorInfo::where('college_info_id', $request->input('college_info_id'))->paginate(500);
+        }else {
+            $majorInfos = MajorInfo::paginate(5);
+        }
 
         return view('admin.manageInfo.major.major',[
             'majorInfos'=>$majorInfos,
+            'date1'=>$date1,
         ]);
     }
 
@@ -56,7 +69,7 @@ class ManageMajorInfoController extends Controller
             $majorInfo->college_info_id = $data['college_info_id'];
 
             if ($majorInfo->save()){
-                return redirect('manageInfo/Major')->with('successMsg','添加成功！'.'添加的专业名称为：'.$majorInfo->major_name);
+                return redirect('admin/manageInfo/Major')->with('successMsg','添加成功！'.'添加的专业名称为：'.$majorInfo->major_name);
             }else{
                 return redirect()->back()->with('failureMsg','添加失败！');
             }
@@ -111,7 +124,7 @@ class ManageMajorInfoController extends Controller
             $majorInfo->college_info_id = $data['college_info_id'];
 
             if ($majorInfo->save()){
-                return redirect('manageInfo/Major')->with('successMsg','修改成功！'.'修改的专业名称为：'.$majorInfo->major_name);
+                return redirect('admin/manageInfo/Major')->with('successMsg','修改成功！'.'修改的专业名称为：'.$majorInfo->major_name);
             }else{
                 return redirect()->back()->with('failureMsg','修改失败！');
             }
@@ -138,7 +151,7 @@ class ManageMajorInfoController extends Controller
     {
         $majorInfo = MajorInfo::find($id);
         if ($majorInfo->delete()){
-            return redirect('manageInfo/Major')->with('successMsg','删除成功！'.'删除的专业名称为：'.$majorInfo->major_name);
+            return redirect('admin/manageInfo/Major')->with('successMsg','删除成功！'.'删除的专业名称为：'.$majorInfo->major_name);
         }else{
             return redirect()->back()->with('failureMsg','删除失败！');
         }
@@ -159,7 +172,7 @@ class ManageMajorInfoController extends Controller
     {
         $majorInfo = MajorInfo::withTrashed()->find($id);
         if ($majorInfo->restore()){
-            return redirect('manageInfo/majorRecyclePage')->with('successMsg','回收成功！'.'回收的专业名称为：'.$majorInfo->major_name);
+            return redirect('admin/manageInfo/majorRecyclePage')->with('successMsg','回收成功！'.'回收的专业名称为：'.$majorInfo->major_name);
         }else{
             return redirect()->back()->with('failureMsg','回收失败！');
         }
@@ -169,7 +182,7 @@ class ManageMajorInfoController extends Controller
     public function majorInfoRecycleAll()
     {
         if (MajorInfo::withTrashed()->restore()){
-            return redirect('manageInfo/Major')->with('successMsg','全部回收成功！');
+            return redirect('admin/manageInfo/Major')->with('successMsg','全部回收成功！');
         }else{
             return redirect()->back()->with('failureMsg','全部回收失败！');
         }
@@ -180,7 +193,7 @@ class ManageMajorInfoController extends Controller
     {
         $majorInfo = MajorInfo::withTrashed()->find($id);
         if ($majorInfo->forceDelete()){
-            return redirect('manageInfo/majorRecyclePage')->with('successMsg','彻底删除成功！'.'彻底删除的专业名称为：'.$majorInfo->major_name);
+            return redirect('admin/manageInfo/majorRecyclePage')->with('successMsg','彻底删除成功！'.'彻底删除的专业名称为：'.$majorInfo->major_name);
         }else{
             return redirect()->back()->with('failureMsg','彻底删除失败！');
         }
@@ -190,7 +203,7 @@ class ManageMajorInfoController extends Controller
     public function majorInfoRemoveAll()
     {
         if (MajorInfo::onlyTrashed()->forceDelete()){
-            return redirect('manageInfo/Major')->with('successMsg','全部彻底删除成功！');
+            return redirect('admin/manageInfo/Major')->with('successMsg','全部彻底删除成功！');
         }else{
             return redirect()->back()->with('failureMsg','全部彻底删除失败！');
         }

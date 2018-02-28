@@ -12,12 +12,31 @@ use Illuminate\Http\Request;
 class ManageStudentInfoController extends Controller
 {
     //学生信息列表页
-    public function studentInfo()
+    public function studentInfo(Request $request)
     {
-        $studentInfos=StudentInfo::paginate(5);
+        $date1 = CollegeInfo::get();
+        $date2 = ClassInfo::get();
+        $date3 = MajorInfo::get();
+
+        if ($request->has('student_name')){
+            $studentInfos=StudentInfo::where('student_name',$request->input('student_name'))->paginate(5);
+        }else if ($request->has('student_number')){
+            $studentInfos=StudentInfo::where('student_number',$request->input('student_number'))->paginate(5);
+        }else if ($request->has('college_info_id')) {
+            $studentInfos = StudentInfo::where('college_info_id', $request->input('college_info_id'))->paginate(5);
+        }else if ($request->has('class_info_id')) {
+            $studentInfos = StudentInfo::where('class_info_id', $request->input('class_info_id'))->paginate(5);
+        }else if ($request->has('major_info_id')) {
+            $studentInfos = StudentInfo::where('major_info_id', $request->input('major_info_id'))->paginate(5);
+        }else{
+            $studentInfos=StudentInfo::paginate(5);
+        }
 
         return view('admin.manageInfo.student.student',[
             'studentInfos'=>$studentInfos,
+            'date1'=>$date1,
+            'date2'=>$date2,
+            'date3'=>$date3,
         ]);
     }
 
@@ -82,7 +101,7 @@ class ManageStudentInfoController extends Controller
             $studentInfo->wechart_name = $data['wechart_name'];
 
             if ($studentInfo->save()){
-                return redirect('manageInfo/Student')->with('successMsg','添加成功！'.'添加的学生学号为：'.$studentInfo->student_number);
+                return redirect('admin/manageInfo/Student')->with('successMsg','添加成功！'.'添加的学生学号为：'.$studentInfo->student_number);
             }else{
                 return redirect()->back()->with('failureMsg','添加失败！');
             }
@@ -162,7 +181,7 @@ class ManageStudentInfoController extends Controller
             $studentInfo->wechart_name = $data['wechart_name'];
 
             if ($studentInfo->save()){
-                return redirect('manageInfo/Student')->with('successMsg','修改成功！'.'修改的学生学号为：'.$studentInfo->student_number);
+                return redirect('admin/manageInfo/Student')->with('successMsg','修改成功！'.'修改的学生学号为：'.$studentInfo->student_number);
             }else{
                 return redirect()->back()->with('failureMsg','修改失败！');
             }
@@ -191,10 +210,20 @@ class ManageStudentInfoController extends Controller
     {
         $studentInfo = StudentInfo::find($id);
         if ($studentInfo->delete()){
-            return redirect('manageInfo/Student')->with('successMsg','删除成功！'.'删除的学生学号为：'.$studentInfo->student_number);
+            return redirect('admin/manageInfo/Student')->with('successMsg','删除成功！'.'删除的学生学号为：'.$studentInfo->student_number);
         }else{
             return redirect()->back()->with('failureMsg','删除失败！');
         }
+    }
+
+    //学生信息查找页面
+    public function studentInfoSearch(Request $request)
+    {
+        $studentInfo=new StudentInfo();
+
+        return view('admin.manageInfo.student.search',[
+            'studentInfo' =>$studentInfo,
+        ]);
     }
 
 

@@ -28,9 +28,62 @@
         <div class="panel-heading" >
             <h3 class="panel-title">专业信息管理</h3>
             <div class="right">
-                <a href="{{ url('manageInfo/majorCreate') }}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增专业</span></a>
+                <a href="{{ url('admin/manageInfo/majorCreate') }}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增专业</span></a>
             </div>
         </div>
+        {{--专业编号搜索框--}}
+        <div class="col-md-4 col-sm-4 col-lg-4">
+            <form role="form" class="form-horizontal" method="get" action="{{url('admin/manageInfo/Major')}}" id="searchMajorNumberForm">
+                <div class="input-group">
+                    <input class="form-control" name="major_identifier" type="text" placeholder="请输入专业编号">
+                    <span class="input-group-btn"><a onclick="searchMajorNumber()" class="btn btn-primary">搜索</a></span>
+                </div>
+                <script type="text/javascript">
+                    function searchMajorNumber() {
+                        document.getElementById("searchMajorNumberForm").submit();
+                    }
+                </script>
+            </form><br>
+        </div>
+
+        {{--专业名称搜索框--}}
+        <div class="col-md-4 col-sm-4 col-lg-4">
+            <form role="form" class="form-horizontal" method="get" action="{{url('admin/manageInfo/Major')}}" id="searchMajorNameForm">
+                <div class="input-group">
+                    <input class="form-control" name="major_name" type="text" placeholder="请输入专业名称">
+                    <span class="input-group-btn"><a onclick="searchMajorName()" class="btn btn-primary">搜索</a></span>
+                </div>
+                <script type="text/javascript">
+                    function searchMajorName() {
+                        document.getElementById("searchMajorNameForm").submit();
+                    }
+                </script>
+            </form><br>
+        </div>
+
+        {{--所属学院搜索框--}}
+        <div class="col-md-4 col-sm-4 col-lg-4">
+            <form role="form" class="form-horizontal" method="get" action="{{url('admin/manageInfo/Major')}}" id="searchMajorCollegeForm">
+                <div class="input-group">
+                    {{--<input class="form-control" name="college_info_id" type="text" placeholder="所属学院">--}}
+                    <select class="form-control" name="college_info_id">
+                        <option value="">所属学院</option>
+                        @foreach($date1 as $college)
+                            <option value="{{$college->college_info_id}}"{{ $college->college_info_id == old('StudentInfo')['college_info_id'] ? 'selected' : '' }}>
+                                {{$college->college_name}}
+                            </option>
+                        @endforeach
+                    </select>
+                    <span class="input-group-btn"><a onclick="searchMajorCollege()" class="btn btn-primary">搜索</a></span>
+                </div>
+                <script type="text/javascript">
+                    function searchMajorCollege() {
+                        document.getElementById("searchMajorCollegeForm").submit();
+                    }
+                </script>
+            </form><br>
+        </div>
+
         <div class="panel-body">
             <table class="table table-hover">
                 <thead>
@@ -42,12 +95,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($majorInfos as $majorInfo)
+                @foreach($majorInfos->sortBy('major_identifier') as $majorInfo)
                     <tr>
                         <td>
-                            <a href="{{ url('manageInfo/majorDetail',['id'=>$majorInfo->major_info_id] )}}">详情</a>
-                            <a href="{{ url('manageInfo/majorUpdate',['id'=>$majorInfo->major_info_id] )}}">修改</a>
-                            <a href="{{ url('manageInfo/majorDelete',['id'=>$majorInfo->major_info_id] )}}"
+                            <a href="{{ url('admin/manageInfo/majorDetail',['id'=>$majorInfo->major_info_id] )}}">详情</a>
+                            <a href="{{ url('admin/manageInfo/majorUpdate',['id'=>$majorInfo->major_info_id] )}}">修改</a>
+                            <a href="{{ url('admin/manageInfo/majorDelete',['id'=>$majorInfo->major_info_id] )}}"
                                onclick="if (confirm('确定要删除这条专业信息吗？') == false) return false;">删除</a>
                         </td>
                         <th>{{$majorInfo->major_identifier}}</th>
@@ -63,7 +116,7 @@
         </div>
         <div class="panel-heading" >
             <div class="right">
-                <a href="{{ url('manageInfo/majorRecyclePage') }}"><span class="label label-primary"><i class="fa fa-recycle"></i>&nbsp;回收专业</span></a>
+                <a href="{{ url('admin/manageInfo/majorRecyclePage') }}"><span class="label label-primary"><i class="fa fa-recycle"></i>&nbsp;回收专业</span></a>
             </div>
         </div>
     </div>

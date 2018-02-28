@@ -26,12 +26,12 @@
                     <td>{{ $studentInfo->college_info_id($studentInfo->college_info_id) }}</td>
                 </tr>
                 <tr>
-                    <td>所属班级</td>
-                    <td>{{ $studentInfo->class_info_id($studentInfo->class_info_id) }}</td>
-                </tr>
-                <tr>
                     <td>所属专业</td>
                     <td>{{ $studentInfo->major_info_id($studentInfo->major_info_id) }}</td>
+                </tr>
+                <tr>
+                    <td>所属班级</td>
+                    <td>{{ $studentInfo->class_info_id($studentInfo->class_info_id) }}</td>
                 </tr>
                 <tr>
                     <td>身份证号码</td>
@@ -66,8 +66,8 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-5 col-sm-6">
-                    <a  class="btn btn-primary" href="{{ url('manageInfo/studentUpdate',['id'=>$studentInfo->student_info_id]) }}">修改</a>
-                    <a  class="btn btn-primary" href="{{ url('manageInfo/Student') }}">返回</a>
+                    <a  class="btn btn-primary" href="{{ url('admin/manageInfo/studentUpdate',['id'=>$studentInfo->student_info_id]) }}">修改</a>
+                    <a href="#" class="btn btn-primary" onclick="javascript:history.back()">返回</a>
                 </div>
             </div>
 

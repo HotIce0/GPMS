@@ -28,9 +28,85 @@
         <div class="panel-heading" >
             <h3 class="panel-title">教师信息管理</h3>
             <div class="right">
-                <a href="{{ url('manageInfo/teacherCreate') }}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增教师</span></a>
+                <a href="{{ url('admin/manageInfo/teacherCreate') }}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增教师</span></a>
             </div>
         </div>
+        {{--学生学号搜索框--}}
+        <div class="col-md-4 col-sm-4 col-lg-3">
+            <form role="form" class="form-horizontal" method="get" action="{{url('admin/manageInfo/Teacher')}}" id="searchTeacherNumberForm">
+                <div class="input-group">
+                    <input class="form-control" name="teacher_job_number" type="text" placeholder="请输入教师工号">
+                    <span class="input-group-btn"><a onclick="searchTeacherNumber()" class="btn btn-primary">搜索</a></span>
+                </div>
+                <script type="text/javascript">
+                    function searchTeacherNumber() {
+                        document.getElementById("searchTeacherNumberForm").submit();
+                    }
+                </script>
+            </form>
+        </div>
+
+        {{--教师姓名搜索框--}}
+        <div class="col-md-4 col-sm-4 col-lg-3">
+            <form role="form" class="form-horizontal" method="get" action="{{url('admin/manageInfo/Teacher')}}" id="searchTeacherNameForm">
+                <div class="input-group">
+                    <input class="form-control" name="teacher_name" type="text" placeholder="请输入教师姓名">
+                    <span class="input-group-btn"><a onclick="searchTeacherName()" class="btn btn-primary">搜索</a></span>
+                </div>
+                <script type="text/javascript">
+                    function searchTeacherName() {
+                        document.getElementById("searchTeacherNameForm").submit();
+                    }
+                </script>
+            </form>
+        </div>
+
+        {{--所属学院搜索框--}}
+        <div class="col-md-4 col-sm-4 col-lg-3">
+            <form role="form" class="form-horizontal" method="get" action="{{url('admin/manageInfo/Teacher')}}" id="searchTeacherCollegeForm">
+                <div class="input-group">
+                    {{--<input class="form-control" name="college_info_id" type="text" placeholder="所属学院">--}}
+                    <select class="form-control" name="college_info_id">
+                        <option value="">所属学院</option>
+                        @foreach($date1 as $college)
+                            <option value="{{$college->college_info_id}}"{{ $college->college_info_id == old('StudentInfo')['college_info_id'] ? 'selected' : '' }}>
+                                {{$college->college_name}}
+                            </option>
+                        @endforeach
+                    </select>
+                    <span class="input-group-btn"><a onclick="searchTeacherCollege()" class="btn btn-primary">搜索</a></span>
+                </div>
+                <script type="text/javascript">
+                    function searchTeacherCollege() {
+                        document.getElementById("searchTeacherCollegeForm").submit();
+                    }
+                </script>
+            </form><br>
+        </div>
+
+        {{--所属教研室搜索框--}}
+        <div class="col-md-4 col-sm-4 col-lg-3">
+            <form role="form" class="form-horizontal" method="get" action="{{url('admin/manageInfo/Teacher')}}" id="searchTeacherSectionForm">
+                <div class="input-group">
+                    {{--<input class="form-control" name="section_info_id" type="text" placeholder="所属教研室">--}}
+                    <select class="form-control" name="section_info_id">
+                        <option value="">所属教研室</option>
+                        @foreach($date2 as $section)
+                            <option value="{{$section->section_info_id}}"{{ $section->section_info_id == old('TeacherInfo')['section_info_id'] ? 'selected' : '' }}>
+                                {{$section->section_name}}
+                            </option>
+                        @endforeach
+                    </select>
+                    <span class="input-group-btn"><a onclick="searchTeacherSection()" class="btn btn-primary">搜索</a></span>
+                </div>
+                <script type="text/javascript">
+                    function searchTeacherSection() {
+                        document.getElementById("searchTeacherSectionForm").submit();
+                    }
+                </script>
+            </form><br>
+        </div>
+
         <div class="panel-body">
             <table class="table table-hover">
                 <thead>
@@ -50,12 +126,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($teacherInfos as $teacherInfo)
+                @foreach($teacherInfos->sortBy('teacher_job_number') as $teacherInfo)
                     <tr>
                         <td>
-                            <a href="{{ url('manageInfo/teacherDetail',['id'=>$teacherInfo->teacher_info_id] )}}">详情</a>
-                            <a href="{{ url('manageInfo/teacherUpdate',['id'=>$teacherInfo->teacher_info_id] )}}">修改</a>
-                            <a href="{{ url('manageInfo/teacherDelete',['id'=>$teacherInfo->teacher_info_id] )}}"
+                            <a href="{{ url('admin/manageInfo/teacherDetail',['id'=>$teacherInfo->teacher_info_id] )}}">详情</a>
+                            <a href="{{ url('admin/manageInfo/teacherUpdate',['id'=>$teacherInfo->teacher_info_id] )}}">修改</a>
+                            <a href="{{ url('admin/manageInfo/teacherDelete',['id'=>$teacherInfo->teacher_info_id] )}}"
                                onclick="if (confirm('确定要删除这条教师信息吗？') == false) return false;">删除</a>
                         </td>
                         <th>{{$teacherInfo->teacher_job_number}}</th>

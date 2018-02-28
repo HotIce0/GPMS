@@ -63,6 +63,25 @@
                     </div>
                 </div>
 
+                {{--所学专业--}}
+                <div class="form-group {{$errors->has('StudentInfo.major_info_id') ?  'has-error' : ''}}">
+                    <label for="major_info_id" class="col-sm-2 control-label"><a class="text-danger">*</a>所学专业</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="major_info_id" name="StudentInfo[major_info_id]">
+                            <option value="">--请选择所学专业--</option>
+                            @foreach($date3 as $major)
+                                <option value="{{$major->major_info_id}}"{{ $major->major_info_id == old('StudentInfo')['major_info_id'] ? 'selected' : '' }}>
+                                    {{$major->major_name}}
+                                </option>
+                            @endforeach
+                        </select>
+                        {{--<label class="control-label text-danger" for="major_info_id">{{ $errors->first('StudentInfo.major_info_id') }}</label>--}}
+                        @if($errors->has('StudentInfo.major_info_id'))
+                            <label class="control-label text-danger" for="major_info_id">{{ $errors->first('StudentInfo.major_info_id') }}</label>
+                        @endif
+                    </div>
+                </div>
+
                 {{--所属班级--}}
                 <div class="form-group {{$errors->has('StudentInfo.class_info_id') ?  'has-error' : ''}}">
                     <label for="class_info_id" class="col-sm-2 control-label"><a class="text-danger">*</a>所属班级</label>
@@ -80,25 +99,6 @@
                             <label class="control-label text-danger" for="class_info_id">{{ $errors->first('StudentInfo.class_info_id') }}</label>
                         @endif
 
-                    </div>
-                </div>
-
-                {{--所学专业--}}
-                <div class="form-group {{$errors->has('StudentInfo.major_info_id') ?  'has-error' : ''}}">
-                    <label for="major_info_id" class="col-sm-2 control-label"><a class="text-danger">*</a>所学专业</label>
-                    <div class="col-sm-8">
-                        <select class="form-control" id="major_info_id" name="StudentInfo[major_info_id]">
-                            <option value="">--请选择所学专业--</option>
-                            @foreach($date3 as $major)
-                                <option value="{{$major->major_info_id}}"{{ $major->major_info_id == old('StudentInfo')['major_info_id'] ? 'selected' : '' }}>
-                                    {{$major->major_name}}
-                                </option>
-                            @endforeach
-                        </select>
-                        {{--<label class="control-label text-danger" for="major_info_id">{{ $errors->first('StudentInfo.major_info_id') }}</label>--}}
-                        @if($errors->has('StudentInfo.major_info_id'))
-                            <label class="control-label text-danger" for="major_info_id">{{ $errors->first('StudentInfo.major_info_id') }}</label>
-                        @endif
                     </div>
                 </div>
 
@@ -170,7 +170,7 @@
                 <div class="form-group">
                     <div class="col-sm-offset-5 col-sm-6">
                         <button type="submit" class="btn btn-primary">提交</button>
-                        <a  class="btn btn-primary" href="{{ url('manageInfo/Student') }}">返回</a>
+                        <a  class="btn btn-primary" href="{{ url('admin/manageInfo/Student') }}">返回</a>
                     </div>
                 </div>
 

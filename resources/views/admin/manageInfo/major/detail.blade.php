@@ -38,8 +38,8 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-5 col-sm-6">
-                    <a  class="btn btn-primary" href="{{ url('manageInfo/majorUpdate',['id'=>$majorInfo->major_info_id]) }}">修改</a>
-                    <a  class="btn btn-primary" href="{{ url('manageInfo/Major') }}">返回</a>
+                    <a  class="btn btn-primary" href="{{ url('admin/manageInfo/majorUpdate',['id'=>$majorInfo->major_info_id]) }}">修改</a>
+                    <a href="#" class="btn btn-primary" onclick="javascript:history.back()">返回</a>
                 </div>
             </div>
 

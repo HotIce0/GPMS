@@ -11,12 +11,27 @@ use Illuminate\Http\Request;
 class ManageTeacherInfoController extends Controller
 {
     //教师信息列表页
-    public function teacherInfo()
+    public function teacherInfo(Request $request)
     {
-        $teacherInfos=TeacherInfo::paginate(5);
+        $date1 = CollegeInfo::get();
+        $date2 = SectionInfo::get();
+
+        if ($request->has('teacher_job_number')){
+            $teacherInfos=TeacherInfo::where('teacher_job_number',$request->input('teacher_job_number'))->paginate(5);
+        }else if ($request->has('teacher_name')){
+            $teacherInfos=TeacherInfo::where('teacher_name',$request->input('teacher_name'))->paginate(5);
+        }else if ($request->has('college_info_id')) {
+            $teacherInfos = TeacherInfo::where('college_info_id', $request->input('college_info_id'))->paginate(5);
+        }else if ($request->has('section_info_id')) {
+            $teacherInfos = TeacherInfo::where('section_info_id', $request->input('section_info_id'))->paginate(5);
+        }else {
+            $teacherInfos = TeacherInfo::paginate(5);
+        }
 
         return view('admin.manageInfo.teacher.teacher',[
             'teacherInfos'=>$teacherInfos,
+            'date1'=>$date1,
+            'date2'=>$date2,
         ]);
     }
 
@@ -83,7 +98,7 @@ class ManageTeacherInfoController extends Controller
             $teacherInfo->wechart_name = $data['wechart_name'];
 
             if ($teacherInfo->save()){
-                return redirect('manageInfo/Teacher')->with('successMsg','添加成功！'.'添加的教师工号为：'.$teacherInfo->teacher_job_number);
+                return redirect('admin/manageInfo/Teacher')->with('successMsg','添加成功！'.'添加的教师工号为：'.$teacherInfo->teacher_job_number);
             }else{
                 return redirect()->back()->with('failureMsg','添加失败！');
             }
@@ -165,7 +180,7 @@ class ManageTeacherInfoController extends Controller
             $teacherInfo->wechart_name = $data['wechart_name'];
 
             if ($teacherInfo->save()){
-                return redirect('manageInfo/Teacher')->with('successMsg','修改成功！'.'修改的教师工号为：'.$teacherInfo->teacher_job_number);
+                return redirect('admin/manageInfo/Teacher')->with('successMsg','修改成功！'.'修改的教师工号为：'.$teacherInfo->teacher_job_number);
             }else{
                 return redirect()->back()->with('failureMsg','修改失败！');
             }
@@ -193,7 +208,7 @@ class ManageTeacherInfoController extends Controller
     {
         $teacherInfo = TeacherInfo::find($id);
         if ($teacherInfo->delete()){
-            return redirect('manageInfo/Teacher')->with('successMsg','删除成功！'.'删除的教师工号为：'.$teacherInfo->teacher_job_number);
+            return redirect('admin/manageInfo/Teacher')->with('successMsg','删除成功！'.'删除的教师工号为：'.$teacherInfo->teacher_job_number);
         }else{
             return redirect()->back()->with('failureMsg','删除失败！');
         }
