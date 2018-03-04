@@ -31,11 +31,11 @@
                 <a href="{{ url('admin/manageInfo/teacherCreate') }}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增教师</span></a>
             </div>
         </div>
-        {{--学生学号搜索框--}}
+        {{--教师工号搜索框--}}
         <div class="col-md-4 col-sm-4 col-lg-3">
             <form role="form" class="form-horizontal" method="get" action="{{url('admin/manageInfo/Teacher')}}" id="searchTeacherNumberForm">
                 <div class="input-group">
-                    <input class="form-control" name="teacher_job_number" type="text" placeholder="请输入教师工号">
+                    <input class="form-control" name="teacher_job_number" type="text" placeholder="请输入教师工号" value="{{ $searchTeacherNumberForm }}">
                     <span class="input-group-btn"><a onclick="searchTeacherNumber()" class="btn btn-primary">搜索</a></span>
                 </div>
                 <script type="text/javascript">
@@ -50,7 +50,7 @@
         <div class="col-md-4 col-sm-4 col-lg-3">
             <form role="form" class="form-horizontal" method="get" action="{{url('admin/manageInfo/Teacher')}}" id="searchTeacherNameForm">
                 <div class="input-group">
-                    <input class="form-control" name="teacher_name" type="text" placeholder="请输入教师姓名">
+                    <input class="form-control" name="teacher_name" type="text" placeholder="请输入教师姓名" value="{{ $searchTeacherNameForm }}">
                     <span class="input-group-btn"><a onclick="searchTeacherName()" class="btn btn-primary">搜索</a></span>
                 </div>
                 <script type="text/javascript">
@@ -69,7 +69,7 @@
                     <select class="form-control" name="college_info_id">
                         <option value="">所属学院</option>
                         @foreach($date1 as $college)
-                            <option value="{{$college->college_info_id}}"{{ $college->college_info_id == old('StudentInfo')['college_info_id'] ? 'selected' : '' }}>
+                            <option value="{{$college->college_info_id}}"{{ $college->college_info_id == $searchTeacherCollegeForm ? 'selected' : '' }}>
                                 {{$college->college_name}}
                             </option>
                         @endforeach
@@ -92,7 +92,7 @@
                     <select class="form-control" name="section_info_id">
                         <option value="">所属教研室</option>
                         @foreach($date2 as $section)
-                            <option value="{{$section->section_info_id}}"{{ $section->section_info_id == old('TeacherInfo')['section_info_id'] ? 'selected' : '' }}>
+                            <option value="{{$section->section_info_id}}"{{ $section->section_info_id == $searchTeacherSectionForm ? 'selected' : '' }}>
                                 {{$section->section_name}}
                             </option>
                         @endforeach

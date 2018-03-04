@@ -16,20 +16,37 @@ class ManageTeacherInfoController extends Controller
         $date1 = CollegeInfo::get();
         $date2 = SectionInfo::get();
 
+        //教师工号搜索框
         if ($request->has('teacher_job_number')){
-            $teacherInfos=TeacherInfo::where('teacher_job_number',$request->input('teacher_job_number'))->paginate(5);
+            $searchTeacherNumberForm=$request->input('teacher_job_number');$searchTeacherNameForm=null;$searchTeacherCollegeForm=null;$searchTeacherSectionForm=null;
+            $teacherInfos=TeacherInfo::where('teacher_job_number',$request->input('teacher_job_number'))->paginate(999);
+
+        //教师姓名搜索框
         }else if ($request->has('teacher_name')){
-            $teacherInfos=TeacherInfo::where('teacher_name',$request->input('teacher_name'))->paginate(5);
+            $searchTeacherNameForm=$request->input('teacher_name');$searchTeacherNumberForm=null;$searchTeacherCollegeForm=null;$searchTeacherSectionForm=null;
+            $teacherInfos=TeacherInfo::where('teacher_name',$request->input('teacher_name'))->paginate(999);
+
+        //所属学院搜索框
         }else if ($request->has('college_info_id')) {
-            $teacherInfos = TeacherInfo::where('college_info_id', $request->input('college_info_id'))->paginate(5);
+            $searchTeacherCollegeForm=$request->input('college_info_id');$searchTeacherNumberForm=null;$searchTeacherNameForm=null;$searchTeacherSectionForm=null;
+            $teacherInfos = TeacherInfo::where('college_info_id', $request->input('college_info_id'))->paginate(999);
+
+        //所属教研室搜索框
         }else if ($request->has('section_info_id')) {
-            $teacherInfos = TeacherInfo::where('section_info_id', $request->input('section_info_id'))->paginate(5);
+            $searchTeacherSectionForm=$request->input('section_info_id');$searchTeacherNumberForm=null;$searchTeacherNameForm=null;$searchTeacherCollegeForm=null;
+            $teacherInfos = TeacherInfo::where('section_info_id', $request->input('section_info_id'))->paginate(999);
+
         }else {
+            $searchTeacherNumberForm=null;$searchTeacherNameForm=null;$searchTeacherCollegeForm=null;$searchTeacherSectionForm=null;
             $teacherInfos = TeacherInfo::paginate(5);
         }
 
         return view('admin.manageInfo.teacher.teacher',[
             'teacherInfos'=>$teacherInfos,
+            'searchTeacherNumberForm'=>$searchTeacherNumberForm,
+            'searchTeacherNameForm'=>$searchTeacherNameForm,
+            'searchTeacherCollegeForm'=>$searchTeacherCollegeForm,
+            'searchTeacherSectionForm'=>$searchTeacherSectionForm,
             'date1'=>$date1,
             'date2'=>$date2,
         ]);

@@ -14,20 +14,31 @@ class ManageMajorInfoController extends Controller
     {
         $date1 = CollegeInfo::get();
 
-        //条件筛选
-//        $majorInfos=MajorInfo::where('college_info_id','1')->paginate(5);
+        //专业编号搜索框
         if ($request->has('major_identifier')){
-            $majorInfos=MajorInfo::where('major_identifier',$request->input('major_identifier'))->paginate(5);
+            $searchMajorNumberForm=$request->input('major_identifier');$searchMajorNameForm=null;$searchMajorCollegeForm=null;
+            $majorInfos=MajorInfo::where('major_identifier',$request->input('major_identifier'))->paginate(999);
+
+        //专业名称搜索框
         }else if ($request->has('major_name')) {
-            $majorInfos = MajorInfo::where('major_name', $request->input('major_name'))->paginate(5);
+            $searchMajorNameForm=$request->input('major_identifier');$searchMajorNumberForm=null;$searchMajorCollegeForm=null;
+            $majorInfos = MajorInfo::where('major_name', $request->input('major_name'))->paginate(999);
+
+        //所属学院搜索框
         }else if ($request->has('college_info_id')) {
-            $majorInfos = MajorInfo::where('college_info_id', $request->input('college_info_id'))->paginate(500);
+            $searchMajorCollegeForm=$request->input('major_identifier');$searchMajorNumberForm=null;$searchMajorNameForm=null;
+            $majorInfos = MajorInfo::where('college_info_id', $request->input('college_info_id'))->paginate(999);
+
         }else {
+            $searchMajorNumberForm=null;$searchMajorNameForm=null;$searchMajorCollegeForm=null;
             $majorInfos = MajorInfo::paginate(5);
         }
 
         return view('admin.manageInfo.major.major',[
             'majorInfos'=>$majorInfos,
+            'searchMajorNumberForm'=>$searchMajorNumberForm,
+            'searchMajorNameForm'=>$searchMajorNameForm,
+            'searchMajorCollegeForm'=>$searchMajorCollegeForm,
             'date1'=>$date1,
         ]);
     }

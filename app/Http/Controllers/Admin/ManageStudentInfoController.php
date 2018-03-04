@@ -18,22 +18,43 @@ class ManageStudentInfoController extends Controller
         $date2 = ClassInfo::get();
         $date3 = MajorInfo::get();
 
-        if ($request->has('student_name')){
-            $studentInfos=StudentInfo::where('student_name',$request->input('student_name'))->paginate(5);
-        }else if ($request->has('student_number')){
-            $studentInfos=StudentInfo::where('student_number',$request->input('student_number'))->paginate(5);
+        //学生学号搜索框
+        if ($request->has('student_number')){
+            $searchStudentNumberForm=$request->input('student_number');$searchStudentNameForm=null;$searchStudentCollegeForm=null;$searchStudentMajorForm=null;$searchStudentClassForm=null;
+            $studentInfos = StudentInfo::where('student_number',$request->input('student_number'))->paginate(5);
+
+        //学生姓名搜索框
+        }else if ($request->has('student_name')){
+            $searchStudentNameForm=$request->input('student_name');$searchStudentNumberForm=null;$searchStudentCollegeForm=null;$searchStudentMajorForm=null;$searchStudentClassForm=null;
+            $studentInfos = StudentInfo::where('student_name',$request->input('student_name'))->paginate(999);
+
+        //所属学院搜索框
         }else if ($request->has('college_info_id')) {
-            $studentInfos = StudentInfo::where('college_info_id', $request->input('college_info_id'))->paginate(5);
-        }else if ($request->has('class_info_id')) {
-            $studentInfos = StudentInfo::where('class_info_id', $request->input('class_info_id'))->paginate(5);
+            $searchStudentCollegeForm=$request->input('college_info_id');$searchStudentNumberForm=null;$searchStudentNameForm=null;$searchStudentMajorForm=null;$searchStudentClassForm=null;
+            $studentInfos = StudentInfo::where('college_info_id', $request->input('college_info_id'))->paginate(999);
+
+        //所学专业搜索框
         }else if ($request->has('major_info_id')) {
-            $studentInfos = StudentInfo::where('major_info_id', $request->input('major_info_id'))->paginate(5);
+            $searchStudentMajorForm=$request->input('major_info_id');$searchStudentNumberForm=null;$searchStudentNameForm=null;$searchStudentCollegeForm=null;$searchStudentClassForm=null;
+            $studentInfos = StudentInfo::where('major_info_id', $request->input('major_info_id'))->paginate(999);
+
+        //所属班级搜索框
+        }else if ($request->has('class_info_id')) {
+            $searchStudentClassForm=$request->input('class_info_id');$searchStudentNumberForm=null;$searchStudentNameForm=null;$searchStudentCollegeForm=null;$searchStudentMajorForm=null;
+            $studentInfos = StudentInfo::where('class_info_id', $request->input('class_info_id'))->paginate(999);
+
         }else{
-            $studentInfos=StudentInfo::paginate(5);
+            $searchStudentNumberForm=null;$searchStudentNameForm=null;$searchStudentCollegeForm=null;$searchStudentMajorForm=null;$searchStudentClassForm=null;
+            $studentInfos = StudentInfo::paginate(5);
         }
 
         return view('admin.manageInfo.student.student',[
             'studentInfos'=>$studentInfos,
+            'searchStudentNumberForm'=>$searchStudentNumberForm,
+            'searchStudentNameForm'=>$searchStudentNameForm,
+            'searchStudentCollegeForm'=>$searchStudentCollegeForm,
+            'searchStudentMajorForm'=>$searchStudentMajorForm,
+            'searchStudentClassForm'=>$searchStudentClassForm,
             'date1'=>$date1,
             'date2'=>$date2,
             'date3'=>$date3,

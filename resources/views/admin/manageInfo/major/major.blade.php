@@ -35,7 +35,7 @@
         <div class="col-md-4 col-sm-4 col-lg-4">
             <form role="form" class="form-horizontal" method="get" action="{{url('admin/manageInfo/Major')}}" id="searchMajorNumberForm">
                 <div class="input-group">
-                    <input class="form-control" name="major_identifier" type="text" placeholder="请输入专业编号">
+                    <input class="form-control" name="major_identifier" type="text" placeholder="请输入专业编号" value="{{ $searchMajorNumberForm }}">
                     <span class="input-group-btn"><a onclick="searchMajorNumber()" class="btn btn-primary">搜索</a></span>
                 </div>
                 <script type="text/javascript">
@@ -50,7 +50,7 @@
         <div class="col-md-4 col-sm-4 col-lg-4">
             <form role="form" class="form-horizontal" method="get" action="{{url('admin/manageInfo/Major')}}" id="searchMajorNameForm">
                 <div class="input-group">
-                    <input class="form-control" name="major_name" type="text" placeholder="请输入专业名称">
+                    <input class="form-control" name="major_name" type="text" placeholder="请输入专业名称" value="{{ $searchMajorNameForm }}">
                     <span class="input-group-btn"><a onclick="searchMajorName()" class="btn btn-primary">搜索</a></span>
                 </div>
                 <script type="text/javascript">
@@ -69,7 +69,7 @@
                     <select class="form-control" name="college_info_id">
                         <option value="">所属学院</option>
                         @foreach($date1 as $college)
-                            <option value="{{$college->college_info_id}}"{{ $college->college_info_id == old('StudentInfo')['college_info_id'] ? 'selected' : '' }}>
+                            <option value="{{$college->college_info_id}}"{{ $college->college_info_id == $searchMajorCollegeForm ? 'selected' : '' }}>
                                 {{$college->college_name}}
                             </option>
                         @endforeach

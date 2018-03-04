@@ -35,7 +35,7 @@
         <div class="col-md-4 col-sm-4 col-lg-3">
             <form role="form" class="form-horizontal" method="get" action="{{url('admin/manageInfo/Student')}}" id="searchStudentNumberForm">
                 <div class="input-group">
-                    <input class="form-control" name="student_number" type="text" placeholder="请输入学生学号">
+                    <input class="form-control" name="student_number" type="text" placeholder="请输入学生学号" value="{{ $searchStudentNumberForm }}">
                     <span class="input-group-btn"><a onclick="searchStudentNumber()" class="btn btn-primary">搜索</a></span>
                 </div>
                 <script type="text/javascript">
@@ -50,7 +50,7 @@
         <div class="col-md-4 col-sm-4 col-lg-3">
             <form role="form" class="form-horizontal" method="get" action="{{url('admin/manageInfo/Student')}}" id="searchStudentNameForm">
                 <div class="input-group">
-                    <input class="form-control" name="student_name" type="text" placeholder="请输入学生姓名">
+                    <input class="form-control" name="student_name" type="text" placeholder="请输入学生姓名" value="{{ $searchStudentNameForm }}">
                     <span class="input-group-btn"><a onclick="searchStudentName()" class="btn btn-primary">搜索</a></span>
                 </div>
                 <script type="text/javascript">
@@ -66,10 +66,10 @@
             <form role="form" class="form-horizontal" method="get" action="{{url('admin/manageInfo/Student')}}" id="searchStudentCollegeForm">
                 <div class="input-group">
                     {{--<input class="form-control" name="college_info_id" type="text" placeholder="所属学院">--}}
-                    <select class="form-control" name="college_info_id">
+                    <select class="form-control" name="college_info_id" >
                         <option value="">所属学院</option>
                         @foreach($date1 as $college)
-                            <option value="{{$college->college_info_id}}"{{ $college->college_info_id == old('StudentInfo')['college_info_id'] ? 'selected' : '' }}>
+                            <option value="{{$college->college_info_id}}"{{ $college->college_info_id == $searchStudentCollegeForm? 'selected' : '' }}>
                                 {{$college->college_name}}
                             </option>
                         @endforeach
@@ -92,7 +92,7 @@
                     <select class="form-control" name="major_info_id">
                         <option value="">所学专业</option>
                         @foreach($date3 as $major)
-                            <option value="{{$major->major_info_id}}"{{ $major->major_info_id == old('StudentInfo')['major_info_id'] ? 'selected' : '' }}>
+                            <option value="{{$major->major_info_id}}"{{ $major->major_info_id == $searchStudentMajorForm ? 'selected' : '' }}>
                                 {{$major->major_name}}
                             </option>
                         @endforeach
@@ -115,7 +115,7 @@
                     <select class="form-control" name="class_info_id">
                         <option value="">所属班级</option>
                         @foreach($date2 as $class)
-                            <option value="{{$class->class_info_id}}"{{ $class->class_info_id == old('StudentInfo')['class_info_id'] ? 'selected' : '' }}>
+                            <option value="{{$class->class_info_id}}"{{ $class->class_info_id == $searchStudentClassForm ? 'selected' : '' }}>
                                 {{$class->class_name}}
                             </option>
                         @endforeach
