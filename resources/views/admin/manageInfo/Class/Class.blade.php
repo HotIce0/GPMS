@@ -33,9 +33,9 @@
         {{--班级编号搜索框--}}
         <div class="col-md-8 col-sm-8 col-lg-8"></div>
         <div class="col-md-4 col-sm-4 col-lg-4"><br>
-            <form role="form" class="form-horizontal" method="get" action="{{ url('admin/manageInfo/class') }}" id="searchClassNumberForm" name="searchClassNum">
+            <form role="form" class="form-horizontal" method="get" action="{{ url('admin/manageInfo/class') }}" id="searchClassNumberForm" >
                 <div class="input-group">
-                    <input class="form-control" name="class_identifier" type="text" placeholder="请输入班级编号" value="{{$searchClassNumberForm}}">
+                    <input class="form-control" name="searchClass" type="text" placeholder="请输入班级编号或名称" value="{{$searchClassNumberForm}}">
                     <span class="input-group-btn"><a onclick="searchClassNumber()" class="btn btn-primary">搜索</a></span>
                 </div>
                 <script type="text/javascript">

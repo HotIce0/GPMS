@@ -13,9 +13,9 @@ class ManageClassInfoController extends Controller
 {
     public function classInfo(Request $request)//班级信息管理
     {
-        if ($request->has('class_identifier')){
-            $searchClassNumberForm=$request->input('class_identifier');
-            $classInfos=ClassInfo::where('class_identifier',$request->input('class_identifier'))->paginate(10);
+        if ($request->has('searchClass')){
+            $searchClassNumberForm=$request->input('searchClass');
+            $classInfos=ClassInfo::where('class_identifier',$request->input('searchClass'))-> orWhere('class_name',$request->input('searchClass'))->get();
         }else{
             $searchClassNumberForm=null;
             $classInfos=ClassInfo::all();
