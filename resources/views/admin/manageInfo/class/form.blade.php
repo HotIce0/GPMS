@@ -33,7 +33,6 @@
                 <option value="">--请选择所属学院--</option>
                 @foreach($collegeInfos as $collegeInfo)
                     <option value="{{$collegeInfo->college_info_id}}"{{ $collegeInfo->college_info_id == (old('ClassInfo')['college_info_id']==null? $classInfo->college_info_id: old('ClassInfo')['college_info_id'])? 'selected' : ''}}>
-                    {{--<option value="{{$collegeInfo->college_info_id}}"{{ $collegeInfo->college_info_id == old('ClassInfo')['college_info_id'] ? 'selected' : '' }}>--}}
                         {{$collegeInfo->college_name}}
                     </option>
                 @endforeach

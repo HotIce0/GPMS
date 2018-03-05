@@ -6,17 +6,25 @@ use App\Http\Controllers\Controller;;
 
 use App\Http\Models\ClassInfo;
 use App\Http\Models\CollegeInfo;
+use App\Http\Models\StudentInfo;
 use Illuminate\Http\Request;
 
 class ManageClassInfoController extends Controller
 {
-    public function classInfo()//班级信息管理
+    public function classInfo(Request $request)//班级信息管理
     {
-        $classInfos=ClassInfo::all();
-        $classInfos=$classInfos->sortBy('class_identifier');
+        if ($request->has('class_identifier')){
+            $searchClassNumberForm=$request->input('class_identifier');
+            $classInfos=ClassInfo::where('class_identifier',$request->input('class_identifier'))->paginate(10);
+        }else{
+            $searchClassNumberForm=null;
+            $classInfos=ClassInfo::all();
+            $classInfos=$classInfos->sortBy('class_identifier');
+        }
 
         return view('admin.manageInfo.class.class',[
             'classInfos' => $classInfos,
+            'searchClassNumberForm' => $searchClassNumberForm
         ]);
     }
 
