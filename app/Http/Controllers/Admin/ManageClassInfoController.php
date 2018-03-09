@@ -2,11 +2,10 @@
 //by xiaoming
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;;
-
+use App\Http\Controllers\Controller;
 use App\Http\Models\ClassInfo;
 use App\Http\Models\CollegeInfo;
-use App\Http\Models\StudentInfo;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ManageClassInfoController extends Controller
@@ -30,6 +29,10 @@ class ManageClassInfoController extends Controller
 
     public function classInfoUpdate(Request $request,$id)//修改信息
     {
+        //        1.1是班级信息管理权限
+        if(!Auth::user()->can('permission', '1.1'))
+            return response()->view('errors.503');
+
         $classInfo=ClassInfo::find($id);//修改，所以找到对应数据
         $collegeInfos=CollegeInfo::get();//获取数据库中其他表的数据
 
@@ -62,9 +65,9 @@ class ManageClassInfoController extends Controller
             $classInfo->college_info_id = $data['college_info_id'];
 
             if ($classInfo->save() ) {//保持成功与失败
-                return redirect('/admin/manageInfo/class')->with('success', '修改成功!');
+                return redirect('/admin/manageInfo/class')->with('successMsg', '修改成功!');
             } else {
-                return redirect()->back()->with('success', '修改失败!');
+                return redirect()->back()->with('failureMsg', '修改失败!');
             }
         }
         return view('admin.manageInfo.class.update', [//视图
@@ -75,6 +78,10 @@ class ManageClassInfoController extends Controller
 
     public function classInfoCreate(Request $request)// 新增信息          //    错误信息提示有待于完成
     {
+        //        1.1是班级信息管理权限
+        if(!Auth::user()->can('permission', '1.1'))
+            return response()->view('errors.503');
+
         $classInfo=new ClassInfo();//新增，所以新建个模型
         $collegeInfos=CollegeInfo::get();//获取数据库中其他表的数据
 
@@ -103,9 +110,9 @@ class ManageClassInfoController extends Controller
             $data = $request->input('ClassInfo');
 
             if (ClassInfo::create($data) ) {
-                return redirect('/admin/manageInfo/class')->with('success', '添加成功!');
+                return redirect('/admin/manageInfo/class')->with('successMsg', '添加成功!');
             } else {
-                return redirect()->back()->with('success', '添加失败!');
+                return redirect()->back()->with('failureMsg', '添加失败!');
             }
         }
 
@@ -118,12 +125,16 @@ class ManageClassInfoController extends Controller
 
     public function classInfoDelete($id)//删除信息
     {
+        //        1.1是班级信息管理权限
+        if(!Auth::user()->can('permission', '1.1'))
+            return response()->view('errors.503');
+
         $classInfo=ClassInfo::find($id);//找到要删除信息的id
 
         if($classInfo->delete()){//此处在模型中有处理，为软删除
-            return redirect('/admin/manageInfo/class')->with('success', '删除成功!-'.$id);
+            return redirect('/admin/manageInfo/class')->with('successMsg', '删除成功!-'.$id);
         }else {
-            return redirect('/admin/manageInfo/class')->with('error', '删除成功!-'.$id);
+            return redirect('/admin/manageInfo/class')->with('failureMsg', '删除成功!-'.$id);
         }
     }
 

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-
 use App\Http\Models\SectionInfo;
 use App\Http\Models\CollegeInfo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ManageSectionInfoController extends Controller
 {
@@ -21,6 +21,10 @@ class ManageSectionInfoController extends Controller
 
     public function sectionInfoUpdate(Request $request,$id)//修改信息
     {
+        //        1.3是教研室信息管理权限
+        if(!Auth::user()->can('permission', '1.3'))
+            return response()->view('errors.503');
+
         $sectionInfo=SectionInfo::find($id);//修改，所以找到对应数据
         $collegeInfos=CollegeInfo::get();//获取数据库中其他表的数据
 
@@ -50,9 +54,9 @@ class ManageSectionInfoController extends Controller
             $sectionInfo->college_info_id = $data['college_info_id'];
 
             if ($sectionInfo->save() ) {//保持成功与失败
-                return redirect('/admin/manageInfo/section')->with('success',  '修改成功!');
+                return redirect('/admin/manageInfo/section')->with('successMsg',  '修改成功!');
             } else {
-                return redirect()->back()->with('success', '修改失败!');
+                return redirect()->back()->with('failureMsg', '修改失败!');
             }
         }
 
@@ -65,6 +69,10 @@ class ManageSectionInfoController extends Controller
 
     public function sectionInfoCreate(Request $request)// 新增信息          //    错误信息提示有待于完成
     {
+        //        1.3是教研室信息管理权限
+        if(!Auth::user()->can('permission', '1.3'))
+            return response()->view('errors.503');
+
         $sectionInfo=new SectionInfo();
         $collegeInfos=CollegeInfo::get();
 
@@ -91,9 +99,9 @@ class ManageSectionInfoController extends Controller
             $data = $request->input('SectionInfo');
 
             if (SectionInfo::create($data) ) {
-                return redirect('/admin/manageInfo/section')->with('success', '添加成功!');
+                return redirect('/admin/manageInfo/section')->with('successMsg', '添加成功!');
             } else {
-                return redirect()->back();
+                return redirect()->back()->with('failureMsg', '添加失败!');
             }
         }
 
@@ -106,12 +114,16 @@ class ManageSectionInfoController extends Controller
 
     public function sectionInfoDelete($id)//删除信息
     {
+        //        1.3是教研室信息管理权限
+        if(!Auth::user()->can('permission', '1.3'))
+            return response()->view('errors.503');
+
         $sectionInfo=SectionInfo::find($id);
 
         if($sectionInfo->delete()){
-            return redirect('/admin/manageInfo/section')->with('success', '删除成功!-'.$id);
+            return redirect('/admin/manageInfo/section')->with('successMsg', '删除成功!-'.$id);
         }else {
-            return redirect('/admin/manageInfo/section')->with('error', '删除成功!-'.$id);
+            return redirect('/admin/manageInfo/section')->with('failureMsg', '删除成功!-'.$id);
         }
     }
 
