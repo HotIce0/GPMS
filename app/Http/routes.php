@@ -86,32 +86,28 @@ Route::Group(['middleware'=>'auth'],function() {
     Route::get('/student_opening','Teacher\TeacherIndexController@student_opening');
     Route::get('/teacher/review/{opening_report_id}/{project_id}','Teacher\TeacherIndexController@opening_review');
     Route::post('/teacher/review','Teacher\TeacherIndexController@submit');
+
     /**************
      * 管理员路由 *
      *************/
-<<<<<<< HEAD
+
     Route::group(['prefix' => 'admin'], function () {
         Route::get('/', 'Admin\AdminIndexController@index');
 
         //信息管理路由群，by xiaoming
         Route::Group(['prefix' => 'manageInfo'], function (){
-=======
-    Route::get('/admin', 'Admin\AdminIndexController@index');
-    Route::get('/summary','Admin\AdminIndexController@summary');
-    //信息管理路由群，by xiaoming
-    Route::Group(['prefix' => 'manageInfo'], function (){
-        // 教师信息管理
-        Route::get('Teacher', 'Admin\ManageTeacherInfoController@teacherInfo');//主页信息浏览
 
-        Route::any('teacherCreate','Admin\ManageTeacherInfoController@teacherInfoCreate');//新增
+            // 教师信息管理
+            Route::get('teacher', 'Admin\ManageTeacherInfoController@teacherInfo');//主页信息浏览
+            Route::any('teacherCreate','Admin\ManageTeacherInfoController@teacherInfoCreate');//新增
 
-        // 学生信息管理
-        Route::get('Student', 'Admin\ManageStudentInfoController@studentInfo');//主页信息浏览
-        Route::any('studentUpdate/{id}', 'Admin\ManageStudentInfoController@studentInfoUpdate');//修改
-        Route::any('studentCreate', 'Admin\ManageStudentInfoController@studentInfoCreate');//新增
-        Route::any('studentDetail/{id}', 'Admin\ManageStudentInfoController@studentInfoDetail');//详情
-        Route::any('studentDelete/{id}', 'Admin\ManageStudentInfoController@studentInfoDelete');//删除
->>>>>>> origin/lhw
+            // 学生信息管理
+            Route::get('student', 'Admin\ManageStudentInfoController@studentInfo');//主页信息浏览
+            Route::any('studentUpdate/{id}', 'Admin\ManageStudentInfoController@studentInfoUpdate');//修改
+            Route::any('studentCreate', 'Admin\ManageStudentInfoController@studentInfoCreate');//新增
+            Route::any('studentDetail/{id}', 'Admin\ManageStudentInfoController@studentInfoDetail');//详情
+            Route::any('studentDelete/{id}', 'Admin\ManageStudentInfoController@studentInfoDelete');//删除
+
 
             // 班级信息管理
             Route::get('class', 'Admin\ManageClassInfoController@classInfo');//主页信息浏览
@@ -119,18 +115,17 @@ Route::Group(['middleware'=>'auth'],function() {
             Route::any('classCreate', 'Admin\ManageClassInfoController@classInfoCreate');//新增
             Route::get('classDelete/{id}', 'Admin\ManageClassInfoController@classInfoDelete');//删除
 
-<<<<<<< HEAD
+
             // 学院信息管理
             Route::get('college', 'Admin\ManageCollegeInfoController@collegeInfo');//主页信息浏览
             Route::any('collegeUpdate/{id}', 'Admin\ManageCollegeInfoController@collegeInfoUpdate');//修改
             Route::any('collegeCreate', 'Admin\ManageCollegeInfoController@collegeInfoCreate');//新增
             Route::get('collegeDelete/{id}', 'Admin\ManageCollegeInfoController@collegeInfoDelete');//删除
-=======
-        // 专业信息管理
-        Route::get('Major', 'Admin\ManageMajorInfoController@majorInfo');//主页信息浏览
 
-        Route::any('majorCreate','Admin\ManageMajorInfoController@majorInfoCreate');//新增
->>>>>>> origin/lhw
+            // 专业信息管理
+            Route::get('major', 'Admin\ManageMajorInfoController@majorInfo');//主页信息浏览
+            Route::any('majorCreate','Admin\ManageMajorInfoController@majorInfoCreate');//新增
+
 
             // 教研室信息管理
             Route::get('section', 'Admin\ManageSectionInfoController@sectionInfo');//主页信息浏览

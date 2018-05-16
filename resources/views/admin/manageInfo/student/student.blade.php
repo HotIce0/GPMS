@@ -28,7 +28,7 @@
         <div class="panel-heading" >
             <h3 class="panel-title">学生信息管理</h3>
             <div class="right">
-                <a href="{{ url('manageInfo/studentCreate') }}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增学生</span></a>
+                <a href="{{ url('admin/manageInfo/studentCreate') }}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增学生</span></a>
             </div>
         </div>
         <div class="panel-body">
@@ -52,9 +52,9 @@
                 @foreach($studentInfos as $studentInfo)
                     <tr>
                         <td>
-                            <a href="{{ url('manageInfo/studentDetail',['id'=>$studentInfo->student_info_id] )}}">详情</a>
-                            <a href="{{ url('manageInfo/studentUpdate',['id'=>$studentInfo->student_info_id] )}}">修改</a>
-                            <a href="{{ url('manageInfo/studentDelete',['id'=>$studentInfo->student_info_id] )}}"
+                            <a href="{{ url('admin/manageInfo/studentDetail',['id'=>$studentInfo->student_info_id] )}}">详情</a>
+                            <a href="{{ url('admin/manageInfo/studentUpdate',['id'=>$studentInfo->student_info_id] )}}">修改</a>
+                            <a href="{{ url('admin/manageInfo/studentDelete',['id'=>$studentInfo->student_info_id] )}}"
                                      onclick="if (confirm('确定要删除这条学生信息吗？') == false) return false;">删除</a>
                         </td>
                         <th>{{$studentInfo->student_number}}</th>

@@ -66,8 +66,8 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-5 col-sm-6">
-                    <a  class="btn btn-primary" href="{{ url('manageInfo/studentUpdate',['id'=>$studentInfo->student_info_id]) }}">修改</a>
-                    <a  class="btn btn-primary" href="{{ url('manageInfo/Student') }}">返回</a>
+                    <a  class="btn btn-primary" href="{{ url('admin/manageInfo/studentUpdate',['id'=>$studentInfo->student_info_id]) }}">修改</a>
+                    <a  class="btn btn-primary" href="{{ url('admin/manageInfo/student') }}">返回</a>
                 </div>
             </div>
 

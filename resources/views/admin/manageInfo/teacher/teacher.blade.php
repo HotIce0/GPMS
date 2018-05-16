@@ -28,7 +28,7 @@
         <div class="panel-heading" >
             <h3 class="panel-title">教师信息管理</h3>
             <div class="right">
-                <a href="{{ url('manageInfo/teacherCreate') }}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增教师</span></a>
+                <a href="{{ url('admin/manageInfo/teacherCreate') }}"><span class="label label-primary"><i class="fa fa-plus-square"></i>&nbsp;新增教师</span></a>
             </div>
         </div>
         <div class="panel-body">
