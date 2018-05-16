@@ -18,7 +18,7 @@ require __DIR__.'/../vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
-| Include The Compiled class File
+| Include The Compiled Class File
 |--------------------------------------------------------------------------
 |
 | To dramatically increase your application's performance, you may use a

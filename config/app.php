@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'timezone' => env('TIMEZONE','PRC'),
+    'timezone' => env('TIMEZONE','UTC'),
 
     /*
     |--------------------------------------------------------------------------
@@ -160,7 +160,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | class Aliases
+    | Class Aliases
     |--------------------------------------------------------------------------
     |
     | This array of class aliases will be registered when this application

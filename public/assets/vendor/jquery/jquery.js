@@ -279,7 +279,7 @@ jQuery.extend( {
 		var key;
 
 		// Not plain objects:
-		// - Any object or value whose internal [[class]] property is not "[object Object]"
+		// - Any object or value whose internal [[Class]] property is not "[object Object]"
 		// - DOM nodes
 		// - window
 		if ( jQuery.type( obj ) !== "object" || obj.nodeType || jQuery.isWindow( obj ) ) {
@@ -803,7 +803,7 @@ function Sizzle( selector, context, results, seed ) {
 					push.apply( results, context.getElementsByTagName( selector ) );
 					return results;
 
-				// class selector
+				// Class selector
 				} else if ( (m = match[3]) && support.getElementsByClassName &&
 					context.getElementsByClassName ) {
 
@@ -1155,7 +1155,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			return results;
 		};
 
-	// class
+	// Class
 	Expr.find["CLASS"] = support.getElementsByClassName && function( className, context ) {
 		if ( typeof context.getElementsByClassName !== "undefined" && documentIsHTML ) {
 			return context.getElementsByClassName( className );
