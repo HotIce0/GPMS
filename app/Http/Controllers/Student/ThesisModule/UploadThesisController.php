@@ -6,33 +6,26 @@
 namespace App\Http\Controllers\Student\ThesisModule;
 
 use App\Http\Controllers\Controller;
-use App\Http\Models\Role;
-use App\Http\Models\Thesis;
+use App\Repository\Facades\ThesisLogic;
 use Illuminate\Http\Request;
-use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 
 class UploadThesisController extends Controller
 {
     public function index()
     {
-        return view('student.uploadThesis');
+        return view('student.thesisModule.uploadThesis');
     }
 
     public function store(Request $request)
     {
         $user =Auth::user();
-        $id=Auth::id();
         $file=$request->file('thesis');
 
-        //TODO
+//        //TODO
 //        if(Auth::user()->can('permission','2.1')){
 //            exit('学生有2.1权限！');
 //        }
-
-        //return Thesis::insertThesisInfo($id);
 
         //验证表单格式
         $maxFileSize=10240;
@@ -47,30 +40,12 @@ class UploadThesisController extends Controller
         ];
         $this->validate($request,$rule,$messages);
 
-        if(self::saveThesisToServer($file,$id)){
-            return  back()->with('success','保存成功');
+        if(ThesisLogic::insertAndSaveThesis($user,$file)==false) {
+            return back()->withErrors('上传失败,请重试!');
         }
         else{
-            return  back()->withErrors( '保存失败请重试');
+            return back()->with('success','上传成功!');
         }
     }
 
-        private static function saveThesisToServer($file,$id)
-        {
-            $fileName=Hash::make($file);                        //哈希值作为文件名
-            $fileName=str_replace('/','',$fileName);
-            $filePostfix=$file->getClientOriginalExtension();
-
-            $fileNameWithPostfix=$fileName.'.'.$filePostfix;
-            $savePath='thesis/'.$id.'/'.$fileNameWithPostfix; //存放路径为thesis/{id}/{哈希值}.{后缀名}
-
-            $content=file_get_contents($file->getRealPath());
-
-            if(Storage::exists($savePath)) return false;
-
-
-
-            Storage::put($savePath,$content);
-            return Storage::exists($savePath);
-        }
 }

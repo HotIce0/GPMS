@@ -68,5 +68,28 @@ class UserBasicInfo extends Authenticatable
         return null;
     }
 
+    /**
+     *by tan
+     * 获取用户的课程Id号
+     */
+    public function getProjectId()
+    {
+        $userInfo=$this->getUserInfo();
+        $project=null;
+        if($this->user_type == config('constants.USER_TYPE_STUDENT'))
+        {
+            $studentNum = $userInfo->student_number;
+            $project=ProjectChoice::where('student_number',$studentNum)
+                ->first();
+        }elseif ($this->user_type == config('constants.USER_TYPE_TEACHER'))
+        {
+
+            $teacherJobNumber = $userInfo->teacher_job_number;
+            $project=ProjectChoice::where('teacher_job_number',$teacherJobNumber)
+                ->first();
+        }
+        $projectId=$project->project_id;
+        return $projectId;
+    }
 
 }
