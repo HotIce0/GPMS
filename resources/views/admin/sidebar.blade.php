@@ -22,10 +22,10 @@
                         <ul class="nav">
                             <li><a href="{{url('/admin/manageInfo/Teacher')}}" class="">教师信息管理_</a></li>
                             <li><a href="{{url('/admin/manageInfo/Student')}}" class="">学生信息管理_</a></li>
-                            <li><a href="{{url('/admin/manageInfo/Class')}}" class="">班级信息管理</a></li>
+                            <li><a href="{{url('/admin/manageInfo/class')}}" class="">班级信息管理</a></li>
                             <li><a href="{{url('/admin/manageInfo/Major')}}" class="">专业信息管理_</a></li>
-                            <li><a href="{{url('/admin/manageInfo/College')}}" class="">学院信息管理</a></li>
-                            <li><a href="{{url('/admin/manageInfo/StaffRoom')}}" class="">教研室信息管理</a></li>
+                            <li><a href="{{url('/admin/manageInfo/college')}}" class="">学院信息管理</a></li>
+                            <li><a href="{{url('/admin/manageInfo/section')}}" class="">教研室信息管理</a></li>
                         </ul>
                     </div>
                 </li>

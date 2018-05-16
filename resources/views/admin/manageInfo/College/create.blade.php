@@ -8,10 +8,10 @@
 @section('content')
     <div class="panel">
         <div class="panel-heading">
-            <h3 class="panel-title">新增班级信息填写</h3>
+            <h3 class="panel-title">新增学院信息填写</h3>
         </div>
         <div class="panel-body">
-            @include('admin.manageInfo.class.form')
+            @include('admin.manageInfo.college.form')
             {{--相同部分的代码写在form里面--}}
         </div>
     </div>

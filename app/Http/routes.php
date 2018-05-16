@@ -94,26 +94,27 @@ Route::Group(['middleware'=>'auth'],function() {
 
         //信息管理路由群，by xiaoming
         Route::Group(['prefix' => 'manageInfo'], function (){
-            // 教师信息管理
-            Route::get('Teacher', 'Admin\ManageInfoController@test');
 
-            // 学生信息管理
-            Route::get('Student', 'Admin\ManageInfoController@test');
+            //测试路由
+            Route::get('test', 'Admin\Test@test');//主页信息浏览
 
             // 班级信息管理
-            Route::get('Class', 'Admin\ManageClassInfoController@classInfo');//主页信息浏览
+            Route::get('class', 'Admin\ManageClassInfoController@classInfo');//主页信息浏览
             Route::any('classUpdate/{id}', 'Admin\ManageClassInfoController@classInfoUpdate');//修改
             Route::any('classCreate', 'Admin\ManageClassInfoController@classInfoCreate');//新增
             Route::get('classDelete/{id}', 'Admin\ManageClassInfoController@classInfoDelete');//删除
 
-            // 专业信息管理
-            Route::get('Major', 'Admin\ManageInfoController@test');
-
             // 学院信息管理
-            Route::get('College', 'Admin\ManageCollegeInfoController@collegeInfo');
+            Route::get('college', 'Admin\ManageCollegeInfoController@collegeInfo');//主页信息浏览
+            Route::any('collegeUpdate/{id}', 'Admin\ManageCollegeInfoController@collegeInfoUpdate');//修改
+            Route::any('collegeCreate', 'Admin\ManageCollegeInfoController@collegeInfoCreate');//新增
+            Route::get('collegeDelete/{id}', 'Admin\ManageCollegeInfoController@collegeInfoDelete');//删除
 
             // 教研室信息管理
-            Route::get('StaffRoom', 'Admin\ManageStaffRoomInfoController@staffRoomInfo');
+            Route::get('section', 'Admin\ManageSectionInfoController@sectionInfo');//主页信息浏览
+            Route::any('sectionUpdate/{id}', 'Admin\ManageSectionInfoController@sectionInfoUpdate');//修改
+            Route::any('sectionCreate', 'Admin\ManageSectionInfoController@sectionInfoCreate');//新增
+            Route::get('sectionDelete/{id}', 'Admin\ManageSectionInfoController@sectionInfoDelete');//删除
         });
     });
     Route::get('/summary','Admin\AdminIndexController@summary');
