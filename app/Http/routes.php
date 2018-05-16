@@ -47,10 +47,7 @@ Route::Group(['middleware'=>'auth'],function() {
         Route::get('/uploadThesis','Student\ThesisModule\UploadThesisController@index');
         Route::post('/uploadThesis','Student\ThesisModule\UploadThesisController@store');
     });
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/tan-1
     /************
      * 教师路由 *
      ***********/
