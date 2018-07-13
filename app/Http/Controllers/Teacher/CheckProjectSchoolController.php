@@ -78,6 +78,9 @@ class CheckProjectSchoolController extends Controller
         {
             $project = ProjectChoice::find($projectID);
             $project->project_declaration_status = '5';
+            //更新学校审核时间
+            $date = new \DateTime();
+            $project->school_check_at = $date->format('y-m-d H:i:s');
             if(!$project->save())
                 $errorsInfo['errorsSum']++;
         }

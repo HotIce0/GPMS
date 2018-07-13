@@ -1,5 +1,28 @@
 @extends('layouts.layoutSidebar')
 {{--By Sao Guang--}}
+
+
+@section('head')
+        <title></title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <!-- VENDOR CSS -->
+        <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/vendor/font-awesome/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/vendor/linearicons/style.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/vendor/chartist/css/chartist-custom.css')}}">
+        <!-- MAIN CSS -->
+        <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
+        <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+        <link rel="stylesheet" href="{{asset('assets/css/demo.css')}}">
+        <!-- ICONS -->
+        <link rel="apple-touch-icon" sizes="76x76" href="{{asset('assets/img/apple-icon.png')}}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{asset('assets/img/favicon.png')}}">
+        <!-- DATETIMEPICKER -->
+        <link rel="stylesheet" href="{{asset('assets/vendor/datetimepicker/css/bootstrap-datetimepicker.min.css')}}">
+@endsection
+
 @section('sidebar')
     @include('teacher.sidebar')
 @endsection
@@ -72,6 +95,34 @@
                 </tr>
                 @endforeach
                 </tbody>
+                <!-- SET TIME MODAL BEGIN -->
+                <div class="modal fade" id="timeSetModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="modalTitle">请设置任务书下达提醒时间</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!-- DATETIMEPICKER BEGIN -->
+                                <div class="form-group">
+                                    <label for="dtp_input1" class="col-md-2 control-label"></label>
+                                    <div class="input-group date form_datetime col-md-6" data-link-field="dtp_input1">
+                                        <input class="form-control" name="remindTime" value="2018-01-01 00:00:00" size="16" type="text" value="" readonly>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                                    </div>
+                                    <input type="hidden" id="dtp_input1" value="" /><br/>
+                                </div>
+                                <!-- DATETIMEPICKER END -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary" id="btnAtopt">确定</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
+                </div>
+                <!-- SET TIME MODAL END -->
                 </form>
             </table>
         </div>
@@ -92,7 +143,8 @@
                 </form>
             </div>
             <div class="text-right">
-                <button type="button" id="btnAtopt" class="btn btn-success ">采纳选中项</button>
+                <!-- <button type="button" id="btnAtopt" class="btn btn-success ">采纳选中项</button> -->
+                <button type="button" data-toggle="modal" data-target="#timeSetModal" class="btn btn-success ">采纳选中项</button>
             </div>
         </div>
     </div>
@@ -109,6 +161,10 @@
     <script src="{{asset('assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
     <script src="{{asset('assets/vendor/chartist/js/chartist.min.js')}}"></script>
     <script src="{{asset('assets/scripts/klorofil-common.js')}}"></script>
+    <!-- DATETIMEPICKER -->
+    <script type="text/javascript" src="{{asset('assets/vendor/datetimepicker/js/bootstrap-datetimepicker.min.js')}}" charset="UTF-8"></script>
+    <script type="text/javascript" src="{{asset('assets/vendor/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js')}}" charset="UTF-8"></script>
+
     <!-- SELECT ALL SCRIPT -->
     <script>
         $('input[id="selectAll"]').click(function(){
@@ -146,4 +202,19 @@
         $("option#"+$("#SelectPages").html()).prop("selected", true);//改变选项内容
     </script>
     <!-- END GET SELECT PAGES FROM INPUT -->
+    <!-- DATETIMEPICKER BEGIN -->
+    <script type="text/javascript">
+        $('.form_datetime').datetimepicker({
+            language:  'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            forceParse: 0,
+            showMeridian: 1,
+            format:"yyyy-mm-dd hh:ii"
+        });
+    </script>
+    <!-- DATETIMEPICKER END -->
 @endsection

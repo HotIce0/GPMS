@@ -64,6 +64,7 @@ class CheckProjectController extends Controller
      */
     public function adoptSelectedProjects(Request $request)
     {
+        //dd($request);
         //2.2是审题权限(学院级别)
         if(!Auth::user()->can('permission', '2.2'))
             return response()->view('errors.503');
@@ -78,6 +79,13 @@ class CheckProjectController extends Controller
         {
             $project = ProjectChoice::find($projectID);
             $project->project_declaration_status = '3';
+            //更新学院审核时间
+            $date = new \DateTime();
+            $project->college_check_at = $date->format('y-m-d H:i:s');
+            //更新任务书下达提醒时间
+            $dateRemind = new \DateTime($request->remindTime);
+            $project->remind_assignment_book_at = $dateRemind->format('y-m-d H:i:s');
+
             if(!$project->save())
                 $errorsInfo['errorsSum']++;
         }
