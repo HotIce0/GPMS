@@ -41,11 +41,6 @@
                     <th>所属学院</th>
                     <th>所属班级</th>
                     <th>所学专业</th>
-                    {{--<th>身份证号码</th>--}}
-                    {{--<th>邮箱地址</th>--}}
-                    {{--<th>电话号码</th>--}}
-                    {{--<th>QQ号</th>--}}
-                    {{--<th>微信号</th>--}}
                 </tr>
                 </thead>
                 <tbody>
@@ -61,22 +56,11 @@
                         {{--学号--}}
                         <th>{{$studentInfo->student_name}}</th>
                         {{--学生姓名--}}
-                        <th>{{$studentInfo->college_info_id($studentInfo->college_info_id)}}</th>
+                        <th>{{$studentInfo->college_name($studentInfo->college_info_id)}}</th>
                         {{--所属学院--}}
-                        <th>{{$studentInfo->class_info_id($studentInfo->class_info_id)}}</th>
+                        <th>{{$studentInfo->class_name($studentInfo->class_info_id)}}</th>
                         {{--所属班级--}}
-                        <th>{{$studentInfo->major_info_id($studentInfo->major_info_id)}}</th>
-                        {{--所学专业--}}
-                        {{--<th>{{$studentInfo->identity_card_number}}</th>--}}
-                        {{--身份证号码--}}
-                        {{--<th>{{$studentInfo->mail_address}}</th>--}}
-                        {{--邮箱地址--}}
-                        {{--<th>{{$studentInfo->phone_number}}</th>--}}
-                        {{--电话号码--}}
-                        {{--<th>{{$studentInfo->qq_number}}</th>--}}
-                        {{--QQ号--}}
-                        {{--<th>{{$studentInfo->wechart_name}}</th>--}}
-                        {{--微信号--}}
+                        <th>{{$studentInfo->major_name($studentInfo->major_info_id)}}</th>
                     </tr>
                 @endforeach
                 </tbody>

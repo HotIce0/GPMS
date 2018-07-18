@@ -19,6 +19,7 @@
         </div>
     @endif
     <!-- END ERROR TIP -->
+
     <!-- MY SELECTED PROJECT -->
     @if($data['selected'])
         <div class="panel">
@@ -65,6 +66,7 @@
         </div>
     @endif
     <!-- END MY SELECTED PROJECT -->
+
     <!-- SELECT PROJECT TABLE -->
     <div class="panel">
         <div class="panel-heading">

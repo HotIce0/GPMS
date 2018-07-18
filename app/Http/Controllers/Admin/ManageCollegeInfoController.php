@@ -9,14 +9,23 @@ use Illuminate\Support\Facades\Auth;
 
 class ManageCollegeInfoController extends Controller
 {
+//    public function collegeInfo()//学院信息管理
+//    {
+//        $collegeInfos=CollegeInfo::paginate(5);
+//
+//        return view('admin.manageInfo.college.college',[
+//            'collegeInfos' => $collegeInfos,
+//        ]);
+//    }
     public function collegeInfo()//学院信息管理
     {
-        $collegeInfos=CollegeInfo::paginate(10);
+        $collegeInfos=CollegeInfo::paginate(5);
 
         return view('admin.manageInfo.college.college',[
             'collegeInfos' => $collegeInfos,
         ]);
     }
+
 
     public function collegeInfoUpdate(Request $request,$id)//修改信息
     {

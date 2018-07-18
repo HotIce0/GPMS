@@ -19,12 +19,13 @@ class ManageClassInfoController extends Controller
             $searchClassNumberForm=null;
             $classInfos=ClassInfo::all();
             $classInfos=$classInfos->sortBy('class_identifier');
-        }
+//        }
 
         return view('admin.manageInfo.class.class',[
             'classInfos' => $classInfos,
             'searchClassNumberForm' => $searchClassNumberForm
         ]);
+        }
     }
 
     public function classInfoUpdate(Request $request,$id)//修改信息
@@ -129,12 +130,11 @@ class ManageClassInfoController extends Controller
         if(!Auth::user()->can('permission', '1.1'))
             return response()->view('errors.503');
 
-        $classInfo=ClassInfo::find($id);//找到要删除信息的id
-
-        if($classInfo->delete()){//此处在模型中有处理，为软删除
-            return redirect('/admin/manageInfo/class')->with('successMsg', '删除成功!-'.$id);
+        $classInfo = ClassInfo::find($id);//找到要删除信息的id
+        if($classInfo->delete()){
+            return redirect('/admin/manageInfo/class')->with('successMsg', '删除成功!-'.$classInfo['class_name']);
         }else {
-            return redirect('/admin/manageInfo/class')->with('failureMsg', '删除成功!-'.$id);
+            return redirect('/admin/manageInfo/class')->with('failureMsg', '删除成功!-'.$classInfo['class_name']);
         }
     }
 

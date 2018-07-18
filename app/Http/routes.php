@@ -102,11 +102,12 @@ Route::Group(['middleware'=>'auth'],function() {
             Route::any('teacherCreate','Admin\ManageTeacherInfoController@teacherInfoCreate');//新增
 
             // 学生信息管理
-            Route::get('student', 'Admin\ManageStudentInfoController@studentInfo');//主页信息浏览
+            Route::any('student', 'Admin\ManageStudentInfoController@studentInfo');//主页信息浏览
             Route::any('studentUpdate/{id}', 'Admin\ManageStudentInfoController@studentInfoUpdate');//修改
             Route::any('studentCreate', 'Admin\ManageStudentInfoController@studentInfoCreate');//新增
             Route::any('studentDetail/{id}', 'Admin\ManageStudentInfoController@studentInfoDetail');//详情
             Route::any('studentDelete/{id}', 'Admin\ManageStudentInfoController@studentInfoDelete');//删除
+            Route::any('studentSearch', 'Admin\ManageStudentInfoController@studentSearch');//搜索
 
 
             // 班级信息管理

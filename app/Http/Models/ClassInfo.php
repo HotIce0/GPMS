@@ -9,11 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;//引入软删除
 class ClassInfo extends Model
 {
     protected $table = 't_class_info';
-
     protected $primaryKey = 'class_info_id';
-
-    use SoftDeletes;//软删除
-    protected $dates=['delete_at'];
 
     protected $fillable = ['class_identifier', 'class_name', 'college_info_id'];
 
@@ -34,5 +30,4 @@ class ClassInfo extends Model
     {
         return parent::belongsTo('App\Http\Models\CollegeInfo','college_info_id','college_info_id');
     }
-
 }

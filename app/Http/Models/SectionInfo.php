@@ -12,8 +12,8 @@ class SectionInfo extends Model
 
     protected $primaryKey = 'section_info_id';
 
-    use SoftDeletes;//软删除
-    protected $dates=['delete_at'];
+//    use SoftDeletes;//软删除
+//    protected $dates=['delete_at'];
 
     protected $fillable = ['section_name', 'college_info_id'];
 

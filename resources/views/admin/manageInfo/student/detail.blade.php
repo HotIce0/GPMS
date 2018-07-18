@@ -23,15 +23,15 @@
                 </tr>
                 <tr>
                     <td>学院</td>
-                    <td>{{ $studentInfo->college_info_id($studentInfo->college_info_id) }}</td>
+                    <td>{{ $studentInfo->college_name($studentInfo->college_info_id) }}</td>
                 </tr>
                 <tr>
                     <td>班级</td>
-                    <td>{{ $studentInfo->class_info_id($studentInfo->class_info_id) }}</td>
+                    <td>{{ $studentInfo->class_name($studentInfo->class_info_id) }}</td>
                 </tr>
                 <tr>
                     <td>专业</td>
-                    <td>{{ $studentInfo->major_info_id($studentInfo->major_info_id) }}</td>
+                    <td>{{ $studentInfo->major_name($studentInfo->major_info_id) }}</td>
                 </tr>
                 <tr>
                     <td>身份证号码</td>
