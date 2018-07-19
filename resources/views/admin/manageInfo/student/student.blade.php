@@ -65,13 +65,12 @@
                 @endforeach
                 </tbody>
             </table>
-        </div>
-    </div>
-
-    {{--分页--}}
-    <div>
-        <div class="pull-left">
-            {{ $studentInfos->render() }}
+            {{--分页--}}
+            <div>
+                <div class="pull-left">
+                    {{ $studentInfos->render() }}
+                </div>
+            </div>
         </div>
     </div>
 
