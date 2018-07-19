@@ -1,5 +1,5 @@
 @extends('layouts.layoutSidebar')
-{{--by LHW--}}
+{{--yusir--}}
 @section('sidebar')
     @include('admin.sidebar')
 @endsection

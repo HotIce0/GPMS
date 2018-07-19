@@ -1,5 +1,5 @@
 <?php
-//By LHW
+//By yusir
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -211,4 +211,6 @@ class ManageStudentInfoController extends Controller
             'studentInfo' =>$studentInfo,
         ]);
     }
+
+
 }

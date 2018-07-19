@@ -1,4 +1,5 @@
 <form class="form-horizontal" role="form" method="post" action="">
+    {{--yusir--}}
     {{csrf_field()}}
     {{--学号--}}
     <div class="form-group {{$errors->has('student_number') ?  'has-error' : ''}}">
@@ -9,6 +10,7 @@
             <label class="control-label text-danger" for="student_number">{{ $errors->first('StudentInfo.student_number') }}</label>
         </div>
     </div>
+
 
     {{--学生姓名--}}
     <div class="form-group {{$errors->has('student_name') ?  'has-error' : ''}}">
