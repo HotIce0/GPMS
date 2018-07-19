@@ -75,6 +75,10 @@
                 @endforeach
             </tbody>
         </table>
+        {{--分页--}}
+        <div class="pull-left">
+            {{ $classInfos->render() }}
+        </div>
     </div>
 
 
@@ -112,5 +116,9 @@
             {{--</div>--}}
         {{--</div>--}}
     {{--</div>--}}
+    {{--分页--}}
+
 </div>
+
+
 @stop

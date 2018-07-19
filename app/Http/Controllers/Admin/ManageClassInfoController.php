@@ -15,10 +15,10 @@ class ManageClassInfoController extends Controller
         if ($request->has('searchClass')){
             $searchClassNumberForm=$request->input('searchClass');
             $classInfos=ClassInfo::where('class_identifier',$request->input('searchClass'))-> orWhere('class_name',$request->input('searchClass'))->get();
+
         }else{
             $searchClassNumberForm=null;
-            $classInfos=ClassInfo::all();
-            $classInfos=$classInfos->sortBy('class_identifier');
+            $classInfos=ClassInfo::query()->orderBy('class_identifier')->paginate(5);
         }
 
         return view('admin.manageInfo.class.class',[
@@ -40,14 +40,15 @@ class ManageClassInfoController extends Controller
 
             //Validator类验证
             $validator = \Validator::make($request->input(), [
-                'ClassInfo.class_identifier' => 'required|integer|min:1000|max:9999',
-                'ClassInfo.class_name' => 'required|min:8|max:8',
+                'ClassInfo.class_identifier' => 'required|integer|unique:t_class_info,class_identifier|min:1000|max:9999',
+                'ClassInfo.class_name' => 'required|unique:t_class_info,class_name|min:8|max:8',
                 'ClassInfo.college_info_id' => 'required|integer',
             ], [
                 'required' => ':attribute 必须填写！',
                 'min' => ':attribute 长度过短！',
                 'max' => ':attribute 长度过长！',
                 'integer' => ':attribute 必须为整数',
+                'unique'=>'该项信息已存在',
             ], [
                 'ClassInfo.class_identifier' => '班级编号',
                 'ClassInfo.class_name' => '班级名称',
@@ -76,7 +77,7 @@ class ManageClassInfoController extends Controller
         ]);
     }
 
-    public function classInfoCreate(Request $request)// 新增信息          //    错误信息提示有待于完成
+    public function classInfoCreate(Request $request)// 新增信息
     {
         //        1.1是班级信息管理权限
         if(!Auth::user()->can('permission', '1.1'))
@@ -89,14 +90,15 @@ class ManageClassInfoController extends Controller
 
             //Validator类验证
             $validator = \Validator::make($request->input(), [
-                'ClassInfo.class_identifier' => 'required|integer|min:1000|max:9999',//班级编号整数型，范围1000-9999（四位）
-                'ClassInfo.class_name' => 'required|min:8|max:8',//班级名称是8个字符
+                'ClassInfo.class_identifier' => 'required|integer|unique:t_class_info,class_identifier|min:1000|max:9999',//班级编号整数型，范围1000-9999（四位）
+                'ClassInfo.class_name' => 'required|unique:t_class_info,class_name|min:8|max:8',//班级名称是8个字符
                 'ClassInfo.college_info_id' => 'required|integer',//班级所属学院
             ], [
                 'required' => ':attribute 必须填写！',
                 'min' => ':attribute 长度过短！',
                 'max' => ':attribute 长度过长！',
                 'integer' => ':attribute 必须为整数',
+                'unique'=>'该项信息已存在',
             ], [
                 'ClassInfo.class_identifier' => '班级编号',
                 'ClassInfo.class_name' => '班级名称',

@@ -12,7 +12,7 @@ class ManageSectionInfoController extends Controller
 {
     public function sectionInfo()//教研室信息管理
     {
-        $sectionInfos=SectionInfo::paginate(10);
+        $sectionInfos=SectionInfo::paginate(5);
 
         return view('admin.manageInfo.section.section',[
             'sectionInfos' => $sectionInfos,
@@ -32,13 +32,14 @@ class ManageSectionInfoController extends Controller
 
             //Validator类验证
             $validator = \Validator::make($request->input(), [
-                'SectionInfo.section_name' => 'required|min:1|max:10',
+                'SectionInfo.section_name' => 'required|min:1|max:20',
                 'SectionInfo.college_info_id' => 'required|integer',
             ], [
                 'required' => ':attribute 必须填写！',
                 'min' => ':attribute 长度过短！',
                 'max' => ':attribute 长度过长！',
                 'integer' => ':attribute 必须为整数',
+                'unique'=>'该项信息已存在',
             ], [
                 'SectionInfo.section_name' => '教研室名称',
                 'SectionInfo.college_info_id' => '所属学院',
@@ -67,7 +68,7 @@ class ManageSectionInfoController extends Controller
 
     }
 
-    public function sectionInfoCreate(Request $request)// 新增信息          //    错误信息提示有待于完成
+    public function sectionInfoCreate(Request $request)// 新增信息
     {
         //        1.3是教研室信息管理权限
         if(!Auth::user()->can('permission', '1.3'))
@@ -80,13 +81,14 @@ class ManageSectionInfoController extends Controller
 
             //Validator类验证
             $validator = \Validator::make($request->input(), [
-                'SectionInfo.section_name' => 'required|min:1|max:10',
+                'SectionInfo.section_name' => 'required|min:1|max:20',
                 'SectionInfo.college_info_id' => 'required|integer',
             ], [
                 'required' => ':attribute 必须填写！',
                 'min' => ':attribute 长度过短！',
                 'max' => ':attribute 长度过长！',
                 'integer' => ':attribute 必须为整数',
+                'unique'=>'该项信息已存在',
             ], [
                 'SectionInfo.section_name' => '教研室名称',
                 'SectionInfo.college_info_id' => '所属学院',

@@ -58,5 +58,9 @@
             </table>
 
         </div>
+        {{--分页--}}
+        <div class="pull-left">
+            {{ $sectionInfos->render() }}
+        </div>
     </div>
 @endsection

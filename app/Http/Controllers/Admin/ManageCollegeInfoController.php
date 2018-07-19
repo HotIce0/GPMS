@@ -11,7 +11,7 @@ class ManageCollegeInfoController extends Controller
 {
     public function collegeInfo()//学院信息管理
     {
-        $collegeInfos=CollegeInfo::paginate(10);
+        $collegeInfos=CollegeInfo::query()->orderBy('college_identifier')->paginate(5);
 
         return view('admin.manageInfo.college.college',[
             'collegeInfos' => $collegeInfos,
@@ -30,13 +30,14 @@ class ManageCollegeInfoController extends Controller
 
             //Validator类验证
             $validator = \Validator::make($request->input(), [
-                'CollegeInfo.college_identifier' => 'required|integer|min:0|max:999',
+                'CollegeInfo.college_identifier' => 'required|unique:t_college_info,college_identifier|integer|min:0|max:999',
                 'CollegeInfo.college_name' => 'required|min:4|max:10',
             ], [
                 'required' => ':attribute 必须填写！',
                 'min' => ':attribute 长度过短！',
                 'max' => ':attribute 长度过长！',
                 'integer' => ':attribute 必须为整数',
+                'unique'=>'该项信息已存在',
             ], [
                 'CollegeInfo.college_identifier' => '学院编号',
                 'CollegeInfo.college_name' => '学院名称',
@@ -45,7 +46,6 @@ class ManageCollegeInfoController extends Controller
             if ($validator->fails()) {
                 return redirect()->back()->withErrors($validator)->withInput();
             }
-
 
             $data = $request->input('CollegeInfo');//获取输入的数据
 
@@ -63,7 +63,7 @@ class ManageCollegeInfoController extends Controller
         ]);
     }
 
-    public function collegeInfoCreate(Request $request)// 新增信息          //    错误信息提示有待于完成
+    public function collegeInfoCreate(Request $request)// 新增信息
     {
         //        1.2是学院信息管理权限
         if(!Auth::user()->can('permission', '1.2'))
@@ -82,6 +82,7 @@ class ManageCollegeInfoController extends Controller
                 'min' => ':attribute 长度过短！',
                 'max' => ':attribute 长度过长！',
                 'integer' => ':attribute 必须为整数',
+                'unique'=>'该项信息已存在',
             ], [
                 'CollegeInfo.college_identifier' => '学院编号',
                 'CollegeInfo.college_name' => '学院名称',

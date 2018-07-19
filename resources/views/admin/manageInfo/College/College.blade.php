@@ -55,6 +55,10 @@
             </table>
 
         </div>
+        {{--分页--}}
+        <div class="pull-left">
+            {{ $collegeInfos->render() }}
+        </div>
     </div>
 
 @endsection
