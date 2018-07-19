@@ -12,8 +12,6 @@ class CollegeInfo extends Model
 
     protected $primaryKey = 'college_info_id';
 
-    use SoftDeletes;//软删除
-    protected $dates=['delete_at'];
 
     protected $fillable = ['college_identifier', 'college_name', 'college_info_id'];
 

@@ -21,7 +21,7 @@
                     <div id="manageInfo" class="collapse ">
                         <ul class="nav">
                             <li><a href="{{url('admin/manageInfo/teacher')}}" class="">教师信息管理</a></li>
-                            <li><a href="{{url('admin/manageInfo/student')}}" class="">学生信息管理</a></li>
+                            <li><a href="{{url('admin/manageInfo/studentSearch')}}" class="">学生信息管理</a></li>
                             <li><a href="{{url('admin/manageInfo/class')}}" class="">班级信息管理</a></li>
                             <li><a href="{{url('admin/manageInfo/major')}}" class="">专业信息管理</a></li>
                             <li><a href="{{url('admin/manageInfo/college')}}" class="">学院信息管理</a></li>

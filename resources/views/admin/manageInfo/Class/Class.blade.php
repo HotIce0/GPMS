@@ -20,7 +20,7 @@
     @endif
     <!-- END ERROR TIP -->
 
-    {{--头部--}}
+    头部
 <div class="panel">
     <div class="panel-heading" >
         {{--页面名称--}}

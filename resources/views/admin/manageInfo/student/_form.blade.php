@@ -1,4 +1,3 @@
-{{--By LHW--}}
 <form class="form-horizontal" role="form" method="post" action="">
     {{csrf_field()}}
     {{--学号--}}
@@ -26,10 +25,10 @@
         <label for="college_info_id" class="col-sm-2 control-label"><a class="text-danger">*</a>所属学院</label>
         <div class="col-sm-8">
             <select class="form-control" id="college_info_id" name="StudentInfo[college_info_id]">
-                @foreach($studentInfo->college_info_id() as $ind1=>$val1)
-                    {{--<input value="{{ old('StudentInfo')['college_info_id'] ? old('college_info_id')['college_info_id'] : $studentInfo->college_info_id }}">--}}
-                    {{ isset($studentInfo->college_info_id) && $studentInfo->college_info_id == $ind1 ? 'checked' : '' }}
-                    <option value= "{{$ind1}}">{{ $val1 }}</option>
+                @foreach($college as $col)
+                    <option  value= "{{$col->college_info_id}}" {{ $col->college_info_id == (old('StudentInfo')['college_info_id']==null? $col->college_info_id: old('StudentInfo')['college_info_id'])? 'selected' : ''}}>
+                        {{ $col->college_name }}
+                    </option>
                 @endforeach
             </select>
             <label class="control-label text-danger" for="student_number">{{ $errors->first('StudentInfo.college_info_id') }}</label>
@@ -41,12 +40,13 @@
         <label for="class_info_id" class="col-sm-2 control-label"><a class="text-danger">*</a>所属班级</label>
         <div class="col-sm-8">
             <select class="form-control" id="class_info_id" name="StudentInfo[class_info_id]">
-                @foreach($studentInfo->class_info_id() as $ind2=>$val2)
-                    {{ isset($studentInfo->class_info_id) && $studentInfo->class_info_id == $ind2 ? 'checked' : '' }}
-                    <option value= "{{$ind2}}">{{ $val2 }}</option>
+                @foreach($class as $cla)
+                    <option  value= "{{$cla->class_info_id}}" {{ $cla->class_info_id == (old('StudentInfo')['class_info_id']==null? $cla->class_info_id: old('StudentInfo')['class_info_id'])? 'selected' : ''}}>
+                        {{ $cla->class_name }}
+                    </option>
                 @endforeach
             </select>
-            <label class="control-label text-danger" for="student_number">{{ $errors->first('StudentInfo.class_info_id') }}</label>
+            <label class="control-label text-danger" for="student_number">{{ $errors->first('StudentInfo.college_info_id') }}</label>
         </div>
     </div>
 
@@ -55,12 +55,13 @@
         <label for="major_info_id" class="col-sm-2 control-label"><a class="text-danger">*</a>所学专业</label>
         <div class="col-sm-8">
             <select class="form-control" id="major_info_id" name="StudentInfo[major_info_id]">
-                @foreach($studentInfo->major_info_id() as $ind3=>$val3)
-                    {{ isset($studentInfo->major_info_id) && $studentInfo->major_info_id == $ind3 ? 'checked' : '' }}
-                    <option value= "{{$ind3}}">{{ $val3 }}</option>
+                @foreach($major as $mjr)
+                    <option  value= "{{$mjr->major_info_id}}" {{ $mjr->major_info_id == (old('StudentInfo')['major_info_id']==null? $mjr->major_info_id: old('StudentInfo')['major_info_id'])? 'selected' : ''}}>
+                        {{ $mjr->major_name }}
+                    </option>
                 @endforeach
             </select>
-            <label class="control-label text-danger" for="student_number">{{ $errors->first('StudentInfo.major_info_id') }}</label>
+            <label class="control-label text-danger" for="student_number">{{ $errors->first('StudentInfo.college_info_id') }}</label>
         </div>
     </div>
 
@@ -119,8 +120,26 @@
     <div class="form-group">
         <div class="col-sm-offset-5 col-sm-6">
             <button type="submit" class="btn btn-primary">提交</button>
-            <a  class="btn btn-primary" href="{{ url('admin/manageInfo/student') }}">返回</a>
+            <a class="btn btn-primary" href="{{ url('admin/manageInfo/student') }}">返回</a>
         </div>
     </div>
 
 </form>
+
+{{--<script type="text/javascript">--}}
+    {{--$(document).ready(function (){--}}
+        {{--$("#college_info_id").on('change',function () {--}}
+            {{--var college_info_id = $(this).val();--}}
+            {{--$('#class_info_id').val('').trigger('change');--}}
+
+            {{--if(college_info_id == ''){--}}
+                {{--$("#class_info_id").empty();--}}
+                {{--return;--}}
+            {{--}--}}
+
+            {{--var class_name_Map = {};--}}
+
+        {{--})--}}
+    {{--});--}}
+
+{{--</script>--}}

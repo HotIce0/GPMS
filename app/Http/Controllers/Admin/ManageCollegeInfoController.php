@@ -18,6 +18,7 @@ class ManageCollegeInfoController extends Controller
         ]);
     }
 
+
     public function collegeInfoUpdate(Request $request,$id)//修改信息
     {
         //        1.2是学院信息管理权限
