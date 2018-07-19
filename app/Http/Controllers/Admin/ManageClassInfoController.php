@@ -14,7 +14,10 @@ class ManageClassInfoController extends Controller
     {
         if ($request->has('searchClass')){
             $searchClassNumberForm=$request->input('searchClass');
-            $classInfos=ClassInfo::where('class_identifier',$request->input('searchClass'))-> orWhere('class_name',$request->input('searchClass'))->get();
+            $classInfos=ClassInfo::query()
+            ->where('class_identifier',$request->input('searchClass'))
+                ->orWhere('class_name',$request->input('searchClass'))
+                ->paginate(5);
 
         }else{
             $searchClassNumberForm=null;
